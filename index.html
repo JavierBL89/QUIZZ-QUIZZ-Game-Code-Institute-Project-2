@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <!-- <meta content="width=device-width, initial-scale=1" name="viewport" /> -->
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
 
     <title>Quizz-Qui??</title>
     <!-- STYLESHEET -->
@@ -23,25 +23,16 @@
            <form id="form" onsubmit="handleSumit(event)">
                <input type="text" id="player-name" name="player-name" value="" placeholder="Enter player name"  min="4" max="10" required >
              <br />
-             <!-- <button type="submit" name="continue" value="CONTINUE">CONTINUE</button> -->
 
            <h2 class="">Choose a subject!</h2>
        <div id="subjects-wraper">
-         <!-- <div class="subjects-box"> -->
            <button type="submit" class="subject-1" name="button">GENERAL</button>
            <button type="submit" class="subject-2" name="button">HISTORY</button>
-         <!-- </div> -->
-         <!-- <div id="subjects-box"> -->
            <button type="submit" class="subject-3" name="button">FOOTBAL</button>
            <button type="submit" class="subject-4" name="button">GEOGRAPHY</button>
 
-         <!-- </div> -->
        </div>
 
-         <!-- <button type="submit" class="subject-1" name="button">GENERAL</button>
-         <button type="submit" class="subject-2" name="button">HISTORY</button>
-         <button type="submit" class="subject-3" name="button">FOOTBAL</button>
-         <button type="submit" class="subject-4" name="button">GEOGRAPHY</button> -->
 </form>
        </div>
 
@@ -51,21 +42,16 @@
 
 <div id="game-wraper">
 
-
 <div id="heading-container">
   <div class="heading">
-    <h2 id="level">Level</h2>
-    <div id="level-status">1</div>
+    <h2 id="level">Level <spang id="level-status">1</spang></h2>
     <h1 id="subject"></h1>
-    <div class="">
       <span id="countDown">10</span>
-
-    </div>
     </div>
 
  </div>
+ <!-- SCORE PANEL -->
  <div id="score-container">
-
 <div id="score-box">
   <h3 id="player"></h3>
   <h4>Score: <spang id="score">0</spang></h4>

@@ -84,10 +84,6 @@ display: none}
 display: grid;
 }
 
-#start{
-  position: relative;
-  top: 250px;
-}
 
 
 
@@ -165,51 +161,43 @@ text-decoration: none;
   background-size: cover;
   background-position: center;
 }
+
+
+
 /*************************************************/
 
 #game-wraper{
   display: none;
 }
+
 #heading-container{
   background-color: inherit;
-  width: 60%;
-  margin: 0 auto;
-  text-align: center;
+  width: 80%;
 color: rgb(255, 232, 122);
-position: relative;
-left: 30px;}
+
+}
 
 #heading-container h2{
 color: yellow;
-  margin-top: 35px;
-  margin-left: 0px;
-
+  margin-right: 160px;
 }
 
 .heading{
-justify-content: space-around;
  display: flex;
- margin-bottom: 0px;
+ margin: 0 auto;
 }
 
 #level{
-  position: relative;
-  right: 250px;
-}
-#level-status{
-  background-color: rgb(38, 194, 96);
-  width: 80px;
-  height: 30px;
-  border-radius: 5px;
-  margin-top: 35px;
-  position: relative;
-  right: 270px;
-
+  margin: 30px auto auto 80px;
+  font-size: 1.7rem;
 }
 
-#subject{
+
+#countDown{
+  font-size: 3rem;
   position: relative;
-  right: 240px;
+  top: 15px;
+  margin-left: 120px;
 }
 
 /************** SCORE SECTION ****************/
@@ -322,7 +310,8 @@ color: rgb(255, 232, 122);
 
 .comodin-options button{
   height: 50px;
-  width: 350px;
+  /* width: 350px; */
+  width: 33%;
 border: 1px solid lightgrey;
 background-color: rgba(255, 208, 24, 0.9);
 font-size: 0.900rem;
@@ -373,17 +362,18 @@ border-color: rgba(255, 204, 46, 0.65);
 
 
 
- /************** MEDIA *************/
+ /***************** MEDIA TABLET *****************/
 
- @media only screen (max-width: 800px) {
+ @media (max-width: 900px) {
 
    #heading{
      font-size: 2rem;
      color: yellow;
+     text-align: center;
      position: absolute;
-     top: -10px;
-     left: 100px;
-     transform: rotate(-15deg);
+     top: 0px;
+     right: 50px;
+     transform: rotate(0);
      letter-spacing: 4px;
    }
 
@@ -392,7 +382,7 @@ border-color: rgba(255, 204, 46, 0.65);
    right: 120px;
    }
    #zz{
-     font-size: 4rem;
+     font-size: 3.5rem;
      line-height: 10px;
      position: relative;
      top: 10px;
@@ -404,7 +394,7 @@ border-color: rgba(255, 204, 46, 0.65);
    }
 
    #letter1, #letter2{
-     font-size: 4.5rem;
+     font-size: 3.5rem;
      line-height: 10px;
      position: relative;
      top: 20px;
@@ -443,11 +433,6 @@ font-size: 1.4rem;
    display: grid;
    }
 
-
-   #start{
-     position: relative;
-     top: 250px;
-   }
 
    /**** MAIN MODAL SUBJECTS *****/
 
@@ -504,28 +489,202 @@ font-size: 1.4rem;
      background-position: center;
    }
 
+
+/******** GAME PANEL SECTION ***********/
+
+ #heading-container{
+   background-color: inherit;
+   width: 80%;
+ color: rgb(255, 232, 122);
+
+ }
+
+ #heading-container h1{
+   margin-left: 105px;
+   margin-top: 27px;
+   font-size: 1.3rem;
+ }
+.heading{
+  width: 80%;
+}
+
+ #level{
+position: absolute;
+left: 23%;
+top: 6%;
+font-size: 1.2rem;
+ }
+
+ #level-status{
+  left: 12%;
+ }
+
+ #countDown{
+   font-size: 2.2rem;
+   position: absolute;
+  right: 180px;
+  bottom: 30px;
+ }
+
+
+   /************** SCORE SECTION ****************/
+
+
+   #score-container{
+     display: none;
+   }
+
+   #player{
+     text-transform: capitalize;
+     text-align: center;
+     font-weight: bold;
+   }
+   #score-box h4{
+     margin-left: 10px;
+   }
+
+
+/*****  game panel */
+
+   #game-container{
+justify-content: center;
+margin-top: 50px;
+width:70%;
+text-align: center;
+
+   }
+
+   #game-container h4{
+margin: 0 auto;
+
+ }
+
+
+   .answer-box button{
+     display: flex;
+     background-color:inherit;
+     height:40px;
+     width: 100%;
+     border: none;
+     justify-content: center;
+     position: relative;
+     top: 12px;
+   }
+
+
+   .answer-box{
+   align-items: center;
+    margin-bottom: 25px;
+    padding: auto 18px;
+
+
+   }
+   .blank{
+     background-color: white;
+   }
+   .right-answer{
+     background-color: rgb(151, 218, 125);
+   }
+
+   .wrong-answer{
+     background-color: rgb(228, 131, 131);
+   }
+
+
+
+   /***** COMODIN SECTION ******/
+
+   #comodin-container{
+     width: 60%;
+   }
+
+   #comodin-container h3{
+   color: rgb(255, 232, 122);
+     margin-top: 5px;
+     padding-top: 10px;
+     line-height: 6px;
+   }
+
+   .comodin-options{
+     display: flex;
+     text-align: center;
+     justify-content: space-around;
+     /* width: 700px; */
+   }
+
+   .comodin-options button{
+     height: 50px;
+     width: 33%;
+   border: 1px solid lightgrey;
+   background-color: rgba(255, 208, 24, 0.9);
+   font-size: 0.900rem;
+   color: rgb(60, 120, 125);
+     /* box-shadow: 1px 1px 2px 1px rgb(191, 191, 191); */
+   }
+
+   .comodin-options button:hover{
+   background-color: rgba(255, 208, 24, 0.63);
+   color: rgb(60, 120, 125);
+
+   }
+
+   #comodin-container h5{
+   text-align: center;
+     margin: 0 auto;
+
+   }
+
+   /***** MODAL ****/
+
+   #modal-subjects-panel{
+     position: absolute;
+     top: 67px;
+     left: 940px;
+    /* background: rgba(3, 1, 1, 0.5); */
+     text-align: center;
+     display: none;
+     flex-direction: column;
+
+   }
+
+   #modal-subjects-panel button{
+     display: block;
+     color:black;
+     font-size: 1.5rem;
+     font-weight: bold;
+     height: 100px;
+     width: 250px;
+   text-decoration: none;
+   margin-top: 15px;
+   border-color: rgba(255, 204, 46, 0.65);
+   /* border: none; */
+   /* box-shadow: 10px 10px 8px 10px rgb(255, 204, 46); */
+    }
+
+
+
 }
 
 
 
 /********* MEDIA MOBILE ********/
 
-@media only screen (max-width: 575px) {
+@media (max-width: 575px) {
 
   #heading{
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     color: yellow;
     position: absolute;
     top: 10px;
-    left: 100px;
-    transform: rotate(-15deg);
     letter-spacing: 4px;
+
   }
 
   #hey{
   position: relative;
   right: 120px;
   }
+
   #zz{
     font-size: 2rem;
     line-height: 10px;
@@ -557,7 +716,7 @@ font-size: 1.4rem;
   #form input{
     margin-top: 20px;
   height: 30px;
-  width: 250px;
+  width: 220px;
   border-radius: 10px;
   border: none;
   text-align: center;
@@ -579,10 +738,6 @@ margin-bottom: 30px;
   }
 
 
-  #start{
-    position: relative;
-    top: 250px;
-  }
 
   /**** MAIN MODAL SUBJECTS *****/
 
