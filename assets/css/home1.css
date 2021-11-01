@@ -1,0 +1,642 @@
+body{
+  background-color: rgb(60, 120, 125);
+}
+
+
+a{
+  text-decoration: none;
+  background-color: white;
+  border-radius: 5px;
+  width: auto;
+}
+
+
+/******** WELCOME HEADING *****/
+
+#title-panel{
+text-align: center;
+/* visibility: hidden; */
+}
+
+#heading{
+  font-size: 3rem;
+  color: yellow;
+  position: absolute;
+  top: -30px;
+  left: 60px;
+  transform: rotate(-20deg);
+  letter-spacing: 5px;
+
+}
+
+#hey{
+position: relative;
+right: 120px;
+}
+#zz{
+  font-size: 5rem;
+  line-height: 10px;
+  position: relative;
+  top: 10px;
+}
+
+#z1{
+  position: relative;
+  bottom: 10px;
+}
+
+#letter1, #letter2{
+  font-size: 5rem;
+  line-height: 10px;
+  position: relative;
+  top: 20px;
+}
+
+#letter2{
+  transform: rotate(25deg);
+  position: absolute;
+  top: 200px;
+}
+
+
+/***** FORM ******/
+
+#form input{
+height: 40px;
+width: 300px;
+border-radius: 10px;
+border: none;
+text-align: center;
+}
+
+#form h2{
+  /* margin-top: 250px; */
+font-size: 1.5rem;
+color: orange;
+}
+
+/***** CLASS LISTS */
+
+.hidden{
+display: none}
+
+.show{
+display: grid;
+}
+
+#start{
+  position: relative;
+  top: 250px;
+}
+
+
+
+
+/******* SUBJECTS BUTTONS ******/
+
+#subjects-container{
+  position: relative;
+  top: 180px;
+ text-align: center;
+}
+
+#subjects-wraper{
+  display: flex;
+justify-content: center;
+}
+
+.subjects-box{
+  margin: auto 10px;
+}
+
+#subjects-container button{
+  margin: auto 5px;
+  color:black;
+  font-size: 1.8rem;
+  font-weight: bold;
+  height: 240px;
+  width: 245px;
+text-decoration: none;
+ }
+
+ .subject-1{
+   background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/generalKnowledge.jpg");
+   background-size: cover;
+   background-position: center;
+ }
+
+ .subject-2{
+   background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/history.jpeg");
+   background-size: cover;
+   background-position: center;
+ }
+ .subject-3{
+   background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/football1.jpg");
+   background-size: cover;
+   background-position: center;
+ }
+ .subject-4{
+   background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/geography.jpg");
+   background-size: cover;
+   background-position: center;
+ }
+
+
+
+/* MODAL SUBJECTS BUTTONS  */
+.modal-subject-1{
+  background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/generalKnowledge.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.modal-subject-2{
+  background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/history.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+.modal-subject-3{
+  background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/football1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.modal-subject-4{
+  background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/geography.jpg");
+  background-size: cover;
+  background-position: center;
+}
+/*************************************************/
+
+#game-wraper{
+  display: none;
+}
+#heading-container{
+  background-color: inherit;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+color: rgb(255, 232, 122);
+position: relative;
+left: 30px;}
+
+#heading-container h2{
+color: yellow;
+  margin-top: 35px;
+  margin-left: 0px;
+
+}
+
+.heading{
+justify-content: space-around;
+ display: flex;
+ margin-bottom: 0px;
+}
+
+#level{
+  position: relative;
+  right: 250px;
+}
+#level-status{
+  background-color: rgb(38, 194, 96);
+  width: 80px;
+  height: 30px;
+  border-radius: 5px;
+  margin-top: 35px;
+  position: relative;
+  right: 270px;
+
+}
+
+#subject{
+  position: relative;
+  right: 240px;
+}
+
+/************** SCORE SECTION ****************/
+
+#score-box{
+  background-color: rgba(255, 250, 233, 0.77);
+  width: 200px;
+  display: inline-block;
+  position: relative;
+  bottom: 30px;
+  left: 20px;
+  border-radius: 10px;
+  /* border: solid 1px black; */
+}
+
+#score-container{
+  display: inline-block;
+}
+
+#player{
+  text-transform: capitalize;
+  text-align: center;
+  font-weight: bold;
+}
+#score-box h4{
+  margin-left: 10px;
+}
+
+
+
+
+#game-container{
+  margin-left: 100px;
+  margin-top: 30px;
+  margin-bottom: 0;
+  padding-top: 20px;
+  background-color: rgb(255, 255, 242);
+  width:50%;
+  display: inline-block;
+  position: relative;
+  bottom: 30px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+#game-container h4{
+  margin-left: 10px;
+}
+
+.move{
+  position: relative;
+  top:25px;
+}
+
+.answer-box button{
+  display: flex;
+  background-color:inherit;
+  height:40px;
+  width: 100%;
+  border: none;
+  justify-content: center;
+  position: relative;
+  top: 12px;
+}
+
+
+.answer-box{
+align-items: center;
+ margin-bottom: 25px;
+ padding: auto 18px;
+
+
+}
+.blank{
+  background-color: white;
+}
+.right-answer{
+  background-color: rgb(151, 218, 125);
+}
+
+.wrong-answer{
+  background-color: rgb(228, 131, 131);
+}
+
+
+
+/***** COMODIN SECTION ******/
+
+#comodin-container{
+  background-color: inherit;
+  width: 50%;
+  margin: 0 auto;
+  padding-bottom: 10px;
+justify-content: center;
+}
+
+#comodin-container h3{
+color: rgb(255, 232, 122);
+  margin-top: 5px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.comodin-options{
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  /* width: 700px; */
+}
+
+.comodin-options button{
+  height: 50px;
+  width: 350px;
+border: 1px solid lightgrey;
+background-color: rgba(255, 208, 24, 0.9);
+font-size: 0.900rem;
+color: rgb(60, 120, 125);
+  /* box-shadow: 1px 1px 2px 1px rgb(191, 191, 191); */
+}
+
+.comodin-options button:hover{
+background-color: rgba(255, 208, 24, 0.63);
+color: rgb(60, 120, 125);
+
+}
+
+#comodin-container h5{
+text-align: center;
+  margin: 0 auto;
+
+}
+
+/***** MODAL ****/
+
+#modal-subjects-panel{
+  position: absolute;
+  top: 67px;
+  left: 940px;
+ /* background: rgba(3, 1, 1, 0.5); */
+  text-align: center;
+  display: none;
+  flex-direction: column;
+
+}
+
+#modal-subjects-panel button{
+  display: block;
+  color:black;
+  font-size: 1.5rem;
+  font-weight: bold;
+  height: 100px;
+  width: 250px;
+text-decoration: none;
+margin-top: 15px;
+border-color: rgba(255, 204, 46, 0.65);
+/* border: none; */
+/* box-shadow: 10px 10px 8px 10px rgb(255, 204, 46); */
+ }
+
+
+
+
+
+ /************** MEDIA *************/
+
+ @media screen and (max-width: 800px) {
+
+   #heading{
+     font-size: 2rem;
+     color: yellow;
+     position: absolute;
+     top: -10px;
+     left: 100px;
+     transform: rotate(-15deg);
+     letter-spacing: 4px;
+   }
+
+   #hey{
+   position: relative;
+   right: 120px;
+   }
+   #zz{
+     font-size: 4rem;
+     line-height: 10px;
+     position: relative;
+     top: 10px;
+   }
+
+   #z1{
+     position: relative;
+     bottom: 7px;
+   }
+
+   #letter1, #letter2{
+     font-size: 4.5rem;
+     line-height: 10px;
+     position: relative;
+     top: 20px;
+   }
+
+   #letter2{
+     transform: rotate(25deg);
+     position: absolute;
+     top: 100px;
+   }
+
+
+   /***** FORM ******/
+
+   #form input{
+     margin-top: 20px;
+   height: 30px;
+   width: 250px;
+   border-radius: 10px;
+   border: none;
+   text-align: center;
+   }
+
+   #form h2{
+     margin-top: 30px;
+letter-spacing: 2px;
+font-size: 1.4rem;
+   }
+
+   /***** CLASS LISTS */
+
+   .hidden{
+   display: none}
+
+   .show{
+   display: grid;
+   }
+
+
+   #start{
+     position: relative;
+     top: 250px;
+   }
+
+   /**** MAIN MODAL SUBJECTS *****/
+
+   #subjects-container{
+     position: relative;
+     top: 180px;
+      /* visibility: hidden; */
+    text-align: center;
+    padding: auto 20px;
+   }
+
+   #subjects-wraper{
+     display: block;
+   /* justify-content: center; */
+   text-align: center;
+   padding-bottom: 70px;
+ }
+
+  .subjects-box{
+     margin-bottom: 15px;
+   }
+
+   #subjects-container button{
+     margin: 10px auto;
+     display: block;
+     color:black;
+     font-size: 1.5rem;
+     font-weight: bold;
+     height: 180px;
+     width: 80vw;
+   text-decoration: none;
+   border-color: orange;
+    }
+
+   .subject-1{
+     background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/generalKnowledge.jpg");
+     background-size: cover;
+     background-position: center;
+   }
+
+   .subject-2{
+     background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/history.jpeg");
+     background-size: cover;
+     background-position: center;
+   }
+   .subject-3{
+     background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/football1.jpg");
+     background-size: cover;
+     background-position: center;
+   }
+   .subject-4{
+     background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/geography.jpg");
+     background-size: cover;
+     background-position: center;
+   }
+
+}
+
+
+
+/********* MEDIA MOBILE ********/
+
+@media screen and (max-width: 575px) {
+
+  #heading{
+    font-size: 1.6rem;
+    color: yellow;
+    position: absolute;
+    top: 10px;
+    left: 100px;
+    transform: rotate(-15deg);
+    letter-spacing: 4px;
+  }
+
+  #hey{
+  position: relative;
+  right: 120px;
+  }
+  #zz{
+    font-size: 2rem;
+    line-height: 10px;
+    position: relative;
+    top: 5px;
+  }
+
+  #z1{
+    position: relative;
+    bottom: 5px;
+  }
+
+  #letter1, #letter2{
+    font-size: 3rem;
+    line-height: 10px;
+    position: relative;
+    top: 20px;
+  }
+
+  #letter2{
+    transform: rotate(25deg);
+    position: absolute;
+    top: 100px;
+  }
+
+
+  /***** FORM ******/
+
+  #form input{
+    margin-top: 20px;
+  height: 30px;
+  width: 250px;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+  }
+
+  #form h2{
+letter-spacing: 2px;
+font-size: 1.2rem;
+margin-bottom: 30px;
+  }
+
+  /***** CLASS LISTS */
+
+  .hidden{
+  display: none}
+
+  .show{
+  display: grid;
+  }
+
+
+  #start{
+    position: relative;
+    top: 250px;
+  }
+
+  /**** MAIN MODAL SUBJECTS *****/
+
+  #subjects-container{
+    position: relative;
+    top: 180px;
+     /* visibility: hidden; */
+   text-align: center;
+   padding: auto 20px;
+  }
+
+  #subjects-wraper{
+    display: block;
+  justify-content: center;
+  padding-bottom: 70px;
+}
+
+ .subjects-box{
+    margin-bottom: 1px;
+    margin-left: 0px;
+  }
+
+  #subjects-container button{
+    color:black;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    height: 140px;
+    width: 90vw;
+  text-decoration: none;
+  border-color: orange;
+
+   }
+
+  .subject-1{
+    background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/generalKnowledge.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .subject-2{
+    background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/history.jpeg");
+    background-size: cover;
+    background-position: center;
+  }
+  .subject-3{
+    background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/football1.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  .subject-4{
+    background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/geography.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+}
