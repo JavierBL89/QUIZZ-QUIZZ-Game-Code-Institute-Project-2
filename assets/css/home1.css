@@ -375,7 +375,7 @@ border-color: rgba(255, 204, 46, 0.65);
 
  /************** MEDIA *************/
 
- @media (max-width: 800px) {
+ @media only screen (max-width: 800px) {
 
    #heading{
      font-size: 2rem;
@@ -510,7 +510,7 @@ font-size: 1.4rem;
 
 /********* MEDIA MOBILE ********/
 
-@media (max-width: 575px) {
+@media only screen (max-width: 575px) {
 
   #heading{
     font-size: 1.6rem;
