@@ -409,17 +409,10 @@ border-color: rgba(255, 204, 46, 0.65);
 
    /***** FORM ******/
 
-   #form input{
-     margin-top: 20px;
-   height: 30px;
-   width: 250px;
-   border-radius: 10px;
-   border: none;
-   text-align: center;
-   }
+
 
    #form h2{
-     margin-top: 30px;
+    margin-top: 30px;
 letter-spacing: 2px;
 font-size: 1.4rem;
    }
@@ -714,7 +707,7 @@ margin: 0 auto;
   /***** FORM ******/
 
   #form input{
-    margin-top: 20px;
+    /* margin-top: 20px; */
   height: 30px;
   width: 220px;
   border-radius: 10px;
