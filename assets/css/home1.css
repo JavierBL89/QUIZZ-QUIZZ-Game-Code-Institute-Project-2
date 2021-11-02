@@ -1,5 +1,6 @@
 body{
   background-color: rgb(60, 120, 125);
+      padding-bottom: 10%;
 }
 
 
@@ -179,7 +180,7 @@ color: rgb(255, 232, 122);
 
 #heading-container h2{
 color: yellow;
-  margin-right: 160px;
+color: rgb(255, 232, 122);
 }
 
 .heading{
@@ -244,7 +245,7 @@ color: yellow;
 }
 
 #game-container h4{
-  margin-left: 10px;
+  margin: 0 15px;
 }
 
 .move{
@@ -253,6 +254,7 @@ color: yellow;
 }
 
 .answer-box button{
+  margin-top: 30px;
   display: flex;
   background-color:inherit;
   height:40px;
@@ -427,6 +429,7 @@ font-size: 1.4rem;
    }
 
 
+
    /**** MAIN MODAL SUBJECTS *****/
 
    #subjects-container{
@@ -483,18 +486,18 @@ font-size: 1.4rem;
    }
 
 
-/******** GAME PANEL SECTION ***********/
+/************ GAME SCREEN **************/
 
  #heading-container{
    background-color: inherit;
    width: 80%;
  color: rgb(255, 232, 122);
+ margin-top: 47px;
 
  }
 
  #heading-container h1{
    margin-left: 105px;
-   margin-top: 27px;
    font-size: 1.3rem;
  }
 .heading{
@@ -502,10 +505,11 @@ font-size: 1.4rem;
 }
 
  #level{
+   color: rgb(255, 232, 122);
 position: absolute;
 left: 23%;
-top: 6%;
-font-size: 1.2rem;
+top: 1%;
+font-size: 1.1rem;
  }
 
  #level-status{
@@ -516,7 +520,7 @@ font-size: 1.2rem;
    font-size: 2.2rem;
    position: absolute;
   right: 180px;
-  bottom: 30px;
+  top: 50px;
  }
 
 
@@ -537,23 +541,24 @@ font-size: 1.2rem;
    }
 
 
-/*****  game panel */
+/*****  game panel ******/
 
    #game-container{
 justify-content: center;
-margin-top: 50px;
+margin-top: 25px;
 width:70%;
 text-align: center;
 
    }
 
    #game-container h4{
-margin: 0 auto;
-
+margin: 0 15px;
+font-size: 1rem;
  }
 
 
    .answer-box button{
+     margin-top: 20px;
      display: flex;
      background-color:inherit;
      height:40px;
@@ -569,8 +574,6 @@ margin: 0 auto;
    align-items: center;
     margin-bottom: 25px;
     padding: auto 18px;
-
-
    }
    .blank{
      background-color: white;
@@ -585,7 +588,7 @@ margin: 0 auto;
 
 
 
-   /***** COMODIN SECTION ******/
+/***** COMODIN SECTION ******/
 
    #comodin-container{
      width: 60%;
@@ -602,7 +605,6 @@ margin: 0 auto;
      display: flex;
      text-align: center;
      justify-content: space-around;
-     /* width: 700px; */
    }
 
    .comodin-options button{
@@ -612,7 +614,6 @@ margin: 0 auto;
    background-color: rgba(255, 208, 24, 0.9);
    font-size: 0.900rem;
    color: rgb(60, 120, 125);
-     /* box-shadow: 1px 1px 2px 1px rgb(191, 191, 191); */
    }
 
    .comodin-options button:hover{
@@ -657,6 +658,9 @@ margin: 0 auto;
 
 
 }
+
+
+
 
 
 
@@ -786,5 +790,119 @@ margin-bottom: 30px;
     background-size: cover;
     background-position: center;
   }
+
+
+
+/*******  GAME SCREEN MOBILE ****/
+
+  #heading-container{
+    background-color: inherit;
+    width: 70%;
+  color: rgb(255, 232, 122);
+  }
+
+  #heading-container h1{
+    margin-left: 25px;
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+  .heading{
+   width: 80%;
+  }
+
+  #level{
+  position: absolute;
+  left: 10%;
+  font-size: 1rem;
+  }
+
+  #level-status{
+   left: 12%;
+  }
+
+  #countDown{
+    font-size: 1.2rem;
+    position: absolute;
+   right: 60px;
+   margin-top: 7px;
+  }
+
+
+
+
+  /*****  game panel */
+
+     #game-container{
+  margin-top: 10px;
+  width:90%;
+margin: 50px 20px auto 20px;
+text-align: center;
+     }
+
+
+     .answer-box button{
+       height:35px;
+       width: 100%;
+     }
+
+
+
+
+     /***** COMODIN SECTION ******/
+
+     #comodin-container{
+       width: 80%;
+     }
+
+     #comodin-container h3{
+     color: rgb(255, 232, 122);
+       margin-top: 5px;
+       padding-top: 10px;
+       line-height: 6px;
+     }
+
+     .comodin-options button{
+       height: 50px;
+       width: 34%;
+     font-size: 0.700rem;
+   }
+
+     .comodin-options button:hover{
+     background-color: rgba(255, 208, 24, 0.63);
+     color: rgb(60, 120, 125);
+
+     }
+
+     #comodin-container h5{
+     text-align: center;
+       margin: 0 auto;
+     }
+
+     /***** MODAL ****/
+
+     #modal-subjects-panel{
+       position: absolute;
+       top: 67px;
+       left: 940px;
+      /* background: rgba(3, 1, 1, 0.5); */
+       text-align: center;
+       display: none;
+       flex-direction: column;
+
+     }
+
+     #modal-subjects-panel button{
+       display: block;
+       color:black;
+       font-size: 1.5rem;
+       font-weight: bold;
+       height: 100px;
+       width: 250px;
+     text-decoration: none;
+     margin-top: 15px;
+     border-color: rgba(255, 204, 46, 0.65);
+     /* border: none; */
+     /* box-shadow: 10px 10px 8px 10px rgb(255, 204, 46); */
+      }
 
 }
