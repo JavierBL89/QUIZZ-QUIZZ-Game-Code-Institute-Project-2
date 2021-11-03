@@ -71,13 +71,14 @@ for(let button of buttons){
 THE BUTTON ELEMENT SELECTED TO START THE GAME
 WITH THE SUBJECT CHOOSEN **/
  function handleSumit(subject){
+   //without this event.prevent the whole function does not work
    event.preventDefault();
 
    document.getElementById("welcome-wraper").style.display = "none";
    document.getElementById("game-wraper").style.display = "block";
 
-   var playerName =  document.getElementById("player-name");
- // set the player name on the pnael score
+   // get the player name and set it into the panel score
+  var playerName =  document.getElementById("player-name");
  document.getElementById("player").innerText = playerName.value
 
  /** HERE I GET THE BUTTON CLICKED VALUE TO RUN THE GAME
@@ -108,7 +109,7 @@ var countDown = 10;
 
 //****** RUN GENERAL KNOWLEDE QUESTIONS LEVEL 1 AND 2*******
 
-function runGeneralLevel1(){
+ function runGeneralLevel1(){
 // event.preventDefault();
 document.getElementById("subject").innerText = "General Knowledge";
 shuffleQuestions = generalLevel1.sort( () =>Math.random() - .5)
@@ -144,7 +145,7 @@ shuffleQuestions = historyLevel2.sort( () =>Math.random() - .5)
 function setNextQuestion(){
   currentQuestionIndex++
  showQuestions(shuffleQuestions[currentQuestionIndex]);
-
+ document.getElementById("countDown").textContent = 10;
 }
 
 function showQuestions(question){
@@ -159,10 +160,68 @@ document.getElementById("answer3").textContent = question.answer3;
 
 timeInterval = setInterval( () =>{
   countDown--;
-  document.getElementById("countDown").textContent = countDown;
+   document.getElementById("countDown").textContent = countDown;
+  if(document.getElementById("countDown").textContent === "0"){
+    endOfGame();
+    showFinalScores();
+  }
 },1000);
 
 }
+function endOfGame(){
+  document.getElementById("welcome-wraper").style.display = "none";
+  document.getElementById("game-wraper").style.display = "none";
+  document.getElementById("welcome-wraper").style.display = "none";
+  document.getElementById("end-of-game").style.display = "none";
+
+}
+
+
+finalPlayerScoreInner = `
+  <table style="width:100%">
+<tr>
+<th>Player</th>
+<th>Score</th>
+<th>Correct answers</th>
+</tr>
+
+`;
+let currentPlayerScore = ["puta", "puto"];
+let allPlayersScores = [];
+function showFinalScore(){
+
+  for(player of currentPlayerScore){
+    let playerRow = `<tr>
+    <td>${player}</td>
+    <td>
+    </tr>
+    `;
+
+    finalPlayerScoreInner += playerRow;
+  }
+  return finalPlayerScoreInner += `</table>`;
+
+
+
+
+  // let playerName = document.getElementById("player").innerText;
+  // let playerScore = document.getElementById("score").innerText;
+  // let playerCoorectAnswers = document.getElementById("correct").innerText;
+
+
+  // let player = {
+  //   name: playerName,
+  //   score: playerScore,
+  //   correctAnswers: playerCoorectAnswers
+  // }
+  //
+  // currentPlayerScore.push(player);
+  // allPlayersScores.push(player);
+}
+
+let finalPlayerScore = document.getElementById("final-player-score").innerHTML = showFinalScore();
+
+
 
 /***** CHECK PLAYER ANSWER AGAINST CURRENT QUESTION CORRECT ANSWER
 DEFINED IN THE CONSTRUCTOR FUNCTION ****/

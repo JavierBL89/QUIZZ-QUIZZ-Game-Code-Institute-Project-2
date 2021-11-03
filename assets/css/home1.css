@@ -370,7 +370,18 @@ border-color: rgba(255, 204, 46, 0.65);
  }
 
 
+#end-of-game{
+background-color: rgb(255, 255, 242);
+height:400px;
+width: 50%;
+margin: 0 auto;
+text-align:center;
 
+}
+
+#final-score-container{
+  /* display: flex; */
+justify-content: space-around;}
 
 
  /***************** MEDIA TABLET *****************/
