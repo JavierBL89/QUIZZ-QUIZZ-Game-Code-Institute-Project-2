@@ -8,48 +8,23 @@ document.addEventListener("DOMContentLoaded", function(){
 for(let button of buttons){
     button.addEventListener("click", function(){
 
-      if(this.getAttribute("class") === "subject-1"){
-document.getElementById("welcome-wraper").classList.add("hidden");
-document.getElementById("game-wraper").style.display = "block";
-document.getElementById("modal-subjects-panel").style.display = "none";
-        // heading(button.innerText)
-        runGeneralLevel1();
-      }else if(this.getAttribute("class") === "subject-2"){
-        // alert("puta");
-        document.getElementById("welcome-wraper").classList.add("hidden");
-        document.getElementById("game-wraper").style.display = "block";
-        document.getElementById("modal-subjects-panel").style.display = "none";
-        runHistoryLevel1();
-      }else if(this.getAttribute("class") === "subject-3"){
-        alert("puta");
-        document.getElementById("welcome-wraper").classList.add("hidden");
-        document.getElementById("game-wraper").style.display = "block";
-        document.getElementById("modal-subjects-panel").style.display = "none";
-
-      }else if(this.getAttribute("class") === "subject-4"){
-        alert("puta");
-        document.getElementById("welcome-wraper").classList.add("hidden");
-        document.getElementById("game-wraper").style.display = "block";
-        document.getElementById("modal-subjects-panel").style.display = "none";
-
-      }else if(this.getAttribute("class") === "modal-subject-1"){
+     if(this.getAttribute("class") === "modal-subject-1"){
     document.getElementById("modal-subjects-panel").style.display = "none";
 
       let status = document.getElementById("level-status").innerText;
-        if(status === "1"){
-        runGeneralLevel1();
-        }else{
-        runGeneralLevel2();
-        }
-
+          if(status === "1"){
+          runGeneralLevel1();
+          }else{
+          runGeneralLevel2();
+          }
       } else if(this.getAttribute("class") === "modal-subject-2"){
-        let status = document.getElementById("level-status").innerText;
+          let status = document.getElementById("level-status").innerText;
 
-        if(status === "1"){
-        runHistoryLevel1();
-        }else{
-        runHistoryLevel2();
-        }
+          if(status === "1"){
+          runHistoryLevel1();
+          }else{
+          runHistoryLevel2();
+          }
         document.getElementById("modal-subjects-panel").style.display = "none";
 
       }else if(this.getAttribute("class") === "modal-subject-3"){
@@ -81,7 +56,6 @@ document.getElementById("modal-subjects-panel").style.display = "none";
      this.style.display = "none";
       }else if(this.getAttribute("id") === "comodin3"){
         this.style.display = "none";
-
       }
       else{
           alert("Unkown atribute");
@@ -89,23 +63,38 @@ document.getElementById("modal-subjects-panel").style.display = "none";
         }
       });
   }
-
-
 });
 
-/** GETTTING HOLD OF PLAYER NAME */
-function handleSumit(event){
-  event.preventDefault();
 
-  // document.getElementById("title-panel").style.display = "none";
-  // document.getElementById("form-container").style.display = "none";
 
-  var playerName =  document.getElementById("player-name");
-// set the player name on the pnael score
-document.getElementById("player").innerText = playerName.value
+/** GETTTING HOLD OF PLAYER NAME AND PASSING IN
+THE BUTTON ELEMENT SELECTED TO START THE GAME
+WITH THE SUBJECT CHOOSEN **/
+ function handleSumit(subject){
+   event.preventDefault();
 
+   document.getElementById("welcome-wraper").style.display = "none";
+   document.getElementById("game-wraper").style.display = "block";
+
+   var playerName =  document.getElementById("player-name");
+ // set the player name on the pnael score
+ document.getElementById("player").innerText = playerName.value
+
+ /** HERE I GET THE BUTTON CLICKED VALUE TO RUN THE GAME
+ WITH THE SUBJECT CHOOSEN! */
+console.log(subject);
+if(subject.value === "GENERAL"){
+  alert("puta");
+  runGeneralLevel1();
+  console.log(this.value);
+}else if(subject.value === "HISTORY"){
+  alert("cabron");
+  runHistoryLevel1();
+}else{
 
 }
+
+ }
 
 
 //CREATE UNDEFINED VALUES FOR SUFFLING QUESTIONS
@@ -121,11 +110,9 @@ var countDown = 10;
 
 function runGeneralLevel1(){
 // event.preventDefault();
-
 document.getElementById("subject").innerText = "General Knowledge";
 shuffleQuestions = generalLevel1.sort( () =>Math.random() - .5)
  setNextQuestion();
-
 }
 
 function runGeneralLevel2(){
@@ -134,7 +121,6 @@ function runGeneralLevel2(){
 document.getElementById("subject").innerText = "General Knowledge";
 shuffleQuestions = generalLevel2.sort( () =>Math.random() - .5)
  setNextQuestion();
-
 }
 
 
@@ -142,7 +128,7 @@ shuffleQuestions = generalLevel2.sort( () =>Math.random() - .5)
 
 function runHistoryLevel1(){
 
-document.getElementById("subject").innerText = "General Knowledge";
+document.getElementById("subject").innerText = "History";
 shuffleQuestions = historyLevel1.sort( () =>Math.random() - .5)
  setNextQuestion();
 }

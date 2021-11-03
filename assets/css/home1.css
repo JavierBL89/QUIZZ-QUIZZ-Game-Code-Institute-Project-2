@@ -91,7 +91,7 @@ display: grid;
 
 /******* SUBJECTS BUTTONS ******/
 
-#subjects-container{
+#form-container{
   position: relative;
   top: 180px;
  text-align: center;
@@ -106,7 +106,16 @@ justify-content: center;
   margin: auto 10px;
 }
 
-#subjects-container button{
+/* #form-container button{
+  margin: auto 5px;
+  color:black;
+  font-size: 1.8rem;
+  font-weight: bold;
+  height: 240px;
+  width: 245px;
+text-decoration: none;
+ } */
+#form-container input[type="submit"]{
   margin: auto 5px;
   color:black;
   font-size: 1.8rem;
@@ -432,7 +441,7 @@ font-size: 1.4rem;
 
    /**** MAIN MODAL SUBJECTS *****/
 
-   #subjects-container{
+   #form-container{
      position: relative;
      top: 180px;
       /* visibility: hidden; */
@@ -451,7 +460,7 @@ font-size: 1.4rem;
      margin-bottom: 15px;
    }
 
-   #subjects-container button{
+   #form-container button{
      margin: 10px auto;
      display: block;
      color:black;
@@ -738,7 +747,7 @@ margin-bottom: 30px;
 
   /**** MAIN MODAL SUBJECTS *****/
 
-  #subjects-container{
+  #form-container{
     position: relative;
     top: 180px;
      /* visibility: hidden; */
@@ -757,7 +766,7 @@ margin-bottom: 30px;
     margin-left: 0px;
   }
 
-  #subjects-container button{
+  #form-container button{
     color:black;
     font-size: 1.5rem;
     font-weight: bold;
