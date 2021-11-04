@@ -56,6 +56,8 @@ for(let button of buttons){
      this.style.display = "none";
       }else if(this.getAttribute("id") === "comodin3"){
         this.style.display = "none";
+      }else if(this.getAttribute("id") === "restart-game"){
+        alert("puta");
       }
       else{
           alert("Unkown atribute");
@@ -168,47 +170,63 @@ timeInterval = setInterval( () =>{
 },1000);
 
 }
+
+// Function to get rid of the game panel
 function endOfGame(){
   document.getElementById("welcome-wraper").style.display = "none";
   document.getElementById("game-wraper").style.display = "none";
   document.getElementById("welcome-wraper").style.display = "none";
   document.getElementById("end-of-game").style.display = "none";
 
+
+  document.getElementById("end-of-game").style.display = "block";
+  document.getElementById("button-restart-container").style.display = "block";
+
+
 }
 
 
+// Creating the final panel html with the last player scores
 finalPlayerScoreInner = `
-  <table style="width:100%">
+  <table style="width:100%" class="table-1">
 <tr>
 <th>Player</th>
 <th>Score</th>
 <th>Correct answers</th>
 </tr>
-
 `;
-let currentPlayerScore = ["puta", "puto"];
-let allPlayersScores = [];
-function showFinalScore(){
 
-  for(player of currentPlayerScore){
-    let playerRow = `<tr>
-    <td>${player}</td>
-    <td>
-    </tr>
-    `;
+/** Arrays of the current player scores
+    and the best 3 players scores */
+const currentPlayerScore = [{
+    name: "Javier",
+    score: "3000",
+    correctAnswers: "15"
+}];
 
-    finalPlayerScoreInner += playerRow;
-  }
-  return finalPlayerScoreInner += `</table>`;
+const allPlayersScores = [{
+    name: "Pablo",
+    score: "5500",
+    correctAnswers: "21"
+},
+{name: "Adrian",
+score: "10900",
+correctAnswers: "32"
+},
+{name: "Pablo",
+score: "8150",
+correctAnswers: "25"
+}];
 
 
-
+// Function to populate the current player score table
+function showFinalPlayerScore(){
 
   // let playerName = document.getElementById("player").innerText;
   // let playerScore = document.getElementById("score").innerText;
   // let playerCoorectAnswers = document.getElementById("correct").innerText;
 
-
+  // Current player Object
   // let player = {
   //   name: playerName,
   //   score: playerScore,
@@ -217,10 +235,52 @@ function showFinalScore(){
   //
   // currentPlayerScore.push(player);
   // allPlayersScores.push(player);
+
+  /* Loping throught the current player scores
+    and creating html table */
+  for(player of currentPlayerScore){
+    let playerRow = `<tr class="tr">
+    <td>${player.name}</td>
+    <td>${player.score}</td>
+    <td>${player.correctAnswers}</td>
+    </tr>`;
+
+    finalPlayerScoreInner += playerRow;
+  }
+
+  return finalPlayerScoreInner += `</table>`;
+
 }
+let finalPlayerScore = document.getElementById("final-player-score").innerHTML = showFinalPlayerScore();
 
-let finalPlayerScore = document.getElementById("final-player-score").innerHTML = showFinalScore();
 
+
+
+// Creating the top players html table
+let topPlayersPanel = `<table style="width:100%">
+<tr>
+<th>Player</th>
+<th>Score</th>
+<th>Correct answers</th>
+</tr>`;
+
+// Function to populate the top player table
+function showTopPlayersScore(){
+
+  for(topPlayer of allPlayersScores){
+    let topPlayersRow = `
+    <tr>
+    <td>${topPlayer.name}</td>
+    <td>${topPlayer.score}</td>
+    <td>${topPlayer.correctAnswers}</td>
+    </tr>`;
+
+    topPlayersPanel += topPlayersRow;
+  }
+
+  return topPlayersPanel += `</table>`
+}
+let topPlayerScorePanel = document.getElementById("top-players-container").innerHTML = showTopPlayersScore();
 
 
 /***** CHECK PLAYER ANSWER AGAINST CURRENT QUESTION CORRECT ANSWER
