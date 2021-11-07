@@ -10,6 +10,163 @@ a {
   width: auto;
 }
 
+#game-wraper {
+  display: none;
+}
+
+#button-restart-container{
+  display: none;
+}
+
+#end-of-game {
+  display: none;
+}
+
+
+
+/***************************** ANIMATIONS SECTION ****************/
+
+/****** SLIDE IN TITLE *****/
+
+#title-panel{
+  position: relative;
+  right: 550px;
+  animation-name: title-in;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes title-in {
+  from{
+    right: 550px;
+}
+to{
+  right: 0px
+}
+}
+
+/*****  FORM CONTAINER ANIMATION****/
+
+#form-container{
+opacity: 0;
+ animation-name: form;
+ animation-duration: 1s;
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes form {
+from{
+  opacity: 0;
+
+}to{
+  opacity: 1;
+
+}
+
+}
+
+
+/*****  QUIZZ WORD ANIMATION *****/
+
+#quizz-1{
+  position: relative;
+  bottom: 280px;
+  animation-name: quizz-word;
+  animation-duration: 2s;
+animation-fill-mode: forwards;
+}
+
+@keyframes quizz-word{
+  from{
+    position: relative;
+    bottom: 280px;
+  }
+  to{
+    bottom: 0px;
+  }
+}
+
+
+/*****  EXCLMATIONS SYMBOLS ANIMATION ****/
+
+#letter1, #letter2 {
+  font-size: 5rem;
+  line-height: 10px;
+  position: relative;
+  top: 20px;
+}
+
+#letter1 {
+   /* transform: rotate(25deg); */
+   position: absolute;
+   top: 200px;
+   animation-name: vibration-1;
+  animation-duration: 1s;
+  animation-delay: 2s;
+}
+
+@keyframes vibration-1 {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+
+
+}
+
+#letter2 {
+  transform: rotate(25deg);
+  position: absolute;
+  top: 200px;
+  right : -105px;
+  animation-name: vibration-2;
+  transform-origin: 50% 50%;
+  animation-duration: 1s;
+  animation-delay: 3s;
+}
+
+@keyframes vibration-2 {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+
+}
+
+/***** CLASS LISTS */
+.hidden {
+  display: none
+}
+
+.show {
+  display: grid;
+}
+
+/**********************  CSS WELCOME PAGE *************************/
+
 /******** WELCOME HEADING *****/
 #title-panel {
   text-align: center;
@@ -18,6 +175,7 @@ a {
 
 #heading {
   font-size: 3rem;
+  font-weight: bold;
   color: yellow;
   position: absolute;
   top: -30px;
@@ -43,18 +201,7 @@ a {
   bottom: 10px;
 }
 
-#letter1, #letter2 {
-  font-size: 5rem;
-  line-height: 10px;
-  position: relative;
-  top: 20px;
-}
 
-#letter2 {
-  transform: rotate(25deg);
-  position: absolute;
-  top: 200px;
-}
 
 /***** FORM ******/
 #form input {
@@ -65,22 +212,13 @@ a {
   text-align: center;
 }
 
-#form h2 {
-  /* margin-top: 250px; */
-  font-size: 1.5rem;
+#form h2{
   color: orange;
 }
 
-/***** CLASS LISTS */
-.hidden {
-  display: none
-}
-
-.show {
-  display: grid;
-}
 
 /******* SUBJECTS BUTTONS ******/
+
 #form-container {
   position: relative;
   top: 180px;
@@ -96,29 +234,27 @@ a {
   margin: auto 10px;
 }
 
-/* #form-container button{
+#form-container button[type="submit"] {
   margin: auto 5px;
-  color:black;
-  font-size: 1.8rem;
+  font-size: 5.5rem;
   font-weight: bold;
-  height: 240px;
-  width: 245px;
-text-decoration: none;
- } */
-#form-container input[type="submit"] {
-  margin: auto 5px;
-  color: black;
-  font-size: 1.8rem;
-  font-weight: bold;
-  height: 240px;
-  width: 245px;
+  height: 170px;
+  width: 230px;
   text-decoration: none;
+border-radius: 10px;
+color: white;
+border: solid 2px rgb(115, 161, 122);
 }
+
 
 .subject-1 {
   background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/generalKnowledge.jpg");
   background-size: cover;
   background-position: center;
+}
+
+.subject-1:hover {
+  background-size: 105%;
 }
 
 .subject-2 {
@@ -127,10 +263,18 @@ text-decoration: none;
   background-position: center;
 }
 
+.subject-2:hover {
+  background-size: 155%;
+}
+
 .subject-3 {
   background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/football1.jpg");
   background-size: cover;
   background-position: center;
+}
+
+.subject-3:hover {
+  background-size: 140%;
 }
 
 .subject-4 {
@@ -139,7 +283,20 @@ text-decoration: none;
   background-position: center;
 }
 
-/* MODAL SUBJECTS BUTTONS  */
+.subject-4:hover {
+  background-size: 105%;
+}
+
+#form .subject-button-container h2{
+  margin-top: 3px;
+  font-size: 1.5rem;
+color: rgb(255, 204, 106);
+}
+
+
+
+
+/****** MODAL SUBJECTS BUTTONS  ******/
 .modal-subject-1 {
   background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/generalKnowledge.jpg");
   background-size: cover;
@@ -164,11 +321,13 @@ text-decoration: none;
   background-position: center;
 }
 
-/*************************************************/
-#game-wraper {
-  display: none;
-}
 
+
+
+/************************** GAME SECTION *****************************/
+
+
+/***** HEADING *****/
 #heading-container {
   background-color: inherit;
   width: 80%;
@@ -197,32 +356,8 @@ text-decoration: none;
   margin-left: 120px;
 }
 
-/************** SCORE SECTION ****************/
-#score-box {
-  background-color: rgba(255, 250, 233, 0.77);
-  width: 200px;
-  display: inline-block;
-  position: relative;
-  bottom: 30px;
-  left: 20px;
-  border-radius: 10px;
-  /* border: solid 1px black; */
-}
 
-#score-container {
-  display: inline-block;
-}
-
-#player {
-  text-transform: capitalize;
-  text-align: center;
-  font-weight: bold;
-}
-
-#score-box h4 {
-  margin-left: 10px;
-}
-
+/****** QUESTION & ANSWERS SECTION ****/
 #game-container {
   margin-left: 100px;
   margin-top: 30px;
@@ -237,6 +372,8 @@ text-decoration: none;
   border-radius: 10px;
 }
 
+
+/**** QUESTION CSS **/
 #game-container h4 {
   margin: 0 15px;
 }
@@ -246,6 +383,7 @@ text-decoration: none;
   top: 25px;
 }
 
+/*** ANSWERS CSS ***/
 .answer-box button {
   margin-top: 30px;
   display: flex;
@@ -276,7 +414,37 @@ text-decoration: none;
   background-color: rgb(228, 131, 131);
 }
 
-/***** COMODIN SECTION ******/
+
+/********* SCORE PANEL SECTION ************/
+
+#score-box {
+  background-color: rgba(255, 250, 233, 0.77);
+  width: 200px;
+  display: inline-block;
+  position: relative;
+  bottom: 30px;
+  left: 20px;
+  border-radius: 10px;
+  /* border: solid 1px black; */
+}
+
+#score-container {
+  display: inline-block;
+}
+
+#player {
+  text-transform: capitalize;
+  text-align: center;
+  font-weight: bold;
+}
+
+#score-box h4 {
+  margin-left: 10px;
+}
+
+
+
+/******** COMODIN SECTION *********/
 #comodin-container {
   background-color: inherit;
   width: 50%;
@@ -381,6 +549,8 @@ table td {
   padding-bottom: 30px;
 }
 
+
+/********************** RESTART GAME SECTION *****************/
 #button-restart-container {
   margin: 0 auto;
   margin-top: 0;
@@ -405,6 +575,7 @@ table td {
   border: solid 1px rgb(255, 194, 48);
   color: rgb(255, 194, 48);
 }
+
 
 /***************** MEDIA TABLET *****************/
 @media (max-width: 900px) {

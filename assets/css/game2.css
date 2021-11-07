@@ -106,6 +106,10 @@ justify-content: center;
   margin: auto 10px;
 }
 
+.dark-background{
+  opacity: 0.5;
+
+}
 #subjects-container button{
   margin: auto 5px;
   color:black;

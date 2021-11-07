@@ -13,11 +13,11 @@
   </head>
   <body>
 
-    <!-- <div id="welcome-wraper">
+   <div id="welcome-wraper">
 
       <div id="title-panel">
         <h1 id="heading"><span id="hey">Hey</span><br />Welcome to<br />
-        Qui<spang id="zz"><spang id="z1">z</spang>z</spang> Qui<spang id="letter1">?</spang><spang id="letter2">?</spang></h1>
+        <spang id="quizz-1">Qui<spang id="zz"><spang id="z1">z</spang>z</spang></spang> Qui<spang id="letter1">?</spang><spang id="letter2">?</spang></h1>
          </div>
          <div id="form-container">
            <form id="form" action="game.html" method="POST">
@@ -26,10 +26,26 @@
 
            <h2 class="">Choose a subject!<br /> Let the game begin!</h2>
        <div id="subjects-wraper">
-           <input type="submit" class="subject-1" name ="subject-1" value="GENERAL" onclick="handleSumit(this)">
-           <input type="submit" class="subject-2" name ="subject-2" value="HISTORY" onclick="handleSumit(this)">
+         <div class="subject-button-container" id="subject-1">
+           <button type="submit" class="subject-1" name ="subject-1" value="GENERAL" onclick="handleSumit(this)"></button>
+           <h2>GENERAL</h2>
+         </div>
+         <div class="subject-button-container">
+           <button type="submit" class="subject-2" name ="subject-1" value="HISTORY" onclick="handleSumit(this)"></button>
+           <h2>HISTORY</h2>
+         </div>
+         <div class="subject-button-container">
+           <button type="submit" class="subject-3" name ="subject-1" value="FOOTBALL" onclick="handleSumit(this)"></button>
+           <h2>FOOTBALL</h2>
+         </div>
+         <div class="subject-button-container">
+           <button type="submit" class="subject-4" name ="subject-1" value="GEOGRAPHY" onclick="handleSumit(this)"></button>
+           <h2>GEOGRAPHY</h2>
+         </div>
+           <!-- <input type="submit" class="subject-1" name ="subject-1" value="GENERAL" onclick="handleSumit(this)"> -->
+           <!-- <input type="submit" class="subject-2" name ="subject-2" value="HISTORY" onclick="handleSumit(this)">
            <input type="submit" class="subject-3" name ="subject"value="FOOTBAL">
-           <input type="submit" class="subject-4" name ="subject" value="GEOGRAPHY">
+           <input type="submit" class="subject-4" name ="subject" value="GEOGRAPHY"> -->
 
        </div>
 
@@ -42,7 +58,7 @@
 
 
 
-
+<!------------------   GAME PANEL  --------------------->
  <div id="game-wraper">
 <div id="heading-container">
   <div class="heading">
@@ -53,7 +69,7 @@
 
  </div>
  <!-- SCORE PANEL -->
-  <!-- <div id="score-container">
+   <div id="score-container">
 <div id="score-box">
   <h3 id="player"></h3>
   <h4>Score: <spang id="score">0</spang></h4>
@@ -90,8 +106,25 @@
     </div>
 
  </div>
-  </div> -->
+  </div>
 
+
+<!------------------------ CHANGE SUBJECT COMODIN PANEL  ------------>
+<div id="modal-subjects-panel">
+<button type="submit" class="modal-subject-1" name="button">GENERAL</button>
+<button type="submit" class="modal-subject-2" name="button">HISTORY</button>
+<button type="submit" class="modal-subject-3" name="button">FOOTBAL</button>
+<button type="submit" class="modal-subject-4" name="button">GEOGRAPHY</button>
+</div>
+    <!-- <input type="submit" class="subject-1" name ="subject-1" value="GENERAL" onclick="handleSumit(this)"> -->
+    <!-- <input type="submit" class="subject-2" name ="subject-2" value="HISTORY" onclick="handleSumit(this)">
+    <input type="submit" class="subject-3" name ="subject"value="FOOTBAL">
+    <input type="submit" class="subject-4" name ="subject" value="GEOGRAPHY"> -->
+
+</div>
+
+
+<!----------------- END OF GAME PANEL ---------------------->
 
 <div id="end-of-game">
   <div class="end-heading">
@@ -136,13 +169,7 @@
 <div id="button-restart-container">
   <button type="button" id="restart-game" name="button">RESTART GAME</button>
 </div>
-  <!--  MODAL SUBJECT CHOISES -->
-  <div id="modal-subjects-panel">
-  <button type="submit" class="modal-subject-1" name="button">GENERAL</button>
-  <button type="submit" class="modal-subject-2" name="button">HISTORY</button>
-  <button type="submit" class="modal-subject-3" name="button">FOOTBAL</button>
-  <button type="submit" class="modal-subject-4" name="button">GEOGRAPHY</button>
-  </div>
+
 
     <script src="src/js/index2.js" charset="utf-8"></script>
   </body>
