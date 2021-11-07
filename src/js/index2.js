@@ -423,7 +423,7 @@ function Question(question, answer1, answer2, answer3, correct) {
 var g1q1 = new Question("What does a funambulist walk on?", "A tight rope", "A cable", "A thread", "A tight rope");
 var g1q2 = new Question("Which restaurant's mascot is a clawn?", "Burguer King", "KFC", "McDonald", "McDonald");
 var g1q3 = new Question("What item is the werewolf most afraid of?", "A rock", "Garlic", "Silver", "Silver");
-var g1q4 = new Question("TRUE OR FALSE - An eggplant is a vegetable.", "True", "False", " ", "False");
+var g1q4 = new Question("TRUE OR FALSE - An eggplant is a vegetable.", "True", "False", "    ", "False");
 var g1q5 = new Question("Where did the pineapple plant originate?", "Spain", "South America", "Canary Islands", "South America");
 var g1q6 = new Question("What is the nationality of Picasso", "Italian", "Portuguese", "Spanish", "Spanish");
 var g1q7 = new Question("Which film involves people entering other people’s dreams?", "Jurasic Park", "Inception", "Harry Potter", "Inception");

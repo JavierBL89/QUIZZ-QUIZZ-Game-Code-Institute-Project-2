@@ -1,6 +1,7 @@
 body {
   background-color: rgb(60, 120, 125);
   padding-bottom: 10%;
+
 }
 
 a {
@@ -53,6 +54,7 @@ opacity: 0;
  animation-duration: 1s;
   animation-delay: 1.5s;
   animation-fill-mode: forwards;
+
 }
 
 @keyframes form {
@@ -175,13 +177,16 @@ animation-fill-mode: forwards;
 
 #heading {
   font-size: 3rem;
-  font-weight: bold;
+  font-weight: 900;
+  font-style: italic;
   color: yellow;
   position: absolute;
   top: -30px;
   left: 60px;
   transform: rotate(-20deg);
   letter-spacing: 5px;
+  font-family: 'Alegreya', serif;
+
 }
 
 #hey {
