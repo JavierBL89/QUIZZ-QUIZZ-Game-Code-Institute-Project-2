@@ -42,7 +42,7 @@ a {
     right: 550px;
 }
 to{
-  right: 0px
+  right: 0px;
 }
 }
 
@@ -913,7 +913,7 @@ justify-content: center;
 /******************************** MEDIA MOBILE ************************************/
 @media (max-width: 575px) {
   #heading {
-    font-size: 2.3rem;
+    font-size: 2.5rem;
     color: yellow;
     position: absolute;
     top: 10px;
@@ -927,8 +927,8 @@ justify-content: center;
   }
 
   #zz {
-    font-size: 2rem;
-    line-height: 10px;
+    font-size: 3.2rem;
+    line-height: 5px;
     position: relative;
     top: 5px;
   }
@@ -939,22 +939,21 @@ justify-content: center;
   }
 
   #letter1, #letter2 {
-    font-size: 3rem;
+    font-size: 3.2rem;
     line-height: 10px;
     position: absolute;
     top: 110px;
   }
 
   #letter2 {
-    transform: rotate(25deg);
+    transform: rotate(0deg);
     position: absolute;
     top: 120px;
     left: 140px;
   }
-/* #letter1{
-  position: relative;
-  right: 5px;
-} */
+
+
+
   /***** FORM ******/
   #form input {
     /* margin-top: 20px; */
@@ -963,6 +962,7 @@ justify-content: center;
     border-radius: 10px;
     border: none;
     text-align: center;
+    font-size: 1rem;
   }
 
   #form h2 {
@@ -984,7 +984,6 @@ justify-content: center;
   #form-container {
     position: relative;
     top: 180px;
-    /* visibility: hidden; */
     text-align: center;
     padding: auto 20px;
   }
@@ -1007,32 +1006,9 @@ justify-content: center;
     height: 120px;
     width: 90vw;
     text-decoration: none;
-    border-color: orange;
+    /* border-color: orange; */
   }
 
-  /* .subject-1 {
-    background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/generalKnowledge.jpg");
-    background-size: cover;
-    background-position: center;
-  }
-
-  .subject-2 {
-    background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/history.jpeg");
-    background-size: cover;
-    background-position: center;
-  }
-
-  .subject-3 {
-    background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/football1.jpg");
-    background-size: cover;
-    background-position: center;
-  }
-
-  .subject-4 {
-    background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/geography.jpg");
-    background-size: cover;
-    background-position: center;
-  } */
 
   /*******  GAME SCREEN MOBILE ****/
   #heading-container {
