@@ -210,11 +210,12 @@ animation-fill-mode: forwards;
 
 /***** FORM ******/
 #form input {
-  height: 40px;
+  height: 50px;
   width: 300px;
   border-radius: 10px;
   border: none;
   text-align: center;
+  font-family:
 }
 
 #form .choose-text{
@@ -257,7 +258,7 @@ border: solid 2px rgb(115, 161, 122);
 
 
 .subject-1 {
-  background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/generalKnowledge.jpg");
+  background-image: url("../images/generalKnowledge.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -267,7 +268,7 @@ border: solid 2px rgb(115, 161, 122);
 }
 
 .subject-2 {
-  background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/history.jpeg");
+  background-image: url("../images/history.jpeg");
   background-size: cover;
   background-position: center;
 }
@@ -277,7 +278,7 @@ border: solid 2px rgb(115, 161, 122);
 }
 
 .subject-3 {
-  background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/football1.jpg");
+  background-image: url("../images/football1.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -287,7 +288,7 @@ border: solid 2px rgb(115, 161, 122);
 }
 
 .subject-4 {
-  background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/geography.jpg");
+  background-image: url("../images/geography.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -307,26 +308,26 @@ color: rgb(255, 204, 106);
 
 /****** MODAL SUBJECTS BUTTONS  ******/
 .modal-subject-1 {
-  background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/generalKnowledge.jpg");
+  background-image: url("../images/generalKnowledge.jpg");
   background-size: cover;
   background-position: center;
   width: 100%;
 }
 
 .modal-subject-2 {
-  background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/history.jpeg");
+  background-image: url("../assets/images/history.jpeg");
   background-size: cover;
   background-position: center;
 }
 
 .modal-subject-3 {
-  background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/football1.jpg");
+  background-image: url("../assets/images/football1.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .modal-subject-4 {
-  background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/geography.jpg");
+  background-image: url("../images/geography.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -912,16 +913,17 @@ justify-content: center;
 /******************************** MEDIA MOBILE ************************************/
 @media (max-width: 575px) {
   #heading {
-    font-size: 2.1rem;
+    font-size: 2.3rem;
     color: yellow;
     position: absolute;
     top: 10px;
     letter-spacing: 4px;
+    line-height: 45px;
   }
 
   #hey {
     position: relative;
-    right: 70px;
+    right: 75px;
   }
 
   #zz {
@@ -939,22 +941,25 @@ justify-content: center;
   #letter1, #letter2 {
     font-size: 3rem;
     line-height: 10px;
-    position: relative;
-    top: 20px;
+    position: absolute;
+    top: 110px;
   }
 
   #letter2 {
     transform: rotate(25deg);
     position: absolute;
-    top: 100px;
-    left: 120px;
+    top: 120px;
+    left: 140px;
   }
-
+/* #letter1{
+  position: relative;
+  right: 5px;
+} */
   /***** FORM ******/
   #form input {
     /* margin-top: 20px; */
-    height: 30px;
-    width: 220px;
+    height: 40px;
+    width: 230px;
     border-radius: 10px;
     border: none;
     text-align: center;
@@ -1005,7 +1010,7 @@ justify-content: center;
     border-color: orange;
   }
 
-  .subject-1 {
+  /* .subject-1 {
     background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/generalKnowledge.jpg");
     background-size: cover;
     background-position: center;
@@ -1027,7 +1032,7 @@ justify-content: center;
     background-image: url("C:/Users/hp/Desktop/WEB PROYECTS/quizz-quizz/assets/images/geography.jpg");
     background-size: cover;
     background-position: center;
-  }
+  } */
 
   /*******  GAME SCREEN MOBILE ****/
   #heading-container {
