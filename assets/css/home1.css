@@ -912,7 +912,7 @@ justify-content: center;
 /******************************** MEDIA MOBILE ************************************/
 @media (max-width: 575px) {
   #heading {
-    font-size: 1.9rem;
+    font-size: 2.1rem;
     color: yellow;
     position: absolute;
     top: 10px;
@@ -921,7 +921,7 @@ justify-content: center;
 
   #hey {
     position: relative;
-    right: 120px;
+    right: 70px;
   }
 
   #zz {
@@ -946,8 +946,8 @@ justify-content: center;
   #letter2 {
     transform: rotate(25deg);
     position: absolute;
-    top: 130px;
-    left: 140px;
+    top: 100px;
+    left: 120px;
   }
 
   /***** FORM ******/
