@@ -11,6 +11,9 @@ a {
   width: auto;
 }
 
+/* #welcome-wraper{
+  display: none;
+} */
 #game-wraper {
   display: none;
 }
@@ -339,6 +342,7 @@ color: rgb(255, 204, 106);
   background-color: inherit;
   width: 80%;
   color: rgb(255, 232, 122);
+  margin: 0 auto;
 }
 
 #heading-container h2 {
@@ -346,13 +350,16 @@ color: rgb(255, 204, 106);
   color: rgb(255, 232, 122);
 }
 
-.heading {
+#heading-container .heading {
   display: flex;
-  margin: 0 auto;
+}
+ #subject{
+margin-left: 110px;
 }
 
 #level {
-  margin: 30px auto auto 80px;
+  position: relative;
+  right: 40px;
   font-size: 1.7rem;
 }
 
@@ -366,6 +373,9 @@ color: rgb(255, 204, 106);
 
 /****** QUESTION & ANSWERS SECTION ****/
 #game-container {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: lighter;
+  color: rgb(59, 99, 103);
   margin-left: 100px;
   margin-top: 30px;
   margin-bottom: 0;
@@ -383,6 +393,8 @@ color: rgb(255, 204, 106);
 /**** QUESTION CSS **/
 #game-container h4 {
   margin: 0 15px;
+  letter-spacing: 1px;
+  color: rgb(9, 52, 56);
 }
 
 .move {
@@ -392,6 +404,7 @@ color: rgb(255, 204, 106);
 
 /*** ANSWERS CSS ***/
 .answer-box button {
+  font-size: 1rem;
   margin-top: 30px;
   display: flex;
   background-color: inherit;
@@ -475,6 +488,8 @@ color: rgb(255, 204, 106);
 }
 
 .comodin-options button {
+  /* font-family: 'Open Sans', sans-serif; */
+
   height: 50px;
   /* width: 350px; */
   width: 33%;
@@ -716,16 +731,21 @@ justify-content: center;
     font-size: 1.3rem;
   }
 
-  .heading {
+ .heading {
+    display: block;
     width: 80%;
+    text-align: left;
   }
 
+/* #subject{
+  margin-left: 80px;
+} */
   #level {
     color: rgb(255, 232, 122);
     position: absolute;
-    left: 23%;
+    left: 34%;
     top: 1%;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
 
   #level-status {
@@ -733,10 +753,10 @@ justify-content: center;
   }
 
   #countDown {
-    font-size: 2.2rem;
+    font-size: 3.3rem;
     position: absolute;
     right: 180px;
-    top: 50px;
+    top: 30px;
   }
 
   /************** SCORE SECTION ****************/
@@ -799,7 +819,7 @@ justify-content: center;
 
   /***** COMODIN SECTION ******/
   #comodin-container {
-    width: 60%;
+    width: 55%;
   }
 
   #comodin-container h3 {
@@ -809,18 +829,20 @@ justify-content: center;
     line-height: 6px;
   }
 
-  .comodin-options {
+  /* .comodin-options {
     display: flex;
     text-align: center;
     justify-content: space-around;
+  } */
+  .comodin-options {
+  display: block;
   }
-
   .comodin-options button {
-    height: 50px;
-    width: 33%;
+    height: 45px;
+    width: 100%;
     border: 1px solid lightgrey;
     background-color: rgba(255, 208, 24, 0.9);
-    font-size: 0.900rem;
+    font-size: 1rem;
     color: rgb(60, 120, 125);
   }
 
@@ -909,13 +931,16 @@ justify-content: center;
 /******************************** MEDIA MOBILE ************************************/
 @media (max-width: 575px) {
   #heading {
+    margin: 0 auto;
+    padding: 5% auto;
+    width: 95%;
     font-size: 2.7rem;
     color: yellow;
     position: absolute;
     top: 10px;
     letter-spacing: 4px;
     line-height: 40px;
-margin-left: 45px;}
+}
 
   /* #hey {
     position: relative;
@@ -945,14 +970,21 @@ margin-left: 45px;}
     transform: rotate(0deg);
     position: absolute;
     top: 105px;
-    left: 170px;
+    left: 180px;
   }
 
 
 
   /***** FORM ******/
+  #form-container {
+    position: relative;
+    top: 200px;
+    text-align: center;
+    padding: auto 20px;
+  }
+
   #form input {
-    /* margin-top: 20px; */
+    margin-bottom: 15px;
     height: 40px;
     width: 230px;
     border-radius: 10px;
@@ -965,6 +997,8 @@ margin-left: 45px;}
     letter-spacing: 2px;
     font-size: 1.2rem;
     margin-bottom: 30px;
+    padding: 5% auto;
+
   }
 
   /***** CLASS LISTS */
@@ -977,17 +1011,13 @@ margin-left: 45px;}
   }
 
   /**** MAIN MODAL SUBJECTS *****/
-  #form-container {
-    position: relative;
-    top: 200px;
-    text-align: center;
-    padding: auto 20px;
-  }
 
   #subjects-wraper {
     display: block;
     justify-content: center;
-    padding-bottom: 70px;
+    /* padding-bottom: 70px; */
+    padding: 5% auto;
+
   }
 
 #form .subject-button-container{
@@ -1013,9 +1043,10 @@ margin-left: 45px;}
   }
 
   #heading-container h1 {
-    margin-left: 25px;
-    font-size: 1rem;
+    margin-left: -20px;
+    font-size: 1.1rem;
     margin-bottom: 0;
+
   }
 
   .heading {
@@ -1024,8 +1055,8 @@ margin-left: 45px;}
 
   #level {
     position: absolute;
-    left: 10%;
-    font-size: 1rem;
+    left: 26%;
+    font-size: 1.2rem;
   }
 
   #level-status {
@@ -1033,10 +1064,10 @@ margin-left: 45px;}
   }
 
   #countDown {
-    font-size: 1.2rem;
+    font-size: 2.1rem;
     position: absolute;
-    right: 60px;
-    margin-top: 7px;
+    top: 45px;
+    right: 30px;
   }
 
   /*****  game panel */
@@ -1054,7 +1085,8 @@ margin-left: 45px;}
 
   /***** COMODIN SECTION ******/
   #comodin-container {
-    width: 80%;
+    width: 70%;
+    display: block;
   }
 
   #comodin-container h3 {
@@ -1064,12 +1096,23 @@ margin-left: 45px;}
     line-height: 6px;
   }
 
-  .comodin-options button {
+  /* .comodin-options button {
+  display: block;
     height: 50px;
     width: 34%;
     font-size: 0.700rem;
-  }
+  } */
+  .comodin-options {
+  display: block;
 
+  }
+  .comodin-options button {
+  display: block;
+    height: 45px;
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
   .comodin-options button:hover {
     background-color: rgba(255, 208, 24, 0.63);
     color: rgb(60, 120, 125);
