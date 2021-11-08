@@ -11,11 +11,11 @@ a {
   width: auto;
 }
 
-/* #welcome-wraper{
+#welcome-wraper{
   display: none;
-} */
+}
 #game-wraper {
-  display: none;
+  display: block;
 }
 
 #button-restart-container{
@@ -340,34 +340,37 @@ color: rgb(255, 204, 106);
 /***** HEADING *****/
 #heading-container {
   background-color: inherit;
-  width: 80%;
+  width: 45%;
   color: rgb(255, 232, 122);
   margin: 0 auto;
+  padding-top: 20px;
+  /* display: flex; */
 }
 
 #heading-container h2 {
-  color: yellow;
   color: rgb(255, 232, 122);
+  position: absolute;
+  left: 80px;
+  top: 20px;
+  font-size: 1.7rem;
 }
 
 #heading-container .heading {
   display: flex;
-}
- #subject{
-margin-left: 110px;
+  margin: 20 auto;
+  justify-content: space-between;
+
 }
 
-#level {
-  position: relative;
-  right: 40px;
-  font-size: 1.7rem;
+.heading #subject{
+margin: 15px 0 0 15px;
 }
+
+
 
 #countDown {
   font-size: 3rem;
-  position: relative;
-  top: 15px;
-  margin-left: 120px;
+  /* margin-left: 30px; */
 }
 
 
@@ -376,10 +379,7 @@ margin-left: 110px;
   font-family: 'Work Sans', sans-serif;
   font-weight: lighter;
   color: rgb(59, 99, 103);
-  margin-left: 100px;
-  margin-top: 30px;
-  margin-bottom: 0;
-  padding-top: 20px;
+  margin: 40px auto 0 100px;
   background-color: rgb(255, 255, 242);
   width: 50%;
   display: inline-block;
@@ -392,7 +392,8 @@ margin-left: 110px;
 
 /**** QUESTION CSS **/
 #game-container h4 {
-  margin: 0 15px;
+  padding: 5px 3px;
+  /* margin: 0 15px; */
   letter-spacing: 1px;
   color: rgb(9, 52, 56);
 }
@@ -442,17 +443,16 @@ margin-left: 110px;
   width: 200px;
   display: inline-block;
   position: relative;
-  bottom: 30px;
+  bottom: 20px;
   left: 20px;
   border-radius: 10px;
-  /* border: solid 1px black; */
 }
 
 #score-container {
   display: inline-block;
 }
 
-#player {
+#player-name {
   text-transform: capitalize;
   text-align: center;
   font-weight: bold;
@@ -602,7 +602,6 @@ table td {
 /**************************************** MEDIA TABLET **********************************************/
 @media (max-width: 900px) {
 
-
   #heading {
     font-size: 3rem;
     color: yellow;
@@ -612,7 +611,6 @@ table td {
     transform: rotate(0);
     letter-spacing: 4px;
     line-height: 58px;
-    /* margin-top: 20px */
   }
 
   #hey {
@@ -637,7 +635,6 @@ table td {
     transform: rotate(0);
     position: relative;
     top: 20px;
-    /* right:205px; */
   }
   #letter2 {
     transform: rotate(0);
@@ -665,10 +662,9 @@ table td {
   /**** MAIN MODAL SUBJECTS *****/
   #form-container {
     position: relative;
-    top: 0;    /* visibility: hidden; */
+    top: 0;
 justify-content: center;
    padding: auto 20px;
-    /* padding-top: 40px; */
   }
 
 
@@ -720,51 +716,44 @@ justify-content: center;
 
   /************ GAME SCREEN **************/
   #heading-container {
-    background-color: inherit;
-    width: 80%;
-    color: rgb(255, 232, 122);
-    margin-top: 47px;
+    width: 60%;
+    margin-top: 0px;
   }
 
   #heading-container h1 {
-    margin-left: 105px;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
- .heading {
-    display: block;
-    width: 80%;
-    text-align: left;
+  #heading-container h2 {
+  display: none;
   }
 
-/* #subject{
-  margin-left: 80px;
-} */
-  #level {
-    color: rgb(255, 232, 122);
-    position: absolute;
-    left: 34%;
-    top: 1%;
-    font-size: 1.3rem;
+  #heading-container .heading {
+    display: flex;
+    margin: 20 auto;
+    justify-content: space-between;
+
   }
 
-  #level-status {
-    left: 12%;
+  .heading #subject{
+  margin: 15px 0 0 15px;
   }
+
+
 
   #countDown {
-    font-size: 3.3rem;
-    position: absolute;
-    right: 180px;
-    top: 30px;
-  }
+    font-size: 2.6rem;
+position: relative;
+bottom: 5px;
+}
+
 
   /************** SCORE SECTION ****************/
   #score-container {
     display: none;
   }
 
-  #player {
+  #player-name {
     text-transform: capitalize;
     text-align: center;
     font-weight: bold;
@@ -777,13 +766,12 @@ justify-content: center;
   /*****  game panel ******/
   #game-container {
     justify-content: center;
-    margin-top: 25px;
     width: 70%;
     text-align: center;
   }
 
   #game-container h4 {
-    margin: 0 15px;
+    padding: 2px;
     font-size: 1rem;
   }
 
@@ -1037,42 +1025,38 @@ justify-content: center;
 
   /*******  GAME SCREEN MOBILE ****/
   #heading-container {
-    background-color: inherit;
-    width: 70%;
-    color: rgb(255, 232, 122);
+    width: 80%;
+    margin-top: 0px;
   }
 
   #heading-container h1 {
-    margin-left: -20px;
-    font-size: 1.1rem;
-    margin-bottom: 0;
+    font-size: 1.3rem;
+  }
+
+  #heading-container h2 {
+  display: none;
+  }
+
+  #heading-container .heading {
+    display: flex;
+    margin: 20 auto;
+    justify-content: space-between;
 
   }
 
-  .heading {
-    width: 80%;
-  }
-
-  #level {
-    position: absolute;
-    left: 26%;
-    font-size: 1.2rem;
-  }
-
-  #level-status {
-    left: 12%;
+  .heading #subject{
+  margin: 15px 0 0 15px;
   }
 
   #countDown {
-    font-size: 2.1rem;
-    position: absolute;
-    top: 45px;
-    right: 30px;
-  }
+    font-size: 2rem;
+position: relative;
+top: 5px;
+}
 
   /*****  game panel */
   #game-container {
-    margin-top: 10px;
+    /* margin-top: 10px; */
     width: 90%;
     margin: 50px 20px auto 20px;
     text-align: center;

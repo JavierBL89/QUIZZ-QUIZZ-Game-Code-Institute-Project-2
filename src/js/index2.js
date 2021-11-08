@@ -103,11 +103,11 @@ function handleSumit(subject) {
 
 
   // get the player name and set it into the panel score
-  var playerName = document.getElementById("player-name");
-  document.getElementById("player").innerText = playerName.value
+  var playerName = document.getElementById("player-name-input");
+  document.getElementById("player-name").innerText = playerName.value
   console.log(subject);
 
-  startCountDown(subject);
+startCountDown(subject);
 
 }
 /** HERE I GET THE BUTTON CLICKED VALUE TO RUN THE GAME
@@ -281,7 +281,7 @@ const allPlayersScores = [{
 // Function to populate the current player score table
 function showFinalPlayerScore() {
 
-  let currentGamer = document.getElementById("player").textContent;
+  let currentGamer = document.getElementById("player-name").textContent;
   let currentP = document.getElementById("score").textContent;
   let correct = document.getElementById("correct").textContent;
   const currentPlayerScore = [{
@@ -390,7 +390,6 @@ function incrementCorrectAnswers() {
 
   if (correctAnswersTrack >= "5") {
     status.innerText = "2";
-    status.style.backgroundColor = "red";
     // currentQuestionIndex = 0;
     runGeneralLevel2();
     // currentQuestionIndex--
