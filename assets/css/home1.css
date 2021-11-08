@@ -11,11 +11,11 @@ a {
   width: auto;
 }
 
-#welcome-wraper{
+/* #welcome-wraper{
   display: none;
-}
+} */
 #game-wraper {
-  display: block;
+  display: none;
 }
 
 #button-restart-container{
@@ -958,7 +958,7 @@ bottom: 5px;
     transform: rotate(0deg);
     position: absolute;
     top: 105px;
-    left: 180px;
+    left: 190px;
   }
 
 
@@ -1074,9 +1074,9 @@ top: 5px;
   }
 
   #comodin-container h3 {
+    margin-top: 0;
+    padding-top: 0;
     color: rgb(255, 232, 122);
-    margin-top: 5px;
-    padding-top: 10px;
     line-height: 6px;
   }
 
