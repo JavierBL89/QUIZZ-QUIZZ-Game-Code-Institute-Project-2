@@ -5,6 +5,11 @@ var correctAnswers = document.getElementById("correct");
 const subjectsWraper = document.getElementById("subjects-wraper");
 const modalSubjectsPanel = document.getElementById("modal-subjects-panel");
 const status = document.getElementById("level-status");
+const comodin1 = document.getElementById("comodin1");
+const comodin2 = document.getElementById("comodin2");
+const comodin3 = document.getElementById("comodin3");
+const comodin4 = document.getElementById("comodin4");
+
 const endOfGamePanel = document.getElementById("end-of-game");
 const reStartButton = document.getElementById("button-restart-container");
 
@@ -20,15 +25,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
       if (this.getAttribute("class") === "modal-subject-1") {
         modalSubjectsPanel.style.display = "none";
-
+        comodin2.style.display = "none";
         status.innerText;
+
         if (status === "1") {
           runGeneralLevel1();
         } else {
           runGeneralLevel2();
         }
       } else if (this.getAttribute("class") === "modal-subject-2") {
-
+        comodin2.style.display = "none";
         status.innerText;
         if (status === "1") {
           runHistoryLevel1();
@@ -39,14 +45,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
       } else if (this.getAttribute("class") === "modal-subject-3") {
         alert("puta");
-        welcomeWraper.classList.add("hidden");
-        gameWraper.style.display = "block";
+        comodin2.style.display = "none";
         modalSubjectsPanel.style.display = "none";
 
       } else if (this.getAttribute("class") === "modal-subject-4") {
         alert("puta");
-        welcomeWraper.classList.add("hidden");
-        gameWraper.style.display = "block";
+        comodin2.style.display = "none";
         modalSubjectsPanel.style.display = "none";
 
       } else if (this.getAttribute("id") === "answer1") {
@@ -60,12 +64,14 @@ document.addEventListener("DOMContentLoaded", function() {
         checkAnswer(this);
       } else if (this.getAttribute("id") === "comodin1") {
         this.style.display = "none";
+
         setNextQuestion();
       } else if (this.getAttribute("id") === "comodin2") {
+        // gone(this);
         clearInterval(timeInterval);
         modalSubjectsPanel.style.display = "block";
-        modalSubjectsPanel.classList.add("slideIn");
-        this.style.display = "none";
+        // modalSubjectsPanel.classList.add("slideIn");
+        // this.style.display = "none";
       } else if (this.getAttribute("id") === "comodin3") {
         this.style.display = "none";
       } else if (this.getAttribute("id") === "restart-game") {
@@ -76,7 +82,19 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   }
+
 });
+
+// function gone (element){
+//
+//   document.addEventListener("click", function (event){
+//     console.log(event.target);
+// if(event.target.closest("modal-subjects-panel"))
+// return  modalSubjectsPanel.style.display = "none";
+//
+//   })
+//
+// }
 
 function reStartGame() {
   endOfGamePanel.style.display = "none";
