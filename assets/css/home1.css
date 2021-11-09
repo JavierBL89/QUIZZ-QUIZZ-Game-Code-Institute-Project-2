@@ -13,11 +13,11 @@ a {
   width: auto;
 }
 
-#welcome-wraper{
+/* #welcome-wraper{
   display: none;
-}
+} */
 #game-wraper {
-  display: block;
+  display: none;
 }
 
 #button-restart-container{
