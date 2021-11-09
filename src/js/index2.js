@@ -100,36 +100,43 @@ function handleSumit(subject) {
   //without this event.prevent the whole function does not work
   event.preventDefault();
 
-
+subject.classList.add("button-vanishes");
 
   // get the player name and set it into the panel score
   var playerName = document.getElementById("player-name-input");
   document.getElementById("player-name").innerText = playerName.value
-  console.log(subject);
+  // console.log(subject);
 
-startCountDown(subject);
+  startCountDown(subject);
 
 }
 /** HERE I GET THE BUTTON CLICKED VALUE TO RUN THE GAME
 WITH THE SUBJECT CHOOSEN! */
 function startCountDown(subject) {
 
+   let subjectParent = subject.parentNode;
+   let nextSubjectSibling = subject.nextElementSibling;
   startGameCountDown = 4;
+
   clearInterval(startGameInterval);
 
   startGameInterval = setInterval(() => {
     startGameCountDown--;
-    subject.innerText = startGameCountDown;
-    if (subject.innerText == 0 && subject.value === "GENERAL") {
+     let countDown = subjectParent.innerText = startGameCountDown;
+     let parentSubjectInnerHtml = `<spang id="start-countdown">${countDown}</spang>
+     <h2 id="start-subject">${nextSubjectSibling.innerText}</h2`;
+     subjectParent.innerHTML =  parentSubjectInnerHtml;
+
+    if (subjectParent.children[0].innerText == 0 && subject.value === "GENERAL") {
       // console.log(currentPlayerScore);
-      subject.innerHTML = "";
+      subjectParent.children[0].innerHTML = "";
       welcomeWraper.style.display = "none";
       gameWraper.style.display = "block";
       clearInterval(startGameInterval)
       runGeneralLevel1();
-    } else if (subject.innerText == 0 && subject.value === "HISTORY") {
+    } else if (subjectParent.children[0].innerText == 0 && subject.value === "HISTORY") {
       // console.log(currentPlayerScore);
-      subject.innerHTML = "";
+      subjectParent.innerHTML = "";
       welcomeWraper.style.display = "none";
       gameWraper.style.display = "block";
       clearInterval(startGameInterval)
@@ -152,14 +159,12 @@ var countDown = 10;
 //****** RUN GENERAL KNOWLEDE QUESTIONS LEVEL 1 AND 2*******
 
 function runGeneralLevel1() {
-  // event.preventDefault();
   document.getElementById("subject").innerText = "General Knowledge";
   shuffleQuestions = generalLevel1.sort(() => Math.random() - .5)
   setNextQuestion();
 }
 
 function runGeneralLevel2() {
-  // event.preventDefault();
 
   document.getElementById("subject").innerText = "General Knowledge";
   shuffleQuestions = generalLevel2.sort(() => Math.random() - .5)
