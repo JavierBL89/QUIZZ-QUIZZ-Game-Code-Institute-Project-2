@@ -62,8 +62,9 @@ document.addEventListener("DOMContentLoaded", function() {
         this.style.display = "none";
         setNextQuestion();
       } else if (this.getAttribute("id") === "comodin2") {
-        clearInterval(timeInterval)
+        clearInterval(timeInterval);
         modalSubjectsPanel.style.display = "block";
+        modalSubjectsPanel.classList.add("slideIn");
         this.style.display = "none";
       } else if (this.getAttribute("id") === "comodin3") {
         this.style.display = "none";

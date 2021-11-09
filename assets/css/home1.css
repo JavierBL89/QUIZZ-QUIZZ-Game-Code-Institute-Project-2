@@ -13,11 +13,11 @@ a {
   width: auto;
 }
 
-/* #welcome-wraper{
+#welcome-wraper{
   display: none;
-} */
+}
 #game-wraper {
-  display: none;
+  display: block;
 }
 
 #button-restart-container{
@@ -163,6 +163,7 @@ animation-fill-mode: forwards;
 
 }
 
+
 /**********************  CSS WELCOME PAGE *************************/
 
 /******** WELCOME HEADING *****/
@@ -211,7 +212,7 @@ animation-fill-mode: forwards;
 }
 
 #form input {
-  height: 50px;
+  height: 45px;
   width: 300px;
   border-radius: 10px;
   border: none;
@@ -223,6 +224,7 @@ animation-fill-mode: forwards;
   font-family: 'Work Sans', sans-serif;
   font-size: 1.3rem;
   letter-spacing: 1px;
+  margin-top: 40px;
   color: orange;
 }
 
@@ -250,7 +252,6 @@ border: solid 2px rgb(115, 161, 122);
 
 .subject-button-container{
   margin: auto 5px;
-
   justify-content: center;
   color: white;
 text-align: center;
@@ -260,9 +261,9 @@ width: 230px;
 }
 
 .subject-button-container #start-countdown{
+  color: rgb(255, 204, 106);
 position: relative;
 top: 30px;
-
 }
 .subject-button-container #start-subject{
 position: relative;
@@ -313,49 +314,6 @@ top: 67px;
   margin-top: 3px;
   font-size: 1.5rem;
 color: rgb(255, 204, 106);
-}
-
-
-
-
-/****** MODAL SUBJECTS BUTTONS  ******/
-.modal-subject-1 {
-  background-image: url("../images/generalKnowledge.jpg");
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-}
-
-.modal-subject-1:hover {
-  background-size: 105%;
-}
-
-.modal-subject-2 {
-  background-image: url("../images/history.jpeg");
-  background-size: cover;
-  background-position: center;
-}
-
-.modal-subject-2:hover {
-  background-size: 105%;
-}
-
-.modal-subject-3 {
-  background-image: url("../images/football1.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-.modal-subject-3:hover {
-  background-size: 105%;
-}
-.modal-subject-4 {
-  background-image: url("../images/geography.jpg");
-  background-size: cover;
-  background-position: center;
-}
-.modal-subject-4:hover {
-  background-size: 105%;
 }
 
 
@@ -542,11 +500,23 @@ padding-top: 0;
 #modal-subjects-panel {
   position: absolute;
   top: 45px;
-  left: 940px;
-  /* background: rgba(3, 1, 1, 0.5); */
-  text-align: center;
+   right:20px;
+opacity: 0;
+ text-align: center;
   display: none;
   flex-direction: column;
+  animation-name: slideIn;
+  animation-duration: 0.750s;
+  animation-fill-mode: forwards;
+}
+
+ @keyframes slideIn {
+from{
+  opacity: 0;
+}
+to{
+  opacity: 1;
+}
 }
 
 #modal-subjects-panel button {
@@ -559,6 +529,46 @@ padding-top: 0;
   text-decoration: none;
   margin-top: 15px;
   border: solid 2px rgb(115, 161, 122);
+}
+
+/****** MODAL SUBJECTS BUTTONS  ******/
+.modal-subject-1 {
+  background-image: url("../images/generalKnowledge.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+}
+
+.modal-subject-1:hover {
+  background-size: 105%;
+}
+
+.modal-subject-2 {
+  background-image: url("../images/history.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.modal-subject-2:hover {
+  background-size: 105%;
+}
+
+.modal-subject-3 {
+  background-image: url("../images/football1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.modal-subject-3:hover {
+  background-size: 105%;
+}
+.modal-subject-4 {
+  background-image: url("../images/geography.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.modal-subject-4:hover {
+  background-size: 105%;
 }
 
 /*********  END OF GAME PANEL ******/
@@ -670,6 +680,13 @@ table td {
    }
 
   /***** FORM ******/
+  #form-container {
+    position: relative;
+    top: 0;
+justify-content: center;
+   padding: auto 20px;
+  }
+
   #form h2 {
     /* margin-top: 30px; */
     letter-spacing: 2px;
@@ -685,13 +702,7 @@ table td {
     display: grid;
   }
 
-  /**** MAIN MODAL SUBJECTS *****/
-  #form-container {
-    position: relative;
-    top: 0;
-justify-content: center;
-   padding: auto 20px;
-  }
+  /**** SUBJECTS PANEL *****/
 
 
   #subjects-wraper {
@@ -703,35 +714,38 @@ align-items: center;
 
 .subject-button-container{
   width:100%;
+  margin-bottom: 20px;
+}
+
+#form-container .subject-button-container button {
+  margin: 5px auto;
+  display: block;
+  font-size: 5.2rem;
+  font-weight: bold;
+  height: 140px;
+  width: 60vw;
+  text-align: center;
+justify-content: center;
+  text-decoration: none;
+  border: solid 2px rgb(115, 161, 122);
+
 }
 
 #subjects-wraper .subject-button-container h2{
   font-size: 1.3rem;
 }
 
-  #form-container .subject-button-container button {
-    margin: 5px auto;
-    display: block;
-    font-size: 5.2rem;
-    font-weight: bold;
-    height: 140px;
-    width: 60vw;
-    text-decoration: none;
-    border-color: rgb(115, 161, 122);
-    text-align: center;
-justify-content: center;
+
+.subject-button-container #start-countdown{
+  position: relative;
+  top:10px;
+font-size: 4.5rem;
+  }
+  .subject-button-container #start-subject{
+  position: relative;
+  top: 21px;
   }
 
-
-  .subject-button-container h1{
-    position: absolute;
-    left: 34%;
-    top: 15%;
-   /* margin-left: 350px; */
-   /* margin-top: 20px; */
-   font-size: 4.5rem;
-
-  }
 
 /*** ZOOM SIZE SUBJECTS IMAGES ***/
   .subject-1:hover {
@@ -750,6 +764,36 @@ justify-content: center;
     background-size: 105%;
   }
 
+
+  /***** MODAL SUBJECT PANEL ****/
+  #modal-subjects-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* background: rgba(3, 1, 1, 0.5); */
+    background-color: rgba(23, 26, 26, 0.82);
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    display: none;
+    flex-direction: column;
+    padding-top: 5vh;
+  }
+
+  #modal-subjects-panel button {
+    margin: 0 auto;
+    display: block;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 110px;
+    width: 55vw;
+    text-decoration: none;
+    margin-top: 20px;
+    border: solid 2px rgb(115, 161, 122);
+  border-radius: 5px;
+   /* box-shadow: 10px 10px 8px 10px rgb(255, 204, 46); */
+  }
 
   /************ GAME SCREEN **************/
   #heading-container {
@@ -881,30 +925,7 @@ bottom: 5px;
     margin: 0 auto;
   }
 
-  /***** MODAL ****/
-  #modal-subjects-panel {
-    position: absolute;
-    top: 67px;
-    left: 940px;
-    /* background: rgba(3, 1, 1, 0.5); */
-    text-align: center;
-    display: none;
-    flex-direction: column;
-  }
 
-  #modal-subjects-panel button {
-    display: block;
-    color: black;
-    font-size: 1.5rem;
-    font-weight: bold;
-    height: 100px;
-    width: 250px;
-    text-decoration: none;
-    margin-top: 15px;
-    border-color: rgba(255, 204, 46, 0.65);
-    /* border: none; */
-    /* box-shadow: 10px 10px 8px 10px rgb(255, 204, 46); */
-  }
 
   /*********  END OF GAME PANEL ******/
   #end-of-game {
@@ -1035,7 +1056,7 @@ bottom: 5px;
     display: grid;
   }
 
-  /**** MAIN MODAL SUBJECTS *****/
+  /**** MAIN SUBJECTS PANEL*****/
 
   #subjects-wraper {
     display: block;
@@ -1059,7 +1080,45 @@ bottom: 5px;
     /* border-color: orange; */
   }
 
+  .subject-button-container #start-countdown{
+    position: relative;
+    top: 1px;
+    font-size: 3.5rem;
+    }
 
+    .subject-button-container #start-subject{
+    position: relative;
+    top: -4px;
+    }
+
+    /***** MODAL SUBJECTS PANEL ****/
+    #modal-subjects-panel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      /* background: rgba(3, 1, 1, 0.5); */
+      background-color: rgba(23, 26, 26, 0.82);
+      height: 100vh;
+      width: 100vw;
+      text-align: center;
+      display: none;
+      flex-direction: column;
+      padding-top: 5vh;
+    }
+
+    #modal-subjects-panel button {
+      display: block;
+      color: black;
+      font-size: 1.5rem;
+      font-weight: bold;
+      height: 100px;
+      width: 280px;
+      text-decoration: none;
+      margin-top: 15px;
+      border: solid 2px rgb(115, 161, 122);
+      /* border: none; */
+      /* box-shadow: 10px 10px 8px 10px rgb(255, 204, 46); */
+    }
   /*******  GAME SCREEN MOBILE ****/
   #heading-container {
     width: 80%;
@@ -1146,30 +1205,7 @@ top: 5px;
     margin: 0 auto;
   }
 
-  /***** MODAL ****/
-  #modal-subjects-panel {
-    position: absolute;
-    top: 67px;
-    left: 940px;
-    /* background: rgba(3, 1, 1, 0.5); */
-    text-align: center;
-    display: none;
-    flex-direction: column;
-  }
 
-  #modal-subjects-panel button {
-    display: block;
-    color: black;
-    font-size: 1.5rem;
-    font-weight: bold;
-    height: 100px;
-    width: 250px;
-    text-decoration: none;
-    margin-top: 15px;
-    border-color: rgba(255, 204, 46, 0.65);
-    /* border: none; */
-    /* box-shadow: 10px 10px 8px 10px rgb(255, 204, 46); */
-  }
 
   /*********  END OF GAME PANEL ******/
   #end-of-game {
