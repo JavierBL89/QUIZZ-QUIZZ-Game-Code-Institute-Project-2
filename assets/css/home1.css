@@ -1089,7 +1089,7 @@ bottom: 5px;
     /* border-color: orange; */
   }
 
-  .subject-button-container #start-countdown{
+  /* .subject-button-container #start-countdown{
     position: relative;
     top: 1px;
     font-size: 3.5rem;
@@ -1098,7 +1098,7 @@ bottom: 5px;
     .subject-button-container #start-subject{
     position: relative;
     top: -4px;
-    }
+    } */
 
     /***** MODAL SUBJECTS PANEL ****/
     #modal-subjects-panel {
