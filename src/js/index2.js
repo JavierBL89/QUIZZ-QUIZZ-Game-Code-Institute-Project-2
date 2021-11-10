@@ -1,4 +1,5 @@
 const welcomeWraper = document.getElementById("welcome-wraper");
+const playerInput = document.getElementById("player-name-input");
 const gameWraper = document.getElementById("game-wraper");
 var score = document.getElementById("score");
 var correctAnswers = document.getElementById("correct");
@@ -85,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
+playerInput.focus();
 
 
 function reStartGame() {
@@ -102,76 +104,89 @@ function reStartGame() {
 /** GETTTING HOLD OF PLAYER NAME AND PASSING IN
 THE BUTTON ELEMENT SELECTED TO START THE GAME
 WITH THE SUBJECT CHOOSEN **/
-
 var startGameInterval;
 var startGameCountDown = 4;
+
 
 function handleSumit(subject) {
   //without this event.prevent the whole function does not work
   event.preventDefault();
 
-subject.classList.add("button-vanishes");
-
-  // get the player name and set it into the panel score
-  var playerName = document.getElementById("player-name-input");
-  document.getElementById("player-name").innerText = playerName.value
-  // console.log(subject);
-
+  // Form validator
+  if(playerInput.value == ""){
+playerInput.setAttribute("placeholder", "Please enter player name!");
+playerInput.focus();
+  }else{
+  subject.classList.add("button-vanishes");
+  document.getElementById("current-player-name").innerText = playerInput.value;
   startCountDown(subject);
+  }
 
 }
+
+
 /** HERE I GET THE BUTTON CLICKED VALUE TO RUN THE GAME
 WITH THE SUBJECT CHOOSEN! */
 function startCountDown(subject) {
-let subjetParentHTML = subject.parentNode;
-let firstChildParentClass = subjetParentHTML.children[0];
 
-// console.log(newChildClass);
-let firstChildParentValue = subjetParentHTML.children[0].getAttribute("value");
-let lastChildParentInner = subjetParentHTML.children[1].innerText;
+  /*getting hold of the elements into the current parent subject
+  and its children in order to pass them as a parameters in order to
+  use them dinamically later*/
+  let subjectParent = subject.parentNode;
+  let firstChildParentClass = subjectParent.children[0];
+  let lastChildParentInner = subjectParent.children[1].innerText;
 
-// let newSubjectButton = firstChildParent.classList.remove("button-vanishes");
-// console.log(firstChildParent);
-// console.log(lastChildParent);
-
-   let subjectParent = subject.parentNode;
-   let nextSubjectSibling = subject.nextElementSibling;
+  // get hold of the nextSibling subject and set initial interval
+  let nextSubjectSibling = subject.nextElementSibling;
   startGameCountDown = 4;
-
+ //clears any previuos interval iniciated
   clearInterval(startGameInterval);
 
   startGameInterval = setInterval(() => {
     startGameCountDown--;
-     let countDown = subjectParent.innerText = startGameCountDown;
-     let parentSubjectInnerHtml = `<spang id="start-countdown">${countDown}</spang>
+    let countDown = subjectParent.innerText = startGameCountDown;
+    /*creat new elements to fill the parent subject html
+    with the countdown to start game after clicking on the subject button*/
+    let parentSubjectInnerHtml = `<spang id="start-countdown">${countDown}</spang>
      <h2 id="start-subject">${nextSubjectSibling.innerText}</h2`;
-     subjectParent.innerHTML =  parentSubjectInnerHtml;
-
-    if (subjectParent.children[0].innerText == 0 && subject.value === "GENERAL") {
-
-      firstChildParentClass.classList.remove("button-vanishes");
-     let newChildClass = firstChildParentClass.getAttribute("class");
-     let newChildValue = firstChildParentClass.getAttribute("value");
-      let parentSubjectInnerHtml = `<button type="submit" class="${newChildClass}  button-shows" name ="subject-1" value="${newChildValue}" onclick="handleSumit(this)"></button>
-      <h2>${lastChildParentInner}`;
-      subjectParent.innerHTML =  parentSubjectInnerHtml;
-      
+    subjectParent.innerHTML = parentSubjectInnerHtml;
+    // When the count gets to 0 we want...
+    if(subjectParent.children[0].innerText == 0 && subject.value === "GENERAL") {
       welcomeWraper.style.display = "none";
       gameWraper.style.display = "block";
-      clearInterval(startGameInterval)
+      /*pass in the the variables declared earlier getting hold
+      of the first elements into the parent subject*/
+      resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
+      clearInterval(startGameInterval);
       runGeneralLevel1();
-
     } else if (subjectParent.children[0].innerText == 0 && subject.value === "HISTORY") {
       // console.log(currentPlayerScore);
       subjectParent.innerHTML = "";
       welcomeWraper.style.display = "none";
       gameWraper.style.display = "block";
+      resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
       clearInterval(startGameInterval)
       runHistoryLevel1();
     }
   }, 1000);
 
 
+}
+
+function resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner){
+
+  /*getting hold of the subjectElement parent
+  and its children in order to use them dinamically later*/
+
+  /*get hold of the initial children of the parent subject*/
+  firstChildParentClass.classList.remove("button-vanishes");
+  let newChildClass = firstChildParentClass.getAttribute("class");
+  let newChildValue = firstChildParentClass.getAttribute("value");
+  /*Resets the parent subject html to a new subject bottom
+  once the count gets to 0 */
+  let parentSubjectInnerHtml = `<button type="submit" class="${newChildClass}  button-shows" name ="subject-1" value="${newChildValue}" onclick="handleSumit(this)"></button>
+  <h2>${lastChildParentInner}`;
+  subjectParent.innerHTML = parentSubjectInnerHtml;
 }
 
 //CREATE UNDEFINED VALUES FOR SUFFLING QUESTIONS
@@ -225,14 +240,34 @@ function setNextQuestion() {
 
 
 function showQuestions(question) {
-  // console.log(generalLevel1.indexOf(question));
-  // console.log(generalLevel2.indexOf(question));
-  // console.log(question.correct);
 
+// let questionText = question.question;
+// let answer1 = question.answer1;
+// let answer2 = question.answer2;
+// let answer3 = question.answer3;
   document.getElementById("question").textContent = question.question;
   document.getElementById("answer1").textContent = question.answer1;
   document.getElementById("answer2").textContent = question.answer2;
   document.getElementById("answer3").textContent = question.answer3;
+
+// let questionPanel = `<h4 id="question" value="">${questionText}</h4>
+// <div id="answer-options">
+//   <div class="answer-box">
+//
+//   <button id="answer1" class="answers" type="button" >${answer1}</button>
+//   </div>
+//   <div class="answer-box">
+//     <button id="answer2" class="answers" type="button" >${answer2}</button>
+//   </div>
+//   <div class="answer-box" type="button">
+//     <button id="answer3" class="answers" type="button">${answer3}</button>
+//   </div>
+// </div>`;
+// document.getElementById("game-container").innerHTML = questionPanel;
+//
+// document.getElementsByClassName("answers").addEventListener("click", function(){
+//   checkAnswer(userAnswer);
+
 
   /* reset the timer to 10 for every print and
   clear any interval set, so the timer
@@ -314,7 +349,7 @@ const allPlayersScores = [{
 // Function to populate the current player score table
 function showFinalPlayerScore() {
 
-  let currentGamer = document.getElementById("player-name").textContent;
+  let currentGamer = document.getElementById("current-player-name").textContent;
   let currentP = document.getElementById("score").textContent;
   let correct = document.getElementById("correct").textContent;
   const currentPlayerScore = [{
@@ -381,9 +416,9 @@ function checkAnswer(userAnswer) {
   // stops the countdown when user clicks an answer
   clearInterval(timeInterval);
 
+
   let currentQuestion = shuffleQuestions[currentQuestionIndex];
   const parentP = userAnswer.parentNode;
-
   if (userAnswer.innerText === currentQuestion.correct) {
     parentP.classList.add("right-answer");
     incrementScore();
@@ -392,6 +427,7 @@ function checkAnswer(userAnswer) {
     parentP.classList.add("wrong-answer");
     incrementIncorrectAnswers();
   }
+
 
 
   setTimeout(function() {
@@ -420,12 +456,21 @@ function incrementScore() {
 function incrementCorrectAnswers() {
   let initialNumber = parseInt(correctAnswers.innerText);
   var correctAnswersTrack = correctAnswers.innerText = ++initialNumber;
-
+let currentGame = document.getElementById("game-container").innerHTML;
   if (correctAnswersTrack >= "5") {
+//     let gameContainerHtml = `<div id="next-level-container">
+//     <h1 id="next-level-word">Level</h1>
+//     <h1 id="next-level-number">2</h1>
+//     </div>`;
+//      document.getElementById("game-container").innerHTML = gameContainerHtml;
+// setTimeout (function(){
+//   // document.getElementById("game-container").innerHTML = currentGame;
+// runGeneralLevel2();
+// }, 2000)
+
     status.innerText = "2";
     // currentQuestionIndex = 0;
     runGeneralLevel2();
-    // currentQuestionIndex--
   } else if (correctAnswersTrack >= "10") {
     alert("puta")
   }

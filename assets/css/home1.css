@@ -223,6 +223,9 @@ animation-fill-mode: forwards;
   text-align: center;
   font-family:
 }
+#form input:focus{
+  outline-color: orange;
+}
 
 #form .choose-text{
   font-family: 'Work Sans', sans-serif;
@@ -445,7 +448,7 @@ margin: 15px 0 0 15px;
   display: inline-block;
 }
 
-#player-name {
+#current-player-name {
   text-transform: capitalize;
   text-align: center;
   font-weight: bold;
