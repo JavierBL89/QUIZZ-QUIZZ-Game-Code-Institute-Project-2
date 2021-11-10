@@ -153,6 +153,10 @@ animation-duration: 1s;
 animation-fill-mode: forwards;
 }
 
+.button-shows{
+  opacity: 1;
+}
+
 @keyframes button-vanishes {
   from{
     opacity: 1;
@@ -246,7 +250,8 @@ animation-fill-mode: forwards;
   width: 230px;
   text-decoration: none;
 border-radius: 10px;
-color: white;
+/* color: white; */
+color: yellow;
 border: solid 2px rgb(115, 161, 122);
 
 }

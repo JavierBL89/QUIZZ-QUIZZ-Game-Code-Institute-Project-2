@@ -85,16 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-// function gone (element){
-//
-//   document.addEventListener("click", function (event){
-//     console.log(event.target);
-// if(event.target.closest("modal-subjects-panel"))
-// return  modalSubjectsPanel.style.display = "none";
-//
-//   })
-//
-// }
+
 
 function reStartGame() {
   endOfGamePanel.style.display = "none";
@@ -132,6 +123,16 @@ subject.classList.add("button-vanishes");
 /** HERE I GET THE BUTTON CLICKED VALUE TO RUN THE GAME
 WITH THE SUBJECT CHOOSEN! */
 function startCountDown(subject) {
+let subjetParentHTML = subject.parentNode;
+let firstChildParentClass = subjetParentHTML.children[0];
+
+// console.log(newChildClass);
+let firstChildParentValue = subjetParentHTML.children[0].getAttribute("value");
+let lastChildParentInner = subjetParentHTML.children[1].innerText;
+
+// let newSubjectButton = firstChildParent.classList.remove("button-vanishes");
+// console.log(firstChildParent);
+// console.log(lastChildParent);
 
    let subjectParent = subject.parentNode;
    let nextSubjectSibling = subject.nextElementSibling;
@@ -147,12 +148,19 @@ function startCountDown(subject) {
      subjectParent.innerHTML =  parentSubjectInnerHtml;
 
     if (subjectParent.children[0].innerText == 0 && subject.value === "GENERAL") {
-      // console.log(currentPlayerScore);
-      subjectParent.children[0].innerHTML = "";
+
+      firstChildParentClass.classList.remove("button-vanishes");
+     let newChildClass = firstChildParentClass.getAttribute("class");
+     let newChildValue = firstChildParentClass.getAttribute("value");
+      let parentSubjectInnerHtml = `<button type="submit" class="${newChildClass}  button-shows" name ="subject-1" value="${newChildValue}" onclick="handleSumit(this)"></button>
+      <h2>${lastChildParentInner}`;
+      subjectParent.innerHTML =  parentSubjectInnerHtml;
+      
       welcomeWraper.style.display = "none";
       gameWraper.style.display = "block";
       clearInterval(startGameInterval)
       runGeneralLevel1();
+
     } else if (subjectParent.children[0].innerText == 0 && subject.value === "HISTORY") {
       // console.log(currentPlayerScore);
       subjectParent.innerHTML = "";
@@ -162,6 +170,7 @@ function startCountDown(subject) {
       runHistoryLevel1();
     }
   }, 1000);
+
 
 }
 
