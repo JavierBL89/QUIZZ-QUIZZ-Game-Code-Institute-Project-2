@@ -11,6 +11,9 @@ const comodin2 = document.getElementById("comodin2");
 const comodin3 = document.getElementById("comodin3");
 const comodin4 = document.getElementById("comodin4");
 
+const topPlayersArray = [];
+const finalPlayerScore = document.getElementById("final-player-score");
+const finalTopPlayers = document.getElementById("top-players-container");
 const endOfGamePanel = document.getElementById("end-of-game");
 const reStartButton = document.getElementById("button-restart-container");
 
@@ -274,6 +277,7 @@ function showQuestions(question) {
       clearInterval(timeInterval);
       endOfGame();
       showFinalPlayerScore();
+      showTopPlayersScore();
     }
   }, 1000);
 
@@ -311,9 +315,14 @@ function checkAnswer(userAnswer) {
 }
 
 
+/*******************  HERE ALL THE CHANGEABLE INNER TEXTS ON THE FLOW *****************///
+
+/**** sets subject question heading according to the subject selected
+in order to use later to call next level questions ****/
 function heading(headingText) {
   document.getElementById("subject").innerText = headingText;
 }
+
 
 /********* MANIPULATING SCORES PANEL **********/
 function incrementScore() {
@@ -328,14 +337,13 @@ function incrementCorrectAnswers() {
 let currentGame = document.getElementById("game-container").innerHTML;
   if (correctAnswersTrack >= "5") {
     status.innerText = "2";
-    // status.style.backgroundColor = "yellow";
     status.classList.add("status-color");
+    /*** use dinamic subject question heading to run
+    next level questions afert 1s *** */
     setInterval(()=>{
        if(currentSubjectGame === "General Knowledge"){
          runGeneralLevel2();
-
        }else if(currentSubjectGame === "History"){
-
          runHistoryLevel2();
        }
     },1000)
@@ -356,6 +364,7 @@ function incrementIncorrectAnswers() {
 
 
 
+/************************ END OF THE GAME SECTION ************************/
 
 // Function to get rid of the game panel
 function endOfGame() {
@@ -365,14 +374,6 @@ function endOfGame() {
 
   endOfGamePanel.style.display = "block";
   reStartButton.style.display = "block";
-
-  //   const currentPlayer = {
-  //       name: currentGamer,
-  //       score: currentP,
-  //       correctAnswers: corr
-  //   };
-  //   currentPlayerScore.push(currentPlayer);
-  // console.log(currentPlayerScore);
 }
 
 
@@ -389,68 +390,42 @@ finalPlayerScoreInner = `
 /** Arrays of the current player scores
     and the best 3 players scores */
 
-// const currentPlayerScore = [{
-//     name: "Javier",
-//     score: "3000",
-//     correctAnswers: "15"
-// }
-// ];
-
-const allPlayersScores = [{
-    name: "Pablo",
-    score: "5500",
-    correctAnswers: "21"
-  },
-  {
-    name: "Adrian",
-    score: "10900",
-    correctAnswers: "32"
-  },
-  {
-    name: "Pablo",
-    score: "8150",
-    correctAnswers: "25"
-  }
-];
 
 // Function to populate the current player score table
 function showFinalPlayerScore() {
 
   let currentGamer = document.getElementById("current-player-name").textContent;
-  let currentP = document.getElementById("score").textContent;
+  let currentScore = document.getElementById("score").textContent;
   let correct = document.getElementById("correct").textContent;
+
   const currentPlayerScore = [{
     name: currentGamer,
-    score: currentP,
+    score: currentScore,
     correctAnswers: correct
   }];
-  console.log(currentPlayerScore);
-  // console.log(corr);
   // console.log(currentPlayerScore);
-  /* Loping throught the current player scores
-    and creating html table */
+topPlayersArray.push(currentPlayerScore);
+
+  /* Loping throught the current player score
+    and creating a dinamic html table */
   currentPlayerScore.forEach(function(player) {
 
-    // for(player of currentPlayerScore){
     let playerRow = `<tr class="tr">
     <td>${player.name}</td>
     <td>${player.score}</td>
     <td>${player.correctAnswers}</td>
     </tr>`;
 
-    finalPlayerScoreInner += playerRow;
-    // }
+    finalPlayerScoreInner += playerRow += `</table>`;
   })
 
-  return finalPlayerScoreInner += `</table>`;
+  return finalPlayerScore.innerHTML = finalPlayerScoreInner;
 }
-let finalPlayerScore = document.getElementById("final-player-score").innerHTML = showFinalPlayerScore();
-
 
 
 
 // Creating the top players html table
-let topPlayersPanel = `<table style="width:100%">
+topPlayersTableInner = `<table style="width:100%">
 <tr>
 <th>Player</th>
 <th>Score</th>
@@ -459,21 +434,32 @@ let topPlayersPanel = `<table style="width:100%">
 
 // Function to populate the top player table
 function showTopPlayersScore() {
+  console.log(topPlayersArray);
+console.log(topPlayersArray[0]["name"]);
+    // topPlayersArray.forEach( function(topPlayer){
+    //   let topPlayersRow = `
+    //   <tr>
+    //   <td>${topPlayer.name}</td>
+    //   <td>${topPlayer.score}</td>
+    //   <td>${topPlayer.correctAnswers}</td>
+    //   </tr>`;
+    //
+    //   topPlayersTableInner += topPlayersRow;
+    // })
 
-  for (topPlayer of allPlayersScores) {
-    let topPlayersRow = `
-    <tr>
-    <td>${topPlayer.name}</td>
-    <td>${topPlayer.score}</td>
-    <td>${topPlayer.correctAnswers}</td>
-    </tr>`;
+    for(let topPlayer of topPlayersArray){
+        let topPlayersRow = `
+        <tr>
+        <td>${topPlayer.name}</td>
+        <td>${topPlayer.score}</td>
+        <td>${topPlayer.correctAnswers}</td>
+        </tr>`;
 
-    topPlayersPanel += topPlayersRow;
-  }
+        topPlayersTableInner += topPlayersRow;
+    }
 
-  return topPlayersPanel += `</table>`
+  return finalTopPlayers.innerHTML = topPlayersTableInner += `</table>`;
 }
-let topPlayerScorePanel = document.getElementById("top-players-container").innerHTML = showTopPlayersScore();
 
 
 
