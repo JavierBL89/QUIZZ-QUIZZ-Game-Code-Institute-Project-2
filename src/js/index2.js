@@ -56,25 +56,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
       } else if (this.getAttribute("id") === "answer1") {
         console.log(this.innerText);
+
         checkAnswer(this);
       } else if (this.getAttribute("id") === "answer2") {
         console.log(this.innerText);
+
         checkAnswer(this);
       } else if (this.getAttribute("id") === "answer3") {
         console.log(this.innerText);
+
         checkAnswer(this);
       } else if (this.getAttribute("id") === "comodin1") {
-        this.style.display = "none";
-
         setNextQuestion();
       } else if (this.getAttribute("id") === "comodin2") {
-        // gone(this);
         clearInterval(timeInterval);
         modalSubjectsPanel.style.display = "block";
         // modalSubjectsPanel.classList.add("slideIn");
-        // this.style.display = "none";
-      } else if (this.getAttribute("id") === "comodin3") {
         this.style.display = "none";
+      } else if (this.getAttribute("id") === "comodin3") {
+        clearInterval(timeInterval);
+        timeExtra();
+        this.style.display = "none";
+        // incrementTime();
       } else if (this.getAttribute("id") === "restart-game") {
         reStartGame();
       } else {
@@ -83,29 +86,35 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   }
+  playerInput.focus();
 
 });
+let extraTimeInterval
+let newCountDown
+function timeExtra(){
+  // countDown = "";
+   newCountDown = countDown+20;
+  console.log(newCountDown);
 
-playerInput.focus();
-
-
-function reStartGame() {
-  endOfGamePanel.style.display = "none";
-  reStartButton.style.display = "none";
-
-  welcomeWraper.style.display = "grid";
-  score.innerText = "0";
-  correctAnswers.innerText = "0";
-
+  extraTimeInterval = setInterval (() =>{
+    newCountDown--;
+    document.getElementById("countDown").textContent = newCountDown;
+    if(document.getElementById("countDown").textContent == 0){
+      clearInterval(extraTimeInterval);
+      endOfGame();
+      showFinalPlayerScore();
+    }
+  },1000)
 }
+
+
 
 
 
 /** GETTTING HOLD OF PLAYER NAME AND PASSING IN
 THE BUTTON ELEMENT SELECTED TO START THE GAME
 WITH THE SUBJECT CHOOSEN **/
-var startGameInterval;
-var startGameCountDown = 4;
+
 
 
 function handleSumit(subject) {
@@ -126,9 +135,11 @@ playerInput.focus();
 
 
 /** HERE I GET THE BUTTON CLICKED VALUE TO RUN THE GAME
-WITH THE SUBJECT CHOOSEN! */
-function startCountDown(subject) {
+WITH THE SUBJECT CHOOSEN AFTER 3s COUNTDOWN! */
+var startGameInterval;
+var startGameCountDown = 4;
 
+function startCountDown(subject) {
   /*getting hold of the elements into the current parent subject
   and its children in order to pass them as a parameters in order to
   use them dinamically later*/
@@ -170,13 +181,10 @@ function startCountDown(subject) {
     }
   }, 1000);
 
-
 }
 
+// reset HTML of the subject button selected to start
 function resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner){
-
-  /*getting hold of the subjectElement parent
-  and its children in order to use them dinamically later*/
 
   /*get hold of the initial children of the parent subject*/
   firstChildParentClass.classList.remove("button-vanishes");
@@ -189,17 +197,17 @@ function resetSubjectButton(subjectParent, firstChildParentClass, lastChildParen
   subjectParent.innerHTML = parentSubjectInnerHtml;
 }
 
-//CREATE UNDEFINED VALUES FOR SUFFLING QUESTIONS
-var shuffleQuestions, currentQuestion
-var currentQuestionIndex = 0;
-var timeInterval;
-var countDown = 10;
 
-// array of correct answers
-// const correctAnswers = ["Greece", "Jimmy Hendrix", "Germany", "Denmark","1963","1945","A tight rope", "Nevada","7", "James Cameron","Red","Fried chicken","Macadamia nuts","Michel Crichton","Dogs","Polska","A octagon","George Washington","Tasmania","Space Shuttle Columbia","Ireland","4","McDonald", "The London Bridge","Charles Lindbergh","Silver", "China", "Alexander Graham Bell", "Carl (Karl) Friedrich Benz","Thomas Edison","2 hours 40 minutes","Bethlehem","White House","George Washington","False", "South America","Spanish", "Inception", "Piña Colada", "Martini", "16"];
+/************************ RUN GAME SUBJECTS QUESTIONS *******************/
+
+//CREATE UNDEFINED VALUES FOR SHUFFLING QUESTIONS
+let shuffleQuestions, currentQuestion
+let currentQuestionIndex = 0;
+let timeInterval;
+let countDown = 10;
 
 
-//****** RUN GENERAL KNOWLEDE QUESTIONS LEVEL 1 AND 2*******
+//****** RUNNING GENERAL KNOWLEDE QUESTIONS LEVEL 1 AND 2*******
 
 function runGeneralLevel1() {
   document.getElementById("subject").innerText = "General Knowledge";
@@ -208,14 +216,13 @@ function runGeneralLevel1() {
 }
 
 function runGeneralLevel2() {
-
   document.getElementById("subject").innerText = "General Knowledge";
   shuffleQuestions = generalLevel2.sort(() => Math.random() - .5)
   setNextQuestion();
 }
 
 
-/**** RUN HISTORY QUESTIONS LEVEL 1 AND 2 ************/
+/**** RUN HISTORY QUESTIONS LEVEL 1 AND 2 *********/
 
 function runHistoryLevel1() {
 
@@ -232,42 +239,24 @@ function runHistoryLevel2() {
 }
 
 
+
+
+/************ GETTING NEXT QUESTION  ***********/
+
 function setNextQuestion() {
   currentQuestionIndex++
   showQuestions(shuffleQuestions[currentQuestionIndex]);
-
 }
 
-
 function showQuestions(question) {
-
-// let questionText = question.question;
-// let answer1 = question.answer1;
-// let answer2 = question.answer2;
-// let answer3 = question.answer3;
+// Populate data to users side from subjects questions arrays
   document.getElementById("question").textContent = question.question;
   document.getElementById("answer1").textContent = question.answer1;
   document.getElementById("answer2").textContent = question.answer2;
   document.getElementById("answer3").textContent = question.answer3;
 
-// let questionPanel = `<h4 id="question" value="">${questionText}</h4>
-// <div id="answer-options">
-//   <div class="answer-box">
-//
-//   <button id="answer1" class="answers" type="button" >${answer1}</button>
-//   </div>
-//   <div class="answer-box">
-//     <button id="answer2" class="answers" type="button" >${answer2}</button>
-//   </div>
-//   <div class="answer-box" type="button">
-//     <button id="answer3" class="answers" type="button">${answer3}</button>
-//   </div>
-// </div>`;
-// document.getElementById("game-container").innerHTML = questionPanel;
-//
-// document.getElementsByClassName("answers").addEventListener("click", function(){
-//   checkAnswer(userAnswer);
-
+//clears the extra time interval if it exists
+  clearInterval(extraTimeInterval);
 
   /* reset the timer to 10 for every print and
   clear any interval set, so the timer
@@ -276,7 +265,7 @@ function showQuestions(question) {
   clearInterval(timeInterval);
   document.getElementById("countDown").textContent = countDown;
 
-  //set countdown interval
+  //set countdown interval for every new question
   timeInterval = setInterval(() => {
     countDown--;
     document.getElementById("countDown").textContent = countDown;
@@ -289,6 +278,84 @@ function showQuestions(question) {
   }, 1000);
 
 }
+
+
+/***** CHECK PLAYER ANSWER AGAINST CURRENT QUESTION CORRECT ANSWER
+DEFINED IN THE CONSTRUCTOR FUNCTION ****/
+function checkAnswer(userAnswer) {
+
+  // stops the countdown when user clicks an answer
+  clearInterval(timeInterval);
+
+
+  let currentQuestion = shuffleQuestions[currentQuestionIndex];
+  const parentP = userAnswer.parentNode;
+  if (userAnswer.innerText === currentQuestion.correct) {
+    parentP.classList.add("right-answer");
+    incrementScore();
+    incrementCorrectAnswers()
+  } else {
+    parentP.classList.add("wrong-answer");
+    incrementIncorrectAnswers();
+  }
+
+  setTimeout(function() {
+    setNextQuestion()
+  }, 1000);
+  setTimeout(function() {
+    parentP.classList.remove("right-answer")
+    parentP.classList.remove("wrong-answer")
+  }, 1000);
+
+
+}
+
+
+function heading(headingText) {
+  document.getElementById("subject").innerText = headingText;
+}
+
+/********* MANIPULATING SCORES PANEL **********/
+function incrementScore() {
+  let initialScore = parseInt(score.innerText);
+  var currentScore = score.innerText = initialScore + 300;
+
+}
+
+function incrementCorrectAnswers() {
+  let initialNumber = parseInt(correctAnswers.innerText);
+  var correctAnswersTrack = correctAnswers.innerText = ++initialNumber;
+let currentGame = document.getElementById("game-container").innerHTML;
+  if (correctAnswersTrack >= "5") {
+    status.innerText = "2";
+    // status.style.backgroundColor = "yellow";
+    status.classList.add("status-color");
+    setInterval(()=>{
+       if(currentSubjectGame === "General Knowledge"){
+         runGeneralLevel2();
+
+       }else if(currentSubjectGame === "History"){
+
+         runHistoryLevel2();
+       }
+    },1000)
+    // currentQuestionIndex = 0;
+    // runGeneralLevel2();
+  } else if (correctAnswersTrack >= "10") {
+    alert("puta")
+  }
+}
+
+function incrementIncorrectAnswers() {
+  let initialNumber = parseInt(document.getElementById("incorrect").innerText);
+  let incorrectAnswersTrack = document.getElementById("incorrect").innerText = ++initialNumber;
+  // if(incorrectAnswersTrack >= 2){
+  //   alert("game over")
+  // }
+}
+
+
+
 
 // Function to get rid of the game panel
 function endOfGame() {
@@ -409,79 +476,19 @@ function showTopPlayersScore() {
 let topPlayerScorePanel = document.getElementById("top-players-container").innerHTML = showTopPlayersScore();
 
 
-/***** CHECK PLAYER ANSWER AGAINST CURRENT QUESTION CORRECT ANSWER
-DEFINED IN THE CONSTRUCTOR FUNCTION ****/
-function checkAnswer(userAnswer) {
-
-  // stops the countdown when user clicks an answer
-  clearInterval(timeInterval);
-
-
-  let currentQuestion = shuffleQuestions[currentQuestionIndex];
-  const parentP = userAnswer.parentNode;
-  if (userAnswer.innerText === currentQuestion.correct) {
-    parentP.classList.add("right-answer");
-    incrementScore();
-    incrementCorrectAnswers()
-  } else {
-    parentP.classList.add("wrong-answer");
-    incrementIncorrectAnswers();
-  }
 
 
 
-  setTimeout(function() {
-    setNextQuestion()
-  }, 1000);
-  setTimeout(function() {
-    parentP.classList.remove("right-answer")
-    parentP.classList.remove("wrong-answer")
-  }, 1000);
+function reStartGame() {
+  endOfGamePanel.style.display = "none";
+  reStartButton.style.display = "none";
 
-
-}
-
-
-function heading(headingText) {
-  document.getElementById("subject").innerText = headingText;
-}
-
-/********* MANIPULATING SCORES PANEL **********/
-function incrementScore() {
-  let initialScore = parseInt(score.innerText);
-  var currentScore = score.innerText = initialScore + 300;
-
-}
-
-function incrementCorrectAnswers() {
-  let initialNumber = parseInt(correctAnswers.innerText);
-  var correctAnswersTrack = correctAnswers.innerText = ++initialNumber;
-let currentGame = document.getElementById("game-container").innerHTML;
-  if (correctAnswersTrack >= "5") {
-//     let gameContainerHtml = `<div id="next-level-container">
-//     <h1 id="next-level-word">Level</h1>
-//     <h1 id="next-level-number">2</h1>
-//     </div>`;
-//      document.getElementById("game-container").innerHTML = gameContainerHtml;
-// setTimeout (function(){
-//   // document.getElementById("game-container").innerHTML = currentGame;
-// runGeneralLevel2();
-// }, 2000)
-
-    status.innerText = "2";
-    // currentQuestionIndex = 0;
-    runGeneralLevel2();
-  } else if (correctAnswersTrack >= "10") {
-    alert("puta")
-  }
-}
-
-function incrementIncorrectAnswers() {
-  let initialNumber = parseInt(document.getElementById("incorrect").innerText);
-  let incorrectAnswersTrack = document.getElementById("incorrect").innerText = ++initialNumber;
-  // if(incorrectAnswersTrack >= 2){
-  //   alert("game over")
-  // }
+  comodin1.style.display = "block";
+  comodin2.style.display = "block";
+  comodin3.style.display = "block";
+  welcomeWraper.style.display = "grid";
+  score.innerText = "0";
+  correctAnswers.innerText = "0";
 }
 
 /* CONSTRUCTOR FUNCTION FOR QUESTIONS
