@@ -1061,7 +1061,7 @@ bottom: 5px;
     transform: rotate(0deg);
     position: absolute;
     top: 105px;
-    left: 240px;
+    left: 220px;
   }
 
 
@@ -1166,7 +1166,7 @@ bottom: 5px;
   /*******  GAME SCREEN MOBILE ****/
   #heading-container {
     width: 80%;
-    margin-top: 10px;
+    margin-top: 5px;
     padding-top: 5px;
   }
 
@@ -1199,7 +1199,7 @@ top: 5px;
   #game-container {
     /* margin-top: 10px; */
     width: 90%;
-    margin: 35px 20px auto 20px;
+    margin: 40px 20px auto 20px;
     text-align: center;
   }
 #game-container h4{
