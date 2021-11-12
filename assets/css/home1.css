@@ -1061,7 +1061,7 @@ bottom: 5px;
     transform: rotate(0deg);
     position: absolute;
     top: 105px;
-    left: 270px;
+    left: 240px;
   }
 
 
@@ -1166,7 +1166,7 @@ bottom: 5px;
   /*******  GAME SCREEN MOBILE ****/
   #heading-container {
     width: 80%;
-    margin-top: 0px;
+    margin-top: 10px;
     padding-top: 5px;
   }
 
@@ -1210,8 +1210,9 @@ top: 5px;
   margin-top: 60px;
 }
   .answer-box button {
-    height: 30px;
+    height: 32px;
     width: 100%;
+    border-radius: 2px;
   }
 
   /***** COMODIN SECTION ******/
