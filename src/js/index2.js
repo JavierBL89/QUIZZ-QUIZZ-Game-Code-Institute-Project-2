@@ -92,11 +92,14 @@ document.addEventListener("DOMContentLoaded", function() {
   playerInput.focus();
 
 });
+
 let extraTimeInterval
 let newCountDown
 function timeExtra(){
-  // countDown = "";
-   newCountDown = countDown+20;
+// clears the game interval countDown interval  from line 273
+  clearInterval(timeInterval);
+
+  newCountDown = countDown+20;
   console.log(newCountDown);
 
   extraTimeInterval = setInterval (() =>{
@@ -105,7 +108,6 @@ function timeExtra(){
     if(document.getElementById("countDown").textContent == 0){
       clearInterval(extraTimeInterval);
       endOfGame();
-      showFinalPlayerScore();
     }
   },1000)
 }
@@ -276,8 +278,8 @@ function showQuestions(question) {
       // console.log(currentPlayerScore);
       clearInterval(timeInterval);
       endOfGame();
-      showFinalPlayerScore();
-      showTopPlayersScore();
+      // showFinalPlayerScore();
+      // showTopPlayersScore();
     }
   }, 1000);
 
@@ -374,6 +376,9 @@ function endOfGame() {
 
   endOfGamePanel.style.display = "block";
   reStartButton.style.display = "block";
+  showFinalPlayerScore();
+  showTopPlayersScore();
+
 }
 
 

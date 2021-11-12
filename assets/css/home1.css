@@ -672,6 +672,10 @@ table td {
 /**************************************** MEDIA TABLET **********************************************/
 @media (max-width: 900px) {
 
+#game-wraper{
+  padding-bottom: 80px;
+}
+
   #heading {
     font-size: 3rem;
     color: yellow;
@@ -831,6 +835,7 @@ font-size: 4.5rem;
   }
 
   /************ GAME SCREEN **************/
+
   #heading-container {
     width: 60%;
     margin-top: 0px;
@@ -864,27 +869,13 @@ bottom: 5px;
 }
 
 
-  /************** SCORE SECTION ****************/
-  #score-container {
-    display: none;
-  }
-
-  #player-name {
-    text-transform: capitalize;
-    text-align: center;
-    font-weight: bold;
-  }
-
-  #score-box h4 {
-    margin-left: 10px;
-  }
 
   /*****  game panel ******/
   #game-container {
     justify-content: center;
     width: 70%;
     text-align: center;
-
+    margin: 30px auto 0 100px;
   }
 
   #game-container h4 {
@@ -903,6 +894,7 @@ bottom: 5px;
     position: relative;
     top: 12px;
   }
+
 #answer-options{
   margin-top: 50px;
 
@@ -964,6 +956,21 @@ bottom: 5px;
   }
 
 
+  /************** SCORE SECTION ****************/
+  #score-container {
+    display: none;
+  }
+
+  #player-name {
+    text-transform: capitalize;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  #score-box h4 {
+    margin-left: 10px;
+  }
+
 
   /*********  END OF GAME PANEL ******/
   #end-of-game {
@@ -1016,7 +1023,7 @@ bottom: 5px;
 @media (max-width: 575px) {
   #heading {
     margin: 0 auto;
-    padding: 5% auto;
+    padding: 6% auto;
     width: 95%;
     font-size: 2.7rem;
     color: yellow;
@@ -1054,7 +1061,7 @@ bottom: 5px;
     transform: rotate(0deg);
     position: absolute;
     top: 105px;
-    left: 190px;
+    left: 270px;
   }
 
 
@@ -1062,7 +1069,7 @@ bottom: 5px;
   /***** FORM ******/
   #form-container {
     position: relative;
-    top: 200px;
+    top: 190px;
     text-align: center;
     padding: auto 20px;
   }
@@ -1160,6 +1167,7 @@ bottom: 5px;
   #heading-container {
     width: 80%;
     margin-top: 0px;
+    padding-top: 5px;
   }
 
   #heading-container h1 {
@@ -1191,7 +1199,7 @@ top: 5px;
   #game-container {
     /* margin-top: 10px; */
     width: 90%;
-    margin: 50px 20px auto 20px;
+    margin: 35px 20px auto 20px;
     text-align: center;
   }
 #game-container h4{
@@ -1202,7 +1210,7 @@ top: 5px;
   margin-top: 60px;
 }
   .answer-box button {
-    height: 35px;
+    height: 30px;
     width: 100%;
   }
 
