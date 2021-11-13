@@ -417,6 +417,13 @@ margin: 15px 0 0 15px;
   top: 25px;
 }
 
+.answer-box {
+  align-items: center;
+  margin-bottom: 25px;
+  padding: auto 18px;
+  border-radius: 10px;
+}
+
 /*** ANSWERS CSS ***/
 .answer-box button {
   font-size: 1rem;
@@ -426,16 +433,13 @@ margin: 15px 0 0 15px;
   height: 40px;
   width: 100%;
   border: none;
+  border-radius: 10px;
   justify-content: center;
   position: relative;
   top: 12px;
 }
 
-.answer-box {
-  align-items: center;
-  margin-bottom: 25px;
-  padding: auto 18px;
-}
+
 
 .blank {
   background-color: white;
@@ -883,6 +887,18 @@ bottom: 5px;
     font-size: 1rem;
   }
 
+
+  #answer-options{
+    margin-top: 50px;
+
+  }
+
+.answer-box{
+  align-items: center;
+  padding: auto 18px;
+  border-radius: 10px;
+
+}
   .answer-box button {
     margin-top: 20px;
     display: flex;
@@ -893,16 +909,11 @@ bottom: 5px;
     justify-content: center;
     position: relative;
     top: 12px;
+    border-radius: 10px;
   }
 
-#answer-options{
-  margin-top: 50px;
 
-}
-  .answer-box {
-    align-items: center;
-    padding: auto 18px;
-  }
+
 
   .blank {
     background-color: white;
@@ -1061,7 +1072,7 @@ bottom: 5px;
     transform: rotate(0deg);
     position: absolute;
     top: 105px;
-    left: 220px;
+    left: 210px;
   }
 
 
@@ -1209,10 +1220,18 @@ top: 5px;
 #answer-options{
   margin-top: 60px;
 }
+
+.answer-box {
+  /* margin-bottom: 2px; */
+  border-radius: 10px;
+
+}
+
   .answer-box button {
     height: 32px;
     width: 100%;
-    border-radius: 2px;
+    border-radius: 10px;
+
   }
 
   /***** COMODIN SECTION ******/

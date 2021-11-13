@@ -409,7 +409,7 @@ function showFinalPlayerScore() {
     correctAnswers: correct
   }];
   // console.log(currentPlayerScore);
-topPlayersArray.push(currentPlayerScore);
+// topPlayersArray.push(currentPlayerScore);
 
   /* Loping throught the current player score
     and creating a dinamic html table */
