@@ -79,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function() {
         clearInterval(timeInterval);
         modalSubjectsPanel.style.display = "block";
         // modalSubjectsPanel.classList.add("slideIn");
-        this.style.display = "none";
       } else if (this.getAttribute("id") === "comodin3") {
         clearInterval(timeInterval);
         timeExtra();
