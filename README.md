@@ -3,7 +3,7 @@
 The Trivial Quizz-Quizz game is designed to entertaint people by answering questions of diferents subjects to challenge themselves while adquiring knowledge. It is an amusing way to get a bit of culture while having fun.
 The application jumps into harder levels of questions as the user advance.
 
-![](assets/images/devices-desing.jpg)
+[](assets/images/devices-desing.jpg)
 
 
 1. Planning stage
@@ -106,7 +106,7 @@ The application jumps into harder levels of questions as the user advance.
         This comodin will desapear after using.
            - Design destop: [](assets/images/change-subject-desktop.png).
            - Design mobile: [](assets/images/change-subject-mobile.png)
-        
+
         - Buy extra time:
         The counter will add 20s in order for the user to have time to research the question and thereby answer correctly.
         This comodin will desapear after using.
