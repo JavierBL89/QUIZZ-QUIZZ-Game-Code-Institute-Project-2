@@ -209,8 +209,8 @@ function runGeneralLevel1() {
 }
 
 function runGeneralLevel2() {
-  atLevel2 = true;
-  currentQuestionIndex = 0
+  // atLevel2 = true;
+  // currentQuestionIndex = 0
 
   document.getElementById("subject").innerText = "General Knowledge";
   shuffleQuestions = generalLevel2.sort(() => Math.random() - .5)

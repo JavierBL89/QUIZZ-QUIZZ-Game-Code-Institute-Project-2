@@ -3,44 +3,44 @@
 The Trivial Quizz-Quizz game is designed to entertaint people by answering questions of diferents subjects to challenge themselves while adquiring knowledge. It is an amusing way to get a bit of culture while having fun.
 The application jumps into harder levels of questions as the user advance.
 
-[](../assets/images/devices-desing.jpg)
+![](../assets/images/devices-desing.jpg)
 
-#Table Contents
+# Table Contents
 
-    - Planning stage
-      - Target Audiences
-      - User stories
-      - Design goals
-      - Design choises
-      - Font
-      - Color scheme
+  - Planning stage
+    - Target Audiences
+    - User stories
+    - Design goals
+    - Design choises
+    - Font
+    - Color scheme
 
-      - Wireframes
+    - Wireframes
 
-    - Features
-      - Difficulty
-      - Comodins
+  - Features
+    - Difficulty
+    - Comodins
 
-    - Future features
-    - Testing
-      - Responsiveness
-      - Lighthouse
-        - Desktop
-        - Mobile
-      - Validators
+  - Future features
+  - Testing
+    - Responsiveness
+    - Lighthouse
+      - Desktop
+      - Mobile
+    - Validators
 
-    - Bugs
-      - Fixed bugs
-      - Known bugs
-    - Technology Used
-      - Languajes
-      - Libraries
+  - Bugs
+    - Fixed bugs
+    - Known bugs
+  - Technology Used
+    - Languajes
+    - Libraries
 
-    - Deployment
-    - Credits
-      - Content
-      - Media
-      - Thanks
+  - Deployment
+  - Credits
+    - Content
+    - Media
+    - Thanks
 
 ## Planning Stage
 
@@ -90,14 +90,14 @@ The application jumps into harder levels of questions as the user advance.
    - There are 2 difficulties that go from the easiest to the hardest as the user advance on the game.
     After 5 correct answers it automatically jumps into the 2nd level of questions about the same prior subject.
 
-  [](../assets/images/level-1.png)
-  [](../assets/images/level-2.png)
+  ![](../assets/images/level-1.png)
+  ![](../assets/images/level-2.png)
 
   ## Comodins
 
    - The game provides of 3 comodins to the user in order to help them to go to next question on the most difficult ones for them.
-   [](../assets/images/comodins-desktop.png)
-   [](../assets/images/comodins-mobile.png)
+   ![](../assets/images/comodins-desktop.png)
+   ![](../assets/images/comodins-mobile.png)
 
         - Skip question:
         The game will jump into the next question.
@@ -106,8 +106,8 @@ The application jumps into harder levels of questions as the user advance.
         - Change subject:
         The user has the change of change subject question on the flow.
         This comodin will desapear after using.
-           - Design destop: [](../assets/images/change-subject-desktop.png).
-           - Design mobile: [](../assets/images/change-subject-mobile.png)
+           - Design destop: ![](../assets/images/change-subject-desktop.png).
+           - Design mobile: ![](../assets/images/change-subject-mobile.png)
 
         - Buy extra time:
         The counter will add 20s in order for the user to have time to research the question and thereby answer correctly.
