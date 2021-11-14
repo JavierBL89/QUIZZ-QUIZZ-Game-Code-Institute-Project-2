@@ -367,6 +367,10 @@ top: 67px;
   font-size: 1.7rem;
 }
 
+.level-status-mobile{
+  display: none;
+}
+
 #heading-container .heading {
   display: flex;
   margin: 20 auto;
@@ -780,12 +784,12 @@ justify-content: center;
 
 .subject-button-container #start-countdown{
   position: relative;
-  top:10px;
+  top:9px;
 font-size: 4.5rem;
   }
   .subject-button-container #start-subject{
   position: relative;
-  top: 21px;
+  top: 20px;
   }
 
 
@@ -812,15 +816,14 @@ font-size: 4.5rem;
     position: absolute;
     top: 0;
     left: 0;
-    /* background: rgba(3, 1, 1, 0.5); */
-    /* background-color: rgba(23, 26, 26, 0.82); */
-    background-color: rgb(60, 120, 125);
-    height: 100vh;
-    width: 100vw;
+    /* background-color: rgb(60, 120, 125); */
+    background-color: rgb(44, 89, 93);
+    height: 100%;
+    width: 100%;
     text-align: center;
     display: none;
     flex-direction: column;
-    padding-top: 5vh;
+    padding-top: 5%;
   }
 
   #modal-subjects-panel button {
@@ -881,6 +884,14 @@ bottom: 5px;
     text-align: center;
     margin: 30px auto 0 100px;
   }
+
+.level-status-mobile{
+  display: block;
+  font-size: 1.2rem;
+  /* color: rgb(255, 204, 106); */
+  color: rgb(255, 232, 122);
+  text-align: center;
+}
 
   #game-container h4 {
     padding: 1px 20px;
@@ -1206,10 +1217,19 @@ position: relative;
 top: 5px;
 }
 
+.level-status-mobile{
+  display: block;
+  font-size: 1rem;
+  /* color: rgb(255, 204, 106); */
+  color: rgb(255, 232, 122);
+  text-align: center;
+}
+
   /*****  game panel */
   #game-container {
     /* margin-top: 10px; */
-    width: 90%;
+    width: 90vw;
+    height: 49vh;
     margin: 40px 20px auto 20px;
     text-align: center;
   }

@@ -1,150 +1,162 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
 
-    <title>Quizz-Qui??</title>
-    <!-- STYLESHEET -->
-    <link rel="stylesheet" href="assets/css/home1.css">
-    <!-- FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@1,800&family=Carter+One&family=Open+Sans:wght@700&family=Poppins:wght@400;500;600;700;800&family=Suez+One&display=swap" rel="stylesheet">
-              <!-- ICONS -->
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
 
-  </head>
-  <body>
+  <title>Quizz-Qui??</title>
+  <!-- STYLESHEET -->
+  <link rel="stylesheet" href="assets/css/home1.css">
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@1,800&family=Carter+One&family=Open+Sans:wght@700&family=Poppins:wght@400;500;600;700;800&family=Suez+One&display=swap" rel="stylesheet">
+  <!-- ICONS -->
 
-   <div id="welcome-wraper">
+</head>
 
-      <div id="title-panel">
-        <h1 id="heading"><span id="hey">Hey</span><br />Welcome to<br />
-        <spang id="quizz-1">Qui<spang id="zz"><spang id="z1">z</spang>z</spang></spang> Qui<spang id="letter1">?</spang><spang id="letter2">?</spang></h1>
-         </div>
-         <div id="form-container">
-           <form id="form" action="game.html" method="POST">
-               <input type="text" id="player-name-input" name="player-name-input" value="" placeholder="Enter player name"  min="4" max="10" required >
-             <br />
+<body>
 
-           <h2 class="choose-text">Choose a subject to start!<br /></h2>
-       <div id="subjects-wraper">
-         <div class="subject-button-container" id="subject-1">
-           <button type="submit" class="subject-1" name ="subject-1" value="GENERAL" onclick="handleSumit(this)"></button>
-           <h2 class="start-subject">GENERAL</h2>
-         </div>
-         <div class="subject-button-container">
-           <button type="submit" class="subject-2" name ="subject-1" value="HISTORY" onclick="handleSumit(this)"></button>
-           <h2>HISTORY</h2>
-         </div>
-         <div class="subject-button-container">
-           <button type="submit" class="subject-3" name ="subject-1" value="FOOTBALL" onclick="handleSumit(this)"></button>
-           <h2>FOOTBALL</h2>
-         </div>
-         <div class="subject-button-container">
-          <button type="submit" class="subject-4" name ="subject-1" value="GEOGRAPHY" onclick="handleSumit(this)"></button>
-           <h2>GEOGRAPHY</h2>
-         </div>
-           <!-- <input type="submit" class="subject-1" name ="subject-1" value="GENERAL" onclick="handleSumit(this)"> -->
-           <!-- <input type="submit" class="subject-2" name ="subject-2" value="HISTORY" onclick="handleSumit(this)">
-           <input type="submit" class="subject-3" name ="subject"value="FOOTBAL">
-           <input type="submit" class="subject-4" name ="subject" value="GEOGRAPHY"> -->
+  <div id="welcome-wraper">
 
-       </div>
+    <div id="title-panel">
+      <h1 id="heading"><span id="hey">Hey</span><br />Welcome to<br />
+        <spang id="quizz-1">Qui<spang id="zz">
+            <spang id="z1">z</spang>z
+          </spang>
+        </spang> Qui<spang id="letter1">?</spang>
+        <spang id="letter2">?</spang>
+      </h1>
+    </div>
+    <div id="form-container">
+      <form id="form" action="game.html" method="POST">
+        <input type="text" id="player-name-input" name="player-name-input" value="" placeholder="Enter player name" min="4" max="10" required>
+        <br />
 
-</form>
-       </div>
+        <h2 class="choose-text">Choose a subject to start!<br /></h2>
+        <div id="subjects-wraper">
+          <div class="subject-button-container" id="subject-1">
+            <button type="submit" class="subject-1" name="subject-1" value="GENERAL" onclick="handleSumit(this)"></button>
+            <h2 class="start-subject">GENERAL</h2>
+          </div>
+          <div class="subject-button-container">
+            <button type="submit" class="subject-2" name="subject-1" value="HISTORY" onclick="handleSumit(this)"></button>
+            <h2>HISTORY</h2>
+          </div>
+          <div class="subject-button-container">
+            <button type="submit" class="subject-3" name="subject-1" value="FOOTBALL" onclick="handleSumit(this)"></button>
+            <h2>FOOTBALL</h2>
+          </div>
+          <div class="subject-button-container">
+            <button type="submit" class="subject-4" name="subject-1" value="GEOGRAPHY" onclick="handleSumit(this)"></button>
+            <h2>GEOGRAPHY</h2>
+          </div>
+        </div>
 
-
-
-</div>
-
-
-
-<!------------------   GAME PANEL  --------------------->
- <div id="game-wraper">
-<div id="heading-container">
-  <h2 id="level-row">Level <spang id="level-status">1</spang></h2>
-  <div class="heading">
-    <h1 id="subject">General Knowledge</h1>
-      <span id="countDown">10</span>
+      </form>
     </div>
 
- </div>
- <!-- SCORE PANEL -->
-   <div id="score-container">
-<div id="score-box">
-  <h3 id="current-player-name"></h3>
-  <h4>Score: <spang id="score">0</spang></h4>
-  <h4>Missed score: <spang id="missed-score">0</spang></h4>
-  <h4>Correct answers: <spang id="correct">0</spang></h4>
-  <h4>Incorrect answers: <spang id="incorrect">0</spang></h4>
-  </div>
+
+
   </div>
 
- <div id="game-container">
-    <h4 id="question" value="">What is the capital of Iranlda?</h4>
-    <div id="answer-options">
-      <div class="answer-box">
 
-      <button id="answer1" class="answers" type="button" >Tipperary</button>
+
+  <!------------------   GAME PANEL  --------------------->
+  <div id="game-wraper">
+    <div id="heading-container">
+      <h2 id="level-row">Level <spang id="level-status">1</spang>
+      </h2>
+      <div class="heading">
+        <h1 id="subject">General Knowledge</h1>
+        <span id="countDown">10</span>
       </div>
-      <div class="answer-box">
-        <button id="answer2" class="answers" type="button" >Cork</button>
-      </div>
-      <div class="answer-box" type="button">
-        <button id="answer3" class="answers" type="button">Dublin</button>
+
+    </div>
+    <!-- SCORE PANEL -->
+    <div id="score-container">
+      <div id="score-box">
+        <h3 id="current-player-name"></h3>
+        <h4>Score: <spang id="score">0</spang>
+        </h4>
+        <h4>Missed score: <spang id="missed-score">0</spang>
+        </h4>
+        <h4>Correct answers: <spang id="correct">0</spang>
+        </h4>
+        <h4>Incorrect answers: <spang id="incorrect">0</spang>
+        </h4>
       </div>
     </div>
- </div>
+
+    <div id="game-container">
+      <h4 id="question" value="">What is the capital of Iranlda?</h4>
+      <div id="answer-options">
+        <div class="answer-box">
+
+          <button id="answer1" class="answers" type="button">Tipperary</button>
+        </div>
+        <div class="answer-box">
+          <button id="answer2" class="answers" type="button">Cork</button>
+        </div>
+        <div class="answer-box" type="button">
+          <button id="answer3" class="answers" type="button">Dublin</button>
+        </div>
+      </div>
+    </div>
 
 
- <div id="comodin-container">
-   <h3>Comodins<spang id="comodins"> 3</spang></h3>
-    <div class="comodin-options">
-      <button  id="comodin1" type="button"><h5>SQUIP QUESTION</h5></button>
-      <button id="comodin2" type="button"><h5>CHANGE SUBJECT</h5></button>
-      <button id="comodin3" type="button"><h5>BUY TIME</h5></button>
+    <div id="comodin-container">
+      <h3>Comodins<spang id="comodins"> 3</spang>
+      </h3>
+      <div class="comodin-options">
+        <button id="comodin1" type="button">
+          <h5>SQUIP QUESTION</h5>
+        </button>
+        <button id="comodin2" type="button">
+          <h5>CHANGE SUBJECT</h5>
+        </button>
+        <button id="comodin3" type="button">
+          <h5>BUY TIME</h5>
+        </button>
+      </div>
+      <h2 id="level-row" class="level-status-mobile">Level <spang id="level-status-mobile">1</spang>
+      </h2>      </div>
+
+
+      <!------------------------ CHANGE SUBJECT COMODIN PANEL  ------------>
+      <div id="modal-subjects-panel" class="modal-subjets-out">
+        <button type="submit" class="modal-subject-1" name="button"></button>
+        <h2>GENERAL</h2>
+        <button type="submit" class="modal-subject-2" name="button"></button>
+        <h2>HISTORY</h2>
+
+        <button type="submit" class="modal-subject-3" name="button"></button>
+        <h2>FOOTBAL</h2>
+
+        <button type="submit" class="modal-subject-4" name="button"></button>
+        <h2>GEOGRAPHY</h2>
+
+      </div>
 
     </div>
 
- </div>
-  </div>
 
+    <!----------------- END OF GAME PANEL ---------------------->
 
-<!------------------------ CHANGE SUBJECT COMODIN PANEL  ------------>
-<div id="modal-subjects-panel" class="modal-subjets-out">
-<button type="submit" class="modal-subject-1" name="button"></button>
-<h2>GENERAL</h2>
-<button type="submit" class="modal-subject-2" name="button"></button>
-<h2>HISTORY</h2>
+    <div id="end-of-game">
+      <div class="end-heading">
+        <h1 id="game-over-status">End of Game</h1>
+      </div>
+      <div id="final-score-container">
+        <div id="final-player-score">
 
-<button type="submit" class="modal-subject-3" name="button"></button>
-<h2>FOOTBAL</h2>
-
-<button type="submit" class="modal-subject-4" name="button"></button>
-<h2>GEOGRAPHY</h2>
-
-</div>
-
-</div>
-
-
-<!----------------- END OF GAME PANEL ---------------------->
-
-<div id="end-of-game">
-  <div class="end-heading">
-   <h1>End of Game</h1>
-  </div>
-  <div id="final-score-container">
-    <div id="final-player-score">
-
-    </div>
-    <div class="">
-      <h2>TOP PLAYERS</h2>
-    </div>
-    <div id="top-players-container">
-      <!-- <table style="width:100%">
+        </div>
+        <div class="">
+          <h2>TOP PLAYERS</h2>
+        </div>
+        <div id="top-players-container">
+          <!-- <table style="width:100%">
   <tr>
     <th>Player</th>
     <th>Score</th>
@@ -156,16 +168,17 @@
     <td>Germany</td>
   </tr>
 </table> -->
-  </div>
+        </div>
 
-  </div>
+      </div>
 
-</div>
-<div id="button-restart-container">
-  <button type="button" id="restart-game" name="button">RESTART GAME</button>
-</div>
+    </div>
+    <div id="button-restart-container">
+      <button type="button" id="restart-game" name="button">RESTART GAME</button>
+    </div>
 
 
     <script src="src/js/index2.js" charset="utf-8"></script>
-  </body>
+</body>
+
 </html>

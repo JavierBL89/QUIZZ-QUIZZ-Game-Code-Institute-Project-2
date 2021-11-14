@@ -5,13 +5,17 @@ var score = document.getElementById("score");
 var correctAnswers = document.getElementById("correct");
 const subjectsWraper = document.getElementById("subjects-wraper");
 const modalSubjectsPanel = document.getElementById("modal-subjects-panel");
-const status = document.getElementById("level-status");
+const currentSubjectGame = document.getElementById("subject");
+const gameCountDown = document.getElementById("countDown");
+const levelStatus = document.getElementById("level-status");
+const levelStatusMobile = document.getElementById("level-status-mobile");
 const comodin1 = document.getElementById("comodin1");
 const comodin2 = document.getElementById("comodin2");
 const comodin3 = document.getElementById("comodin3");
 const comodin4 = document.getElementById("comodin4");
+const gameOverStatus= document.getElementById("game-over-status");
 
-const topPlayersArray = [];
+let alLevel2 = false;
 const finalPlayerScore = document.getElementById("final-player-score");
 const finalTopPlayers = document.getElementById("top-players-container");
 const endOfGamePanel = document.getElementById("end-of-game");
@@ -93,24 +97,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-let extraTimeInterval
-let newCountDown
-function timeExtra(){
-// clears the game interval countDown interval  from line 273
-  clearInterval(timeInterval);
-
-  newCountDown = countDown+20;
-  console.log(newCountDown);
-
-  extraTimeInterval = setInterval (() =>{
-    newCountDown--;
-    document.getElementById("countDown").textContent = newCountDown;
-    if(document.getElementById("countDown").textContent == 0){
-      clearInterval(extraTimeInterval);
-      endOfGame();
-    }
-  },1000)
-}
 
 
 
@@ -141,8 +127,8 @@ playerInput.focus();
 
 /** HERE I GET THE BUTTON CLICKED VALUE TO RUN THE GAME
 WITH THE SUBJECT CHOOSEN AFTER 3s COUNTDOWN! */
-var startGameInterval;
-var startGameCountDown = 4;
+let startGameInterval;
+let startGameCountDown = 4;
 
 function startCountDown(subject) {
   /*getting hold of the elements into the current parent subject
@@ -183,6 +169,14 @@ function startCountDown(subject) {
       resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
       clearInterval(startGameInterval)
       runHistoryLevel1();
+    }else if (subjectParent.children[0].innerText == 0 && subject.value === "FOOTBALL") {
+      // console.log(currentPlayerScore);
+      subjectParent.innerHTML = "";
+      welcomeWraper.style.display = "none";
+      gameWraper.style.display = "block";
+      resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
+      clearInterval(startGameInterval)
+      runFootballLevel1();
     }
   }, 1000);
 
@@ -205,11 +199,6 @@ function resetSubjectButton(subjectParent, firstChildParentClass, lastChildParen
 
 /************************ RUN GAME SUBJECTS QUESTIONS *******************/
 
-//CREATE UNDEFINED VALUES FOR SHUFFLING QUESTIONS
-let shuffleQuestions, currentQuestion
-let currentQuestionIndex = 0;
-let timeInterval;
-let countDown = 10;
 
 
 //****** RUNNING GENERAL KNOWLEDE QUESTIONS LEVEL 1 AND 2*******
@@ -221,6 +210,9 @@ function runGeneralLevel1() {
 }
 
 function runGeneralLevel2() {
+  atLevel2 = true;
+  currentQuestionIndex = 0
+
   document.getElementById("subject").innerText = "General Knowledge";
   shuffleQuestions = generalLevel2.sort(() => Math.random() - .5)
   setNextQuestion();
@@ -244,9 +236,31 @@ function runHistoryLevel2() {
 }
 
 
+//****** RUNNING GENERAL KNOWLEDE QUESTIONS LEVEL 1 AND 2*******
+
+function runFootballLevel1() {
+  document.getElementById("subject").innerText = "Football";
+  shuffleQuestions = footballLevel1.sort(() => Math.random() - .5)
+  setNextQuestion();
+}
+
+function runFootballLevel2() {
+  atLevel2 = true;
+  currentQuestionIndex = 0
+
+  document.getElementById("subject").innerText = "Football";
+  shuffleQuestions = footballLevel2.sort(() => Math.random() - .5)
+  setNextQuestion();
+}
 
 
-/************ GETTING NEXT QUESTION  ***********/
+/************************* GETTING NEXT QUESTION  ***********************/
+
+//CREATE UNDEFINED VALUES FOR SHUFFLING QUESTIONS
+let shuffleQuestions, currentQuestion
+let currentQuestionIndex = 0;
+let timeInterval;
+let countDown = 10;
 
 function setNextQuestion() {
   currentQuestionIndex++
@@ -276,6 +290,8 @@ function showQuestions(question) {
     document.getElementById("countDown").textContent = countDown;
     if (document.getElementById("countDown").textContent == 0) {
       // console.log(currentPlayerScore);
+      gameOverStatus.textContent = "Time up!";
+
       clearInterval(timeInterval);
       endOfGame();
       // showFinalPlayerScore();
@@ -297,17 +313,19 @@ function checkAnswer(userAnswer) {
   let currentQuestion = shuffleQuestions[currentQuestionIndex];
   const parentP = userAnswer.parentNode;
   if (userAnswer.innerText === currentQuestion.correct) {
+    console.log("correct");
     parentP.classList.add("right-answer");
+    setTimeout(function() {
+      setNextQuestion()
+    }, 1000);
     incrementScore();
     incrementCorrectAnswers()
-  } else {
+  } else{
     parentP.classList.add("wrong-answer");
-    incrementIncorrectAnswers();
+      incrementIncorrectAnswers();
   }
 
-  setTimeout(function() {
-    setNextQuestion()
-  }, 1000);
+
   setTimeout(function() {
     parentP.classList.remove("right-answer")
     parentP.classList.remove("wrong-answer")
@@ -316,11 +334,11 @@ function checkAnswer(userAnswer) {
 
 }
 
-
 /*******************  HERE ALL THE CHANGEABLE INNER TEXTS ON THE FLOW *****************///
 
 /**** sets subject question heading according to the subject selected
 in order to use later to call next level questions ****/
+
 function heading(headingText) {
   document.getElementById("subject").innerText = headingText;
 }
@@ -337,20 +355,25 @@ function incrementCorrectAnswers() {
   let initialNumber = parseInt(correctAnswers.innerText);
   var correctAnswersTrack = correctAnswers.innerText = ++initialNumber;
 let currentGame = document.getElementById("game-container").innerHTML;
+
   if (correctAnswersTrack >= "5") {
-    status.innerText = "2";
-    status.classList.add("status-color");
+
+    levelStatus.innerText = "2";
+    levelStatus.classList.add("status-color");
+    levelStatusMobile.innerText = "2";
+    levelStatusMobile.classList.add("status-color");
     /*** use dinamic subject question heading to run
     next level questions afert 1s *** */
     setInterval(()=>{
        if(currentSubjectGame === "General Knowledge"){
+
          runGeneralLevel2();
        }else if(currentSubjectGame === "History"){
          runHistoryLevel2();
+       }else if(currentSubjectGame === "Football"){
+         runFootballLevel2();
        }
     },1000)
-    // currentQuestionIndex = 0;
-    // runGeneralLevel2();
   } else if (correctAnswersTrack >= "10") {
     alert("puta")
   }
@@ -359,14 +382,49 @@ let currentGame = document.getElementById("game-container").innerHTML;
 function incrementIncorrectAnswers() {
   let initialNumber = parseInt(document.getElementById("incorrect").innerText);
   let incorrectAnswersTrack = document.getElementById("incorrect").innerText = ++initialNumber;
-  // if(incorrectAnswersTrack >= 2){
-  //   alert("game over")
-  // }
+
+  if(incorrectAnswersTrack >= 1){
+    setTimeout(() =>{
+      gameOverStatus.innerText = "Incorrect answer";
+      endOfGame();
+  }, 1000)
+}else if(gameCountDown.textContent === "0"){
+
+    gameOverStatus.innerText = "Time Up";
+  }
+
+
+
+}
+
+// ********  BUY EXTRA TIME FUNCTION **********
+
+let extraTimeInterval
+let newCountDown
+
+function timeExtra(){
+// clears the game interval countDown interval  from line 273
+  clearInterval(timeInterval);
+
+  newCountDown = countDown+20;
+  console.log(newCountDown);
+
+  extraTimeInterval = setInterval (() =>{
+    newCountDown--;
+    gameCountDown.textContent = newCountDown;
+    if(document.getElementById("countDown").textContent == 0){
+      gameOverStatus.textContent = "Time up!";
+      clearInterval(extraTimeInterval);
+      endOfGame();
+    }
+  },1000)
 }
 
 
 
-/************************ END OF THE GAME SECTION ************************/
+
+
+/***************************** END OF THE GAME SECTION **************************/
 
 // Function to get rid of the game panel
 function endOfGame() {
@@ -394,8 +452,10 @@ finalPlayerScoreInner = `
 
 /** Arrays of the current player scores
     and the best 3 players scores */
+const currentPlayerScoreArray = [];
+  const topPlayersArray = [];
 
-
+// const topPlayersArray = JSON.parse(localStorage.getItem("topPlayersArray")) || [];
 // Function to populate the current player score table
 function showFinalPlayerScore() {
 
@@ -403,17 +463,19 @@ function showFinalPlayerScore() {
   let currentScore = document.getElementById("score").textContent;
   let correct = document.getElementById("correct").textContent;
 
-  const currentPlayerScore = [{
+  const currentPlayerScore = {
     name: currentGamer,
     score: currentScore,
     correctAnswers: correct
-  }];
+  };
   // console.log(currentPlayerScore);
-// topPlayersArray.push(currentPlayerScore);
+  currentPlayerScoreArray.push(currentPlayerScore);
+ topPlayersArray.push(currentPlayerScore);
+ console.log(topPlayersArray);
 
   /* Loping throught the current player score
     and creating a dinamic html table */
-  currentPlayerScore.forEach(function(player) {
+  currentPlayerScoreArray.forEach(function(player) {
 
     let playerRow = `<tr class="tr">
     <td>${player.name}</td>
@@ -440,7 +502,7 @@ topPlayersTableInner = `<table style="width:100%">
 // Function to populate the top player table
 function showTopPlayersScore() {
   console.log(topPlayersArray);
-console.log(topPlayersArray[0]["name"]);
+// console.log(topPlayersArray[0]["name"]);
     // topPlayersArray.forEach( function(topPlayer){
     //   let topPlayersRow = `
     //   <tr>
@@ -471,9 +533,13 @@ console.log(topPlayersArray[0]["name"]);
 
 
 function reStartGame() {
+// currentPlayerScoreArray.splice(0,currentPlayerScoreArray.length);
   endOfGamePanel.style.display = "none";
   reStartButton.style.display = "none";
-
+  levelStatus.innerText = "1";
+  levelStatus.classList.add("status-color");
+  levelStatusMobile.innerText = "1";
+currentQuestionIndex = 0;
   comodin1.style.display = "block";
   comodin2.style.display = "block";
   comodin3.style.display = "block";
@@ -555,3 +621,37 @@ var h2q8 = new Question("What was the name of the first Space Shuttle to go into
 var h2q9 = new Question("What is the modern name for Van Diemen’s Land?", "Tanzania", "Tasmania", "Transavania", "Tasmania");
 var h2q10 = new Question("The ancient city of Rome was built on how many hills?", "7", "5", "3", "7");
 historyLevel2.push(h2q1, h2q2, h2q3, h2q4, h2q5, h2q6, h2q7, h2q8, h2q9, h2q10);
+
+
+
+/****** HISTORY QUESTIONS ******/
+const footballLevel1 = [];
+const footballLevel2 = [];
+
+// Football questions level1
+var f1q1 = new Question("How many times have England won the World Cup?", "2", "1", "None", "None");
+var f1q2 = new Question("What is the name of the player who guards the goal?", "Goalkeeper", "Shot stopper", "Center forward", "Goalkeeper");
+var f1q3 = new Question("What happens if the ball goes out of play on the side of the pitch?.", "That's it-game over", "It's a throw in to the team who didn't knock it over the line", "Penalty shoot-out", "It's a throw in to the team who didn't knock it over the line");
+var f1q4 = new Question("How many teams play in the Premier League?", "15", "18", "20", "20");
+var f1q5 = new Question("What do you usually use to move the football?", "Foot", "Bum", "Stick", "Foot");
+var f1q6 = new Question("What colour do Everton play in?", "Blue", "Red", "Green", "Blue");
+var f1q7 = new Question("How many players are on the field for each team in an adult league if playing a full squad game?", "18", "20", "22", "22");
+var f1q8 = new Question("If a player is sent off, what color card does the referee display?", "Orange", "Purple", "red", "Purple");
+var f1q9 = new Question("To most places in the world, Soccer is known as what?", "Football", "Soccer", "European Footbal", "Football");
+var f1q10 = new Question("The circumference of the ball should not be greater than what?", "70cm", "90cm", "100cm", "70cm");
+
+footballLevel1.push(f1q1, f1q2, f1q3, f1q4, f1q5, f1q6, f1q7, f1q8, f1q9, f1q10);
+// const correctAnswers = ["Greece", "Jimmy Hendrix", "Germany", "Denmark","1963","1945","A tight rope", "7","Tasmania","Space Shuttle Columbia","Ireland","4","McDonald", "The London Bridge","Charles Lindbergh","Silver", "China", "Alexander Graham Bell", "Carl (Karl) Friedrich Benz","Thomas Edison","2 hours 40 minutes","Bethlehem","White House","George Washington","False", "South America","Spanish", "Inception", "Piña Colada", "Martini", "16"];
+
+// Footbal questions level2
+var f2q1 = new Question("If an age group is U16, how old are most of the people on the team going to be?", "17", "16", "15", "15");
+var f2q2 = new Question("What color jerseys did the United States have the Women's National team wear in 2007?", "Blue", "Silver", "Gold", "Gold");
+var f2q3 = new Question("The goalie cannot pick the ball up outside of the what yard area?", "18", "16", "20", "18");
+var f2q4 = new Question("How many blows of his whistle does the Referee give to signify the end of the game?", "1", "3", "2", "Charle", "3");
+var f2q5 = new Question("What do soccer players not typically wear?", "Glooves", "Large shirts", "Helmets", "Helmets");
+var f2q6 = new Question("Exactly how far away from the goal line is the penalty spot?", "10", "11", "12", "12");
+var f2q7 = new Question("Which player scored the fastest hat-trick in the Premier League?", "C.Ronaldo", "Sadio Mane", "Rooney", "Sadio Mane");
+var f2q8 = new Question("With 202 clean sheets, which goalkeeper has the best record in the Premier League?", "Petr Cech", "David De Gea", "Willy Caballero", "Petr Cech");
+var f2q9 = new Question("In which World Cup did Diego Maradona score his infamous 'Hand of God' goal?", "Spain 1992", "Germany 1974", "Mexico 1986", "Mexico 1986");
+var f2q10 = new Question("Who is the Champions League's top goalscorer of all time?", "C.Ronaldo", "Messi", "Raúl Gonzalez", "C.Ronaldo");
+footballLevel2.push(f2q1, f2q2, f2q3, f2q4, f2q5, f2q6, f2q7, f2q8, f2q9, f2q10);
