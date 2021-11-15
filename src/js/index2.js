@@ -13,6 +13,7 @@ const comodin1 = document.getElementById("comodin1");
 const comodin2 = document.getElementById("comodin2");
 const comodin3 = document.getElementById("comodin3");
 const comodin4 = document.getElementById("comodin4");
+const totalComodins = document.getElementById("total-comodins");
 const gameOverStatus= document.getElementById("game-over-status");
 
 let alLevel2 = false;
@@ -32,16 +33,16 @@ document.addEventListener("DOMContentLoaded", function() {
     button.addEventListener("click", function() {
 
       if (this.getAttribute("class") === "modal-subject-1") {
-        modalSubjectsPanel.style.display = "none";
+       decrementComodin(modalSubjectsPanel);
         comodin2.style.display = "none";
         status.innerText;
-
         if (status === "1") {
           runGeneralLevel1();
         } else {
           runGeneralLevel2();
         }
       } else if (this.getAttribute("class") === "modal-subject-2") {
+        decrementComodin(modalSubjectsPanel);
         comodin2.style.display = "none";
         status.innerText;
         if (status === "1") {
@@ -52,12 +53,12 @@ document.addEventListener("DOMContentLoaded", function() {
         modalSubjectsPanel.style.display = "none";
 
       } else if (this.getAttribute("class") === "modal-subject-3") {
-        alert("puta");
+        decrementComodin(modalSubjectsPanel);
         comodin2.style.display = "none";
         modalSubjectsPanel.style.display = "none";
 
       } else if (this.getAttribute("class") === "modal-subject-4") {
-        alert("puta");
+        decrementComodin(modalSubjectsPanel);
         comodin2.style.display = "none";
         modalSubjectsPanel.style.display = "none";
 
@@ -74,12 +75,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
         checkAnswer(this);
       } else if (this.getAttribute("id") === "comodin1") {
+        // this.style.display = "none";
+        decrementComodin(this);
         setNextQuestion();
       } else if (this.getAttribute("id") === "comodin2") {
         clearInterval(timeInterval);
         modalSubjectsPanel.style.display = "block";
         // modalSubjectsPanel.classList.add("slideIn");
       } else if (this.getAttribute("id") === "comodin3") {
+        decrementComodin(this);
         clearInterval(timeInterval);
         timeExtra();
         this.style.display = "none";
@@ -209,10 +213,7 @@ function runGeneralLevel1() {
 }
 
 function runGeneralLevel2() {
-  // atLevel2 = true;
-  // currentQuestionIndex = 0
-
-  document.getElementById("subject").innerText = "General Knowledge";
+  console.log("puta");
   shuffleQuestions = generalLevel2.sort(() => Math.random() - .5)
   setNextQuestion();
 }
@@ -244,8 +245,8 @@ function runFootballLevel1() {
 }
 
 function runFootballLevel2() {
-  atLevel2 = true;
-  currentQuestionIndex = 0
+  // atLevel2 = true;
+  // currentQuestionIndex = 0
 
   document.getElementById("subject").innerText = "Football";
   shuffleQuestions = footballLevel2.sort(() => Math.random() - .5)
@@ -263,6 +264,11 @@ let countDown = 10;
 
 function setNextQuestion() {
   currentQuestionIndex++
+
+  if(currentQuestionIndex == 8){
+    currentQuestionIndex = 0;
+  }
+  console.log(currentQuestionIndex);
   showQuestions(shuffleQuestions[currentQuestionIndex]);
 }
 
@@ -314,9 +320,6 @@ function checkAnswer(userAnswer) {
   if (userAnswer.innerText === currentQuestion.correct) {
     console.log("correct");
     parentP.classList.add("right-answer");
-    setTimeout(function() {
-      setNextQuestion()
-    }, 1000);
     incrementScore();
     incrementCorrectAnswers()
   } else{
@@ -333,49 +336,63 @@ function checkAnswer(userAnswer) {
 
 }
 
+
+
+
+
+
+
 /*******************  HERE ALL THE CHANGEABLE INNER TEXTS ON THE FLOW *****************///
+
 
 /**** sets subject question heading according to the subject selected
 in order to use later to call next level questions ****/
-
 function heading(headingText) {
   document.getElementById("subject").innerText = headingText;
 }
 
 
+
+
+
 /********* MANIPULATING SCORES PANEL **********/
 function incrementScore() {
   let initialScore = parseInt(score.innerText);
-  var currentScore = score.innerText = initialScore + 300;
-
+  let currentScore = score.innerText = initialScore + 300;
 }
 
 function incrementCorrectAnswers() {
   let initialNumber = parseInt(correctAnswers.innerText);
   var correctAnswersTrack = correctAnswers.innerText = ++initialNumber;
-let currentGame = document.getElementById("game-container").innerHTML;
+if(correctAnswersTrack == 5){
+  levelStatus.innerText = "2";
+  levelStatus.classList.add("status-color");
+  levelStatusMobile.innerText = "2";
+  levelStatusMobile.classList.add("status-color")
+}else{}
 
-  if (correctAnswersTrack >= "5") {
+  setTimeout(function() {
+    if (correctAnswersTrack == 5) {
+        /*** use dinamic subject question heading to run
+        next level questions afert 1s *** */
+         if(currentSubjectGame.innerText === "General Knowledge"){
+           currentQuestionIndex  = 0;
+           console.log(currentQuestionIndex);
+           runGeneralLevel2();
+         }else if(currentSubjectGame.innerText === "History"){
+           currentQuestionIndex  = 0;
+           runHistoryLevel2();
+         }else if(currentSubjectGame.innerText === "Football"){
+           currentQuestionIndex  = 0;
+           runFootballLevel2();
+         }
+    } else if (correctAnswersTrack == 12) {
+      alert("puta")
+    }else{
+      setNextQuestion();
+    }
+  }, 1000);
 
-    levelStatus.innerText = "2";
-    levelStatus.classList.add("status-color");
-    levelStatusMobile.innerText = "2";
-    levelStatusMobile.classList.add("status-color");
-    /*** use dinamic subject question heading to run
-    next level questions afert 1s *** */
-    setInterval(()=>{
-       if(currentSubjectGame === "General Knowledge"){
-
-         runGeneralLevel2();
-       }else if(currentSubjectGame === "History"){
-         runHistoryLevel2();
-       }else if(currentSubjectGame === "Football"){
-         runFootballLevel2();
-       }
-    },1000)
-  } else if (correctAnswersTrack >= "10") {
-    alert("puta")
-  }
 }
 
 function incrementIncorrectAnswers() {
@@ -392,11 +409,16 @@ function incrementIncorrectAnswers() {
     gameOverStatus.innerText = "Time Up";
   }
 
-
-
 }
 
-// ********  BUY EXTRA TIME FUNCTION **********
+
+function decrementComodin(comodinSelected){
+  comodinSelected.style.display = "none";
+  let numberOfComodins = parseInt(totalComodins.innerText);
+  totalComodins.innerText = " " + --numberOfComodins;
+}
+
+// ***************  BUY EXTRA TIME FUNCTION ************
 
 let extraTimeInterval
 let newCountDown
@@ -423,20 +445,33 @@ function timeExtra(){
 
 
 
+
+
+
+
 /***************************** END OF THE GAME SECTION **************************/
+
+
 
 // Function to get rid of the game panel
 function endOfGame() {
   welcomeWraper.style.display = "none";
   gameWraper.style.display = "none";
 
-
   endOfGamePanel.style.display = "block";
   reStartButton.style.display = "block";
   showFinalPlayerScore();
   showTopPlayersScore();
-
 }
+
+
+
+
+
+
+
+
+
 
 
 // Creating the final panel html with the last player scores
@@ -451,8 +486,8 @@ finalPlayerScoreInner = `
 
 /** Arrays of the current player scores
     and the best 3 players scores */
-const currentPlayerScoreArray = [];
-  const topPlayersArray = [];
+let currentPlayerScoreArray = [];
+  let topPlayersArray = [];
 
 // const topPlayersArray = JSON.parse(localStorage.getItem("topPlayersArray")) || [];
 // Function to populate the current player score table
@@ -490,6 +525,11 @@ function showFinalPlayerScore() {
 
 
 
+
+
+
+
+
 // Creating the top players html table
 topPlayersTableInner = `<table style="width:100%">
 <tr>
@@ -501,17 +541,6 @@ topPlayersTableInner = `<table style="width:100%">
 // Function to populate the top player table
 function showTopPlayersScore() {
   console.log(topPlayersArray);
-// console.log(topPlayersArray[0]["name"]);
-    // topPlayersArray.forEach( function(topPlayer){
-    //   let topPlayersRow = `
-    //   <tr>
-    //   <td>${topPlayer.name}</td>
-    //   <td>${topPlayer.score}</td>
-    //   <td>${topPlayer.correctAnswers}</td>
-    //   </tr>`;
-    //
-    //   topPlayersTableInner += topPlayersRow;
-    // })
 
     for(let topPlayer of topPlayersArray){
         let topPlayersRow = `
@@ -530,13 +559,12 @@ function showTopPlayersScore() {
 
 
 
-
 function reStartGame() {
+  currentPlayerScoreArray = [];
 // currentPlayerScoreArray.splice(0,currentPlayerScoreArray.length);
   endOfGamePanel.style.display = "none";
   reStartButton.style.display = "none";
   levelStatus.innerText = "1";
-  levelStatus.classList.add("status-color");
   levelStatusMobile.innerText = "1";
 currentQuestionIndex = 0;
   comodin1.style.display = "block";
@@ -545,7 +573,10 @@ currentQuestionIndex = 0;
   welcomeWraper.style.display = "grid";
   score.innerText = "0";
   correctAnswers.innerText = "0";
+  totalComodins.innerText = "3";
 }
+
+
 
 /* CONSTRUCTOR FUNCTION FOR QUESTIONS
    AND QUESTIONS ARRAYS FOR GENERAL KNOWLEGE*/
