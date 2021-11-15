@@ -40,7 +40,7 @@ a {
   position: relative;
   right: 550px;
   animation-name: title-in;
-  animation-duration: 1.5s;
+  animation-duration: 1.2s;
   animation-fill-mode: forwards;
 }
 
@@ -59,7 +59,7 @@ to{
   position: relative;
   bottom: 280px;
   animation-name: quizz-word;
-  animation-duration: 2s;
+  animation-duration: 1.6s;
 animation-fill-mode: forwards;
 }
 
@@ -79,8 +79,8 @@ animation-fill-mode: forwards;
 #form-container{
 opacity: 0;
  animation-name: form;
- animation-duration: 1s;
-  animation-delay: 1.5s;
+ animation-duration: 0.9s;
+  animation-delay: 1.3s;
   animation-fill-mode: forwards;
 
 }
