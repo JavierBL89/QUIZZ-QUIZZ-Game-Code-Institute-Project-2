@@ -215,7 +215,8 @@ from{
   font-size: 1.3rem;
   letter-spacing: 1px;
   margin-top: 40px;
-  color: orange;
+  /* color: orange; */
+  color: rgba(255, 208, 24, 0.9);
 }
 
 
