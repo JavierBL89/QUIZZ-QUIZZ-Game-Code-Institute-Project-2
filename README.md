@@ -12,8 +12,8 @@ The application jumps into harder levels of questions as the user advance.
     - User stories
     - Design goals
     - Design choises
-    - Font
-    - Color scheme
+     - Font
+     - Color scheme
 
     - Wireframes
 
@@ -91,12 +91,15 @@ The application jumps into harder levels of questions as the user advance.
     After 5 correct answers it automatically jumps into the 2nd level of questions about the same prior subject.
 
   ![](assets/images/level-1.png)
+
   ![](assets/images/level-2.png)
 
   ## Comodins
 
    - The game provides of 3 comodins to the user in order to help them to go to next question on the most difficult ones for them.
+
    ![](assets/images/comodins-desktop.png)
+
    ![](assets/images/comodins-mobile.png)
 
         - Skip question:
@@ -106,8 +109,12 @@ The application jumps into harder levels of questions as the user advance.
         - Change subject:
         The user has the change of change subject question on the flow.
         This comodin will desapear after using.
-           - Design destop: ![](assets/images/change-subject-desktop.png).
-           - Design mobile: ![](assets/images/change-subject-mobile.png)
+           - Design destop:
+
+           ![](assets/images/change-subject-desktop.png).
+           - Design mobile:
+
+           ![](assets/images/change-subject-mobile.png)
 
         - Buy extra time:
         The counter will add 20s in order for the user to have time to research the question and thereby answer correctly.

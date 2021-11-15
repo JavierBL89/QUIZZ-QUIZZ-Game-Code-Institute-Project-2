@@ -102,40 +102,10 @@ from{
 
 /*****  EXCLMATIONS SYMBOLS ANIMATION ****/
 
-#letter1, #letter2 {
-  font-size: 5rem;
+#exclamations {
+  font-size: 4.5rem;
   line-height: 10px;
-  position: absolute;
-  top: 200px;
-  animation-name: vibration-1;
- animation-duration: 1s;
- animation-delay: 2s;
 }
-
-#letter2{
-  right: -80px;
-}
-
-@keyframes vibration-1 {
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
-
-
-}
-
 
 
 
@@ -187,7 +157,6 @@ from{
 /******** WELCOME HEADING *****/
 #title-panel {
   text-align: center;
-  /* visibility: hidden; */
 }
 
 #heading {
@@ -236,7 +205,6 @@ from{
   border-radius: 10px;
   border: none;
   text-align: center;
-  font-family:
 }
 #form input:focus{
   outline-color: orange;
@@ -268,7 +236,6 @@ from{
   width: 230px;
   text-decoration: none;
 border-radius: 10px;
-/* color: white; */
 color: yellow;
 border: solid 2px rgb(115, 161, 122);
 
@@ -351,9 +318,20 @@ top: 67px;
   background-color: inherit;
   width: 45%;
   color: rgb(255, 232, 122);
-  margin: 0 auto;
+  margin: 0px auto;
   padding-top: 20px;
   /* display: flex; */
+}
+
+#heading-container .heading {
+  display: flex;
+  margin: 5px auto 0px auto;
+  justify-content: space-between;
+
+}
+
+.heading #subject{
+margin: 15px 0px 0px 15px;
 }
 
 #heading-container h2 {
@@ -364,27 +342,16 @@ top: 67px;
   font-size: 1.7rem;
 }
 
+#heading-container #countDown {
+  font-size: 3rem;
+}
+
+
 .level-status-mobile{
   display: none;
 }
 
-#heading-container .heading {
-  display: flex;
-  margin: 20 auto;
-  justify-content: space-between;
 
-}
-
-.heading #subject{
-margin: 15px 0 0 15px;
-}
-
-
-
-#countDown {
-  font-size: 3rem;
-  /* margin-left: 30px; */
-}
 
 
 /****** QUESTION & ANSWERS SECTION ****/
@@ -421,7 +388,6 @@ margin: 15px 0 0 15px;
 .answer-box {
   align-items: center;
   margin-bottom: 25px;
-  padding: auto 18px;
   border-radius: 10px;
 }
 
@@ -507,16 +473,12 @@ padding-top: 0;
 }
 
 .comodin-options button {
-  /* font-family: 'Open Sans', sans-serif; */
-
   height: 50px;
-  /* width: 350px; */
   width: 33%;
   border: 1px solid lightgrey;
   background-color: rgba(255, 208, 24, 0.9);
   font-size: 0.900rem;
   color: rgb(60, 120, 125);
-  /* box-shadow: 1px 1px 2px 1px rgb(191, 191, 191); */
 }
 
 .comodin-options button:hover {
@@ -552,6 +514,7 @@ to{
   opacity: 1;
 }
 }
+
 
 #modal-subjects-panel button {
   display: block;
@@ -687,18 +650,15 @@ table td {
     text-align: center;
     position: relative;
     left: 0;
+    margin-top: 100px;
     transform: rotate(0);
     letter-spacing: 4px;
     line-height: 58px;
   }
 
-  #hey {
-    position: relative;
-    right: 100px;
-  }
 
   #zz {
-    font-size: 3.5rem;
+    font-size: 4.1rem;
     line-height: 10px;
     position: relative;
     top: 10px;
@@ -710,28 +670,20 @@ table td {
   }
 
 
-   #letter1 {
-    transform: rotate(0);
-    position: relative;
-    top: 20px;
+  #exclamations {
+    font-size: 3.9rem;
+    line-height: 10px;
   }
-  #letter2 {
-    transform: rotate(0);
-    position: relative;
-   top: 20px;
-    left:0;
-   }
 
   /***** FORM ******/
   #form-container {
     position: relative;
-    top: 0;
+    top: 0px;
 justify-content: center;
-   padding: auto 20px;
+   padding: 0px 20px;
   }
 
   #form h2 {
-    /* margin-top: 30px; */
     letter-spacing: 2px;
     font-size: 1.3rem;
   }
@@ -845,32 +797,32 @@ font-size: 4.5rem;
     margin-top: 0px;
   }
 
+  #heading-container .heading {
+    display: flex;
+    margin: 10px auto 0px auto;
+    justify-content: space-between;
+
+  }
+
   #heading-container h1 {
     font-size: 1.4rem;
+  }
+
+  #heading-container #subject{
+     margin: 15px 0 0 15px;
+  }
+
+  #heading-container #countDown {
+   font-size: 2.7rem;
+   position: relative;
+   bottom: 3px;
   }
 
   #heading-container h2 {
   display: none;
   }
 
-  #heading-container .heading {
-    display: flex;
-    margin: 20 auto;
-    justify-content: space-between;
 
-  }
-
-  .heading #subject{
-  margin: 15px 0 0 15px;
-  }
-
-
-
-  #countDown {
-    font-size: 2.6rem;
-position: relative;
-bottom: 5px;
-}
 
 
 
@@ -903,7 +855,6 @@ bottom: 5px;
 
 .answer-box{
   align-items: center;
-  padding: auto 18px;
   border-radius: 10px;
 
 }
@@ -922,18 +873,13 @@ bottom: 5px;
 
 
 
-
-  .blank {
-    background-color: white;
-  }
-
-  .right-answer {
+  /* .right-answer {
     background-color: rgb(151, 218, 125);
   }
 
   .wrong-answer {
     background-color: rgb(228, 131, 131);
-  }
+  } */
 
   /***** COMODIN SECTION ******/
   #comodin-container {
@@ -947,14 +893,10 @@ bottom: 5px;
     line-height: 6px;
   }
 
-  /* .comodin-options {
-    display: flex;
-    text-align: center;
-    justify-content: space-around;
-  } */
   .comodin-options {
   display: block;
   }
+
   .comodin-options button {
     height: 45px;
     width: 100%;
@@ -1042,20 +984,16 @@ bottom: 5px;
 @media (max-width: 575px) {
   #heading {
     margin: 0 auto;
-    padding: 6% auto;
+    padding: 6% 0%;
     width: 95%;
     font-size: 2.7rem;
     color: yellow;
     position: absolute;
     top: 10px;
     letter-spacing: 4px;
-    line-height: 40px;
+    line-height: 50px;
 }
 
-  /* #hey {
-    position: relative;
-    right: 70px;
-  } */
 
   #zz {
     font-size: 3.7rem;
@@ -1069,18 +1007,9 @@ bottom: 5px;
     bottom: 5px;
   }
 
-  #letter1, #letter2 {
-    font-size: 3.7rem;
+  #exclamations {
+    font-size: 3.4rem;
     line-height: 10px;
-    position: absolute;
-    top: 110px;
-  }
-
-  #letter2 {
-    transform: rotate(0deg);
-    position: absolute;
-    top: 105px;
-    left: 215px;
   }
 
 
@@ -1088,9 +1017,9 @@ bottom: 5px;
   /***** FORM ******/
   #form-container {
     position: relative;
-    top: 190px;
+    top: 220px;
     text-align: center;
-    padding: auto 20px;
+    padding: 0px 20px;
   }
 
   #form input {
@@ -1107,7 +1036,7 @@ bottom: 5px;
     letter-spacing: 2px;
     font-size: 1.2rem;
     margin-bottom: 30px;
-    padding: 5% auto;
+    padding: 5% 0%;
 
   }
 
@@ -1126,34 +1055,23 @@ bottom: 5px;
     display: block;
     justify-content: center;
     /* padding-bottom: 70px; */
-    padding: 5% auto;
+    padding: 5% 0%;
 
   }
 
-#form .subject-button-container{
+#subjects-wraper .subject-button-container{
   width: 100%;
 }
 
-  #form-container .subject-button-container button {
+  #subjects-wraper .subject-button-container button {
     font-size: 4.5rem;
     font-weight: bold;
     margin-bottom: 5px;
     height: 120px;
     width: 90vw;
     text-decoration: none;
-    /* border-color: orange; */
   }
 
-  /* .subject-button-container #start-countdown{
-    position: relative;
-    top: 1px;
-    font-size: 3.5rem;
-    }
-
-    .subject-button-container #start-subject{
-    position: relative;
-    top: -4px;
-    } */
 
     /***** MODAL SUBJECTS PANEL ****/
     #modal-subjects-panel {
@@ -1179,9 +1097,9 @@ bottom: 5px;
       text-decoration: none;
       margin-top: 15px;
       border: solid 2px rgb(115, 161, 122);
-      /* border: none; */
-      /* box-shadow: 10px 10px 8px 10px rgb(255, 204, 46); */
     }
+
+
   /*******  GAME SCREEN MOBILE ****/
   #heading-container {
     width: 80%;
@@ -1199,16 +1117,16 @@ bottom: 5px;
 
   #heading-container .heading {
     display: flex;
-    margin: 20 auto;
+    margin: 10px auto 0px auto;
     justify-content: space-between;
 
   }
 
-  .heading #subject{
-  margin: 15px 0 0 15px;
+  #heading-container #subject{
+  margin: 15px 0px 0px 15px;
   }
 
-  #countDown {
+    #heading-container #countDown {
     font-size: 2rem;
 position: relative;
 top: 5px;
@@ -1217,19 +1135,18 @@ top: 5px;
 .level-status-mobile{
   display: block;
   font-size: 1.1rem;
-  /* color: rgb(255, 204, 106); */
   color: rgb(255, 232, 122);
   text-align: center;
 }
 
   /*****  game panel */
   #game-container {
-    /* margin-top: 10px; */
     width: 90vw;
     height: 48vh;
     margin: 40px 20px auto 20px;
     text-align: center;
   }
+
 #game-container h4{
   padding: 1px 20px;
 }
@@ -1239,7 +1156,6 @@ top: 5px;
 }
 
 .answer-box {
-  /* margin-bottom: 2px; */
   border-radius: 10px;
 
 }
@@ -1264,12 +1180,6 @@ top: 5px;
     line-height: 6px;
   }
 
-  /* .comodin-options button {
-  display: block;
-    height: 50px;
-    width: 34%;
-    font-size: 0.700rem;
-  } */
   .comodin-options {
   display: block;
 

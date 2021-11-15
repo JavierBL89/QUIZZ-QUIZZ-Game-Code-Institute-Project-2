@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport" />
-
+  <meta name="description" content="Trivia Quizz game Answer questions of several subjects">
+  <meta name="keyword:" content="quizz game trivia question answer">
   <title>Quizz-Qui??</title>
   <!-- STYLESHEET -->
   <link rel="stylesheet" href="assets/css/home1.css">
@@ -23,33 +24,31 @@
     <div id="title-panel">
       <h1 id="heading"><span id="hey">Hey</span><br />Welcome to<br />
         <spang id="quizz-1">Qui<spang id="zz">
-            <spang id="z1">z</spang>z
-          </spang>
-        </spang> Qui<spang id="letter1">?</spang>
-        <spang id="letter2">?</spang>
+            <spang id="z1">z</spang>z</spang>
+        </spang>Qui<spang id="exclamations">??
       </h1>
     </div>
     <div id="form-container">
       <form id="form" action="game.html" method="POST">
-        <input type="text" id="player-name-input" name="player-name-input" value="" placeholder="Enter player name" min="4" max="10" required>
+        <input type="text" id="player-name-input" name="player-name-input" value="" placeholder="Enter player name" required>
         <br />
 
         <h2 class="choose-text">Choose a subject to start!<br /></h2>
         <div id="subjects-wraper">
           <div class="subject-button-container" id="subject-1">
-            <button type="submit" class="subject-1" name="subject-1" value="GENERAL" onclick="handleSumit(this)"></button>
+            <button type="submit" class="subject-1" name="button" value="GENERAL" onclick="handleSumit(this)"></button>
             <h2 class="start-subject">GENERAL</h2>
           </div>
           <div class="subject-button-container">
-            <button type="submit" class="subject-2" name="subject-1" value="HISTORY" onclick="handleSumit(this)"></button>
+            <button type="submit" class="subject-2" name="button" value="HISTORY" onclick="handleSumit(this)"></button>
             <h2>HISTORY</h2>
           </div>
           <div class="subject-button-container">
-            <button type="submit" class="subject-3" name="subject-1" value="FOOTBALL" onclick="handleSumit(this)"></button>
+            <button type="submit" class="subject-3" name="button" value="FOOTBALL" onclick="handleSumit(this)"></button>
             <h2>FOOTBALL</h2>
           </div>
           <div class="subject-button-container">
-            <button type="submit" class="subject-4" name="subject-1" value="GEOGRAPHY" onclick="handleSumit(this)"></button>
+            <button type="submit" class="subject-4" name="button" value="GEOGRAPHY" onclick="handleSumit(this)"></button>
             <h2>GEOGRAPHY</h2>
           </div>
         </div>
@@ -61,7 +60,7 @@
 
 
 
-  <!------------------   GAME PANEL  --------------------->
+  <!--****************   GAME PANEL  ****************-->
   <div id="game-wraper">
     <div id="heading-container">
       <h2 id="level-row">Level <spang id="level-status">1</spang>
@@ -86,17 +85,17 @@
     </div>
 
     <div id="game-container">
-      <h4 id="question" value="">What is the capital of Iranlda?</h4>
+      <h4 id="question">What is the capital of Iranlda?</h4>
       <div id="answer-options">
         <div class="answer-box">
 
-          <button id="answer1" class="answers" type="button">Tipperary</button>
+          <button id="answer1" class="answers" type="button" name="button">Tipperary</button>
         </div>
         <div class="answer-box">
-          <button id="answer2" class="answers" type="button">Cork</button>
+          <button id="answer2" class="answers" type="button" name="button">Cork</button>
         </div>
-        <div class="answer-box" type="button">
-          <button id="answer3" class="answers" type="button">Dublin</button>
+        <div class="answer-box">
+          <button id="answer3" class="answers" type="button" name="button">Dublin</button>
         </div>
       </div>
     </div>
@@ -107,21 +106,16 @@
       <h3>Comodins<spang id="total-comodins"> 3</spang>
       </h3>
       <div class="comodin-options">
-        <button id="comodin1" type="button">
-          <h5>SQUIP QUESTION</h5>
-        </button>
-        <button id="comodin2" type="button">
-          <h5>CHANGE SUBJECT</h5>
-        </button>
-        <button id="comodin3" type="button">
-          <h5>BUY TIME</h5>
-        </button>
+        <button id="comodin1" type="button" name="button">SQUIP QUESTION</button>
+        <button id="comodin2" type="button" name="button">CHANGE SUBJECT</button>
+        <button id="comodin3" type="button" name="button">BUY TIME</button>
       </div>
-      <h2 id="level-row" class="level-status-mobile">Level <spang id="level-status-mobile">1</spang>
-      </h2>      </div>
+      <h2 class="level-status-mobile">Level <spang id="level-status-mobile">1</spang>
+      </h2>
+    </div>
 
 
-      <!------------------------ CHANGE SUBJECT COMODIN PANEL  ------------>
+      <!--***************** CHANGE SUBJECT COMODIN PANEL  ************-->
       <div id="modal-subjects-panel" class="modal-subjets-out">
         <button type="submit" class="modal-subject-1" name="button"></button>
         <h2>GENERAL</h2>
@@ -139,7 +133,7 @@
     </div>
 
 
-    <!----------------- END OF GAME PANEL ---------------------->
+    <!--************** END OF GAME PANEL *****************-->
 
     <div id="end-of-game">
       <div class="end-heading">
@@ -174,7 +168,7 @@
       <button type="button" id="restart-game" name="button">RESTART GAME</button>
     </div>
 
-    <script src="src/js/index2.js" charset="utf-8"></script>
+    <script src="src/js/index2.js"></script>
 </body>
 
 </html>
