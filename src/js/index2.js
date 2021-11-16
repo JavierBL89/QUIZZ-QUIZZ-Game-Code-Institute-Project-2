@@ -60,6 +60,11 @@ document.addEventListener("DOMContentLoaded", function() {
       } else if (this.getAttribute("class") === "modal-subject-3") {
         decrementComodin(modalSubjectsPanel);
         comodin2.style.display = "none";
+        if (status === "1") {
+          runFootballLevel1();
+        } else {
+          runFootballLevel2();
+        }
         modalSubjectsPanel.style.display = "none";
 
       } else if (this.getAttribute("class") === "modal-subject-4") {
