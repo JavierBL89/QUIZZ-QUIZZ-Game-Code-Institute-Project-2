@@ -667,7 +667,7 @@ var f1q4 = new Question("How many teams play in the Premier League?", "15", "18"
 var f1q5 = new Question("What do you usually use to move the football?", "Foot", "Bum", "Stick", "Foot");
 var f1q6 = new Question("What colour do Everton play in?", "Blue", "Red", "Green", "Blue");
 var f1q7 = new Question("How many players are on the field for each team in an adult league if playing a full squad game?", "18", "20", "22", "22");
-var f1q8 = new Question("If a player is sent off, what color card does the referee display?", "Orange", "Purple", "red", "Purple");
+var f1q8 = new Question("If a player is sent off, what color card does the referee display?", "Orange", "Purple", "Red", "Red");
 var f1q9 = new Question("To most places in the world, Soccer is known as what?", "Football", "Soccer", "European Footbal", "Football");
 var f1q10 = new Question("The circumference of the ball should not be greater than what?", "70cm", "90cm", "100cm", "70cm");
 
@@ -678,7 +678,7 @@ footballLevel1.push(f1q1, f1q2, f1q3, f1q4, f1q5, f1q6, f1q7, f1q8, f1q9, f1q10)
 var f2q1 = new Question("If an age group is U16, how old are most of the people on the team going to be?", "17", "16", "15", "15");
 var f2q2 = new Question("What color jerseys did the United States have the Women's National team wear in 2007?", "Blue", "Silver", "Gold", "Gold");
 var f2q3 = new Question("The goalie cannot pick the ball up outside of the what yard area?", "18", "16", "20", "18");
-var f2q4 = new Question("How many blows of his whistle does the Referee give to signify the end of the game?", "1", "3", "2", "Charle", "3");
+var f2q4 = new Question("How many blows of his whistle does the Referee give to signify the end of the game?", "1", "3", "2", "3");
 var f2q5 = new Question("What do soccer players not typically wear?", "Glooves", "Large shirts", "Helmets", "Helmets");
 var f2q6 = new Question("Exactly how far away from the goal line is the penalty spot?", "10", "11", "12", "12");
 var f2q7 = new Question("Which player scored the fastest hat-trick in the Premier League?", "C.Ronaldo", "Sadio Mane", "Rooney", "Sadio Mane");
