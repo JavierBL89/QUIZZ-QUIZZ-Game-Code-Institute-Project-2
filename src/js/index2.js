@@ -39,15 +39,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
       if (this.getAttribute("class") === "modal-subject-1") {
        decrementComodin(modalSubjectsPanel);
+       heading(this);
         comodin2.style.display = "none";
         status.innerText;
         if (status === "1") {
           runGeneralLevel1();
+          console.log(this);
         } else {
           runGeneralLevel2();
         }
       } else if (this.getAttribute("class") === "modal-subject-2") {
         decrementComodin(modalSubjectsPanel);
+        heading(this);
         comodin2.style.display = "none";
         status.innerText;
         if (status === "1") {
@@ -59,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       } else if (this.getAttribute("class") === "modal-subject-3") {
         decrementComodin(modalSubjectsPanel);
+        heading(this);
         comodin2.style.display = "none";
         if (status === "1") {
           runFootballLevel1();
@@ -69,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       } else if (this.getAttribute("class") === "modal-subject-4") {
         decrementComodin(modalSubjectsPanel);
+        heading(this);
         comodin2.style.display = "none";
         modalSubjectsPanel.style.display = "none";
 
@@ -349,7 +354,8 @@ function checkAnswer(userAnswer) {
 /**** sets subject question heading according to the subject selected
 in order to use later to call next level questions ****/
 function heading(headingText) {
-  document.getElementById("subject").innerText = headingText;
+  console.log(headingText.value);
+  document.getElementById("subject").innerText = headingText.value;
 }
 
 
