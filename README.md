@@ -3,16 +3,16 @@
 
 
 
- #About
+ ## About
 
   The Trivial Quizz-Quizz game is designed to entertaint people by answering questions of diferents subjects to challenge themselves while adquiring knowledge. It is an amusing way to get a bit of culture while having fun.
   The application jumps into harder levels of questions as the user advance.
 
-  # What you must know
+  ## What you must know
 
    Currently the game contains few data which results in a short number of questions available, therefore the game is designed to finish after 14 correct answers and the user will face repeated questions in every attempt.
 
- #How to play
+ ## How to play
 
   - The user must enter a player name and select a subject to start, which will initiate a countdown from 3, only then the first question will be displayed.
   - The user will have 10 seconds to answer, after that time if there is no answer the game will be over displaying the final game panel with the player score.
@@ -23,7 +23,10 @@
     - Buy time: the user will see 20secomds added to the countdown.
   - If the user answers incorrectly one of the questions the game will be game over.
   - The user is able to restart the game without exiting the website
- #Table Contents
+
+  - Play game [Quizz-Quizz](https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/)
+
+ # Table Contents
 
   ### [Planning stage](#planing-stage)
     - Target Audiences
@@ -60,13 +63,13 @@
     - Media
     - Thanks
 
- ##Planning Stage
+ ## Planning Stage
 
-  ##Target Audience
+ ## Target Audience
 
   Anyone who wants to kill some time while challenging themselves on how much they know and acquire knowledge at a time.
 
-  ###User stories
+  ### User stories
 
    - As a user i want the site to be intuitive
    - As a user i want the site to be beautiful and readable
@@ -74,7 +77,7 @@
    - As a user i want the game to get harder and harder
    - As a user i want to beat my previous score
 
-   ###Design goals
+   ### Design goals
 
    - A simple and minimalistic site for all devices
    - Easy to use
@@ -120,21 +123,21 @@
 
    ![](assets/images/comodins-mobile.png)
 
-        - Skip question:
+     - ** Skip question **:
         The game will jump into the next question.
         This comodin will desapear after using.
 
-        - Change subject:
+     - ** Change subject **:
         The user has the change of change subject question on the flow.
         This comodin will desapear after using.
-           - Design destop:
+        - Design destop:
 
-           ![](assets/images/change-subject-desktop.png).
-           - Design mobile:
+          ![](assets/images/change-subject-desktop.png).
+        - Design mobile:
 
-           ![](assets/images/change-subject-mobile.png)
+          ![](assets/images/change-subject-mobile.png)
 
-        - Buy extra time:
+        - ** Buy extra time **:
         The counter will add 20s in order for the user to have time to research the question and thereby answer correctly.
         This comodin will desapear after using.
 
@@ -174,7 +177,7 @@ I have come accross with a fair number of bugs from the very start and i spend q
 Here Some bugs i can remember:
 
  - Solved bugs:
-   1. After 9 questions showed the game would crash.
+ 1. After 9 questions showed the game would crash.
      - Every array of questions contains 10 elements, so when the currentIndexCuestion   would get to 9 it'd crash, but i want to jump to the next level questions array after 5 correct answers and since it is a new array, the index should start from 0 again, but it does no work like that. The index track went on and the game still crashed at the index 9.
      I tried settting the currentQuestionIndex to 0 after 5 correct answers(to jump to next level questions array and start the index from 0) but didn't work.
      My mentor helped me here with some code that i stil don't understand, but as i went on developing the game, when i made use of the mentor code, it didn't work... only when i changed the if statement "if (correctAnswersTrack === "5")"
@@ -188,43 +191,43 @@ Here Some bugs i can remember:
      The function did populate the data from a set array of objects, but wouldn't populate the data grabbed from the site.
      I had declared the innerhtml of the element as a global variable underneath the  function with the value returned from the function.
 
-    My mentor Richard helped me out here as well.
-    The issue was that global variable would trigger when the web content was loaded.
-    By completing the innerhtml code inside the for loop and the function returning the statement of the innerHtml element as show bellow, the bug was fixed.
+     My mentor Richard helped me out here as well.
+     The issue was that global variable would trigger when the web content was loaded.
+     By completing the innerhtml code inside the for loop and the function returning the statement of the innerHtml element as show bellow, the bug was fixed.
 
     ![](assets/images/bug-2.png)
 
   - Top all 3 players data did have to be stored in local storage.
 
 
- ##Unresolved bugs
+ ## Unresolved bugs
 
- - When the user clicks on a answer button the rest of the buttons are still engage which means that they still can press any answer right after clicking on the first one before the next question is show and it also would trigger any functionality added to the button answer.
+    - When the user clicks on a answer button the rest of the buttons are still engage which means that they still can press any answer right after clicking on the first one before the next question is show and it also would trigger any functionality added to the button answer.
 
-  ##Technolgy used
+  ## Technolgy used
 
-  ##Languages
+  ## Languages
 
    - HTML
    - CSS
    - JavaScript
 
- #Deployment
+ # Deployment
 
  The website is currently deployed on Github pages.
  You can access the site on the following link [Quizz-Quizz](https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/)
 
- #Credits
+ # Credits
 
- - Code
+ - ** Code **
    - Some of the JavaScript code is been taken from 2 different youtube tutorials from  which i learnt how to shuffle questions and set the next question as well as how to  declare timeIntervals for countdowns
 
   - Spanish language tutorial: (https://youtu.be/anRB8u_D_YA)
   - English language tutorial: (https://youtu.be/riDzcEQbX6k)
 
-- Media
+- ** Media **
   - The subject images were taken from google images
   - The favicon image was generated with (https://favicon.io/)
 
-- Acknowledgements
+- ** Acknowledgements **
   - I want to thank [Richard Wells](https://github.com/D0nni387) my mentor, who has helped me to solve some issues to make this beautiful project working properly and exactly the way i first had designed, and from who i have learnt this time round how to think of the logic to debug!

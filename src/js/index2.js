@@ -21,6 +21,12 @@ const finalTopPlayers = document.getElementById("top-players-container");
 const endOfGamePanel = document.getElementById("end-of-game");
 const reStartButton = document.getElementById("button-restart-container");
 
+
+let topPlayersArray = [];
+
+window.localStorage.setItem("topPlayersArray", JSON.stringify(topPlayersArray));
+
+
 document.addEventListener("DOMContentLoaded", function() {
 
   /** ADDING EVENTLISTENER TO ALL BUTTONS BASED ON ATTRIBUTTES
@@ -161,7 +167,6 @@ function startCountDown(subject) {
       clearInterval(startGameInterval);
       runGeneralLevel1();
     } else if (subjectParent.children[0].innerText == 0 && subject.value === "HISTORY") {
-      // console.log(currentPlayerScore);
       subjectParent.innerHTML = "";
       welcomeWraper.style.display = "none";
       gameWraper.style.display = "block";
@@ -169,7 +174,6 @@ function startCountDown(subject) {
       clearInterval(startGameInterval)
       runHistoryLevel1();
     }else if (subjectParent.children[0].innerText == 0 && subject.value === "FOOTBALL") {
-      // console.log(currentPlayerScore);
       subjectParent.innerHTML = "";
       welcomeWraper.style.display = "none";
       gameWraper.style.display = "block";
@@ -290,13 +294,10 @@ function showQuestions(question) {
     countDown--;
     document.getElementById("countDown").textContent = countDown;
     if (document.getElementById("countDown").textContent == 0) {
-      // console.log(currentPlayerScore);
-      gameOverStatus.textContent = "Time up!";
 
+      gameOverStatus.textContent = "Time up!";
       clearInterval(timeInterval);
       endOfGame();
-      // showFinalPlayerScore();
-      // showTopPlayersScore();
     }
   }, 1000);
 
@@ -314,7 +315,6 @@ function checkAnswer(userAnswer) {
   let currentQuestion = shuffleQuestions[currentQuestionIndex];
   const parentP = userAnswer.parentNode;
   if (userAnswer.innerText === currentQuestion.correct) {
-    console.log("correct");
     parentP.classList.add("right-answer");
     incrementScore();
     incrementCorrectAnswers()
@@ -423,7 +423,6 @@ function timeExtra(){
   clearInterval(timeInterval);
 
   newCountDown = countDown+20;
-  console.log(newCountDown);
 
   extraTimeInterval = setInterval (() =>{
     newCountDown--;
@@ -479,14 +478,15 @@ finalPlayerScoreInner = `
 </tr>
 `;
 
-/** Arrays of the current player scores
-    and the best 3 players scores */
-let currentPlayerScoreArray = [];
-  let topPlayersArray = [];
+/** Arrays of the current player score array */
+    let currentPlayerScoreArray = [];
 
 // const topPlayersArray = JSON.parse(localStorage.getItem("topPlayersArray")) || [];
 // Function to populate the current player score table
 function showFinalPlayerScore() {
+
+
+
 
   let currentGamer = document.getElementById("current-player-name").textContent;
   let currentScore = document.getElementById("score").textContent;
@@ -497,10 +497,9 @@ function showFinalPlayerScore() {
     score: currentScore,
     correctAnswers: correct
   };
-  // console.log(currentPlayerScore);
+
   currentPlayerScoreArray.push(currentPlayerScore);
- topPlayersArray.push(currentPlayerScore);
- console.log(topPlayersArray);
+ topPlayersArray.push(window.localStorage.setItem("currentPlayerScore", JSON.stringify(currentPlayerScore)));
 
   /* Loping throught the current player score
     and creating a dinamic html table */
@@ -523,8 +522,6 @@ function showFinalPlayerScore() {
 
 
 
-
-
 // Creating the top players html table
 topPlayersTableInner = `<table style="width:100%">
 <tr>
@@ -535,7 +532,11 @@ topPlayersTableInner = `<table style="width:100%">
 
 // Function to populate the top player table
 function showTopPlayersScore() {
-  console.log(topPlayersArray);
+
+  // topPlayersArray = JSON.parse(localStorage.getItem("topPlayersArray")) || [];
+
+topPlayersArray = JSON.parse(window.localStorage.getItem("topPlayersArray"));
+// console.log(topPlayersArray);
 
     for(let topPlayer of topPlayersArray){
         let topPlayersRow = `
