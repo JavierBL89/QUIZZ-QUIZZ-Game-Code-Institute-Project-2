@@ -12,12 +12,7 @@ a {
   width: auto;
 }
 
-/* #welcome-wraper{
-  display: none;
-} */
-/* #game-wraper {
-  display: block;
-} */
+
 #game-wraper {
   display: none;
 }
@@ -98,24 +93,26 @@ from{
 
 
 
+/*********** CLASS LISTS **********/
 
-
-/*****  EXCLMATIONS SYMBOLS ANIMATION ****/
-
-#exclamations {
-  font-size: 4.5rem;
-  line-height: 10px;
-}
-
-
-
-/***** CLASS LISTS */
 .hidden {
   display: none
 }
 
 .show {
   display: grid;
+}
+
+.blank {
+  background-color: white;
+}
+
+.right-answer {
+  background-color: rgb(151, 218, 125);
+}
+
+.wrong-answer {
+  background-color: rgb(228, 131, 131);
 }
 
 .button-vanishes{
@@ -152,6 +149,12 @@ from{
   background-color: yellow;
 }
 }
+
+
+
+
+
+
 /**********************  CSS WELCOME PAGE *************************/
 
 /******** WELCOME HEADING *****/
@@ -192,7 +195,8 @@ from{
 
 
 
-/***** FORM ******/
+/************* FORM **************/
+
 #form-container {
   position: relative;
   top: 190px;
@@ -210,18 +214,17 @@ from{
   outline-color: orange;
 }
 
-#form .choose-text{
+#form #heading-2{
   font-family: 'Work Sans', sans-serif;
   font-size: 1.3rem;
   letter-spacing: 1px;
   margin-top: 40px;
-  /* color: orange; */
   color: rgba(255, 208, 24, 0.9);
 }
 
 
 
-/******* SUBJECTS BUTTONS ******/
+/********** SUBJECTS BUTTONS ********/
 
 #subjects-wraper {
   display: flex;
@@ -237,7 +240,6 @@ from{
   width: 230px;
   text-decoration: none;
 border-radius: 10px;
-color: yellow;
 border: solid 2px rgb(115, 161, 122);
 
 }
@@ -255,14 +257,15 @@ width: 230px;
 #form .subject-button-container h2{
   margin-top: 3px;
   font-size: 1.5rem;
-color: rgb(255, 204, 106);
+  color: rgb(255, 204, 106);
 }
 
 .subject-button-container #start-countdown{
-  color: rgb(255, 204, 106);
+color: rgb(255, 204, 106);
 position: relative;
 top: 30px;
 }
+
 .subject-button-container #start-subject{
 position: relative;
 top: 67px;
@@ -311,17 +314,23 @@ top: 67px;
 
 
 
-/************************** GAME SECTION *****************************/
 
 
-/***** HEADING *****/
+
+
+
+
+/************************** GAME PAGE SECTION *****************************/
+
+
+/*********** HEADING ***********/
+
 #heading-container {
   background-color: inherit;
   width: 45%;
   color: rgb(255, 232, 122);
   margin: 0px auto;
   padding-top: 20px;
-  /* display: flex; */
 }
 
 #heading-container .heading {
@@ -355,7 +364,7 @@ margin: 15px 0px 0px 15px;
 
 
 
-/****** QUESTION & ANSWERS SECTION ****/
+/************ GAME PANEL *******/
 #game-container {
   font-family: 'Poppins', sans-serif;
   color: rgb(59, 99, 103);
@@ -371,19 +380,13 @@ margin: 15px 0px 0px 15px;
 }
 
 
-/**** QUESTION CSS **/
+/**** question **/
 #game-container h4 {
   padding: 1px 90px;
-  /* margin: 0 15px; */
   height: 40px;
   font-family: 'Poppins', sans-serif;
   letter-spacing: 1px;
   color: rgb(9, 52, 56);
-}
-
-.move {
-  position: relative;
-  top: 25px;
 }
 
 .answer-box {
@@ -392,7 +395,7 @@ margin: 15px 0px 0px 15px;
   border-radius: 10px;
 }
 
-/*** ANSWERS CSS ***/
+/*** answer button ***/
 .answer-box button {
   font-size: 1rem;
   margin-top: 30px;
@@ -409,17 +412,8 @@ margin: 15px 0px 0px 15px;
 
 
 
-.blank {
-  background-color: white;
-}
 
-.right-answer {
-  background-color: rgb(151, 218, 125);
-}
 
-.wrong-answer {
-  background-color: rgb(228, 131, 131);
-}
 
 
 /********* SCORE PANEL SECTION ************/
@@ -450,6 +444,11 @@ margin: 15px 0px 0px 15px;
 
 
 
+
+
+
+
+
 /******** COMODIN SECTION *********/
 #comodin-container {
   background-color: inherit;
@@ -466,14 +465,13 @@ padding-top: 0;
   text-align: center;
 }
 
-.comodin-options {
+.comodin-buttons-container {
   display: flex;
   text-align: center;
   justify-content: space-around;
-  /* width: 700px; */
 }
 
-.comodin-options button {
+.comodin-buttons-container button {
   height: 50px;
   width: 33%;
   border: 1px solid lightgrey;
@@ -482,17 +480,22 @@ padding-top: 0;
   color: rgb(60, 120, 125);
 }
 
-.comodin-options button:hover {
+.comodin-buttons-container button:hover {
   background-color: rgba(255, 208, 24, 0.63);
   color: rgb(60, 120, 125);
 }
 
-#comodin-container h5 {
-  text-align: center;
-  margin: 0 auto;
-}
 
-/***** MODAL ****/
+
+
+
+
+
+
+
+
+/*********************** MODAL SUBJECTS SECTION ****************/
+
 #modal-subjects-panel {
   position: absolute;
   top: 25px;
@@ -530,11 +533,11 @@ to{
 }
 
 #modal-subjects-panel h2 {
-  color: rgb(255, 204, 106);
+color: rgb(255, 204, 106);
 font-size: 1rem;
 margin: 0;
 }
-/****** MODAL SUBJECTS BUTTONS  ******/
+/****** MODAL SUBJECTS BUTTONS BACKGROUNDS ******/
 .modal-subject-1 {
   background-image: url("../images/generalKnowledge.jpg");
   background-size: cover;
@@ -574,7 +577,15 @@ margin: 0;
   background-size: 105%;
 }
 
-/*********  END OF GAME PANEL ******/
+
+
+
+
+
+
+
+/******************  END OF GAME SECTION ***************/
+
 #end-of-game {
   background-color: rgb(255, 255, 242);
   border-radius: 10px;
@@ -611,7 +622,7 @@ table td {
 }
 
 
-/********************** RESTART GAME SECTION *****************/
+/*********** RESTART GAME BUTTON ***********/
 #button-restart-container {
   margin: 0 auto;
   margin-top: 0;
@@ -638,13 +649,11 @@ table td {
 }
 
 
-/**************************************** MEDIA TABLET **********************************************/
+/************************************ MEDIA TABLET ************************************/
 @media (max-width: 900px) {
 
-#game-wraper{
-  padding-bottom: 80px;
-}
 
+/***************** WELCOME HEADING *****************/
   #heading {
     font-size: 3rem;
     color: yellow;
@@ -676,7 +685,11 @@ table td {
     line-height: 10px;
   }
 
-  /***** FORM ******/
+
+
+
+
+  /******************** FORM  SECTION  *********************/
   #form-container {
     position: relative;
     top: 0px;
@@ -689,18 +702,8 @@ justify-content: center;
     font-size: 1.3rem;
   }
 
-  /***** CLASS LISTS */
-  .hidden {
-    display: none
-  }
 
-  .show {
-    display: grid;
-  }
-
-  /**** SUBJECTS PANEL *****/
-
-
+  /******** SUBJECTS PANEL ********/
   #subjects-wraper {
 align-items: center;
    flex-wrap: nowrap;
@@ -724,26 +727,25 @@ align-items: center;
 justify-content: center;
   text-decoration: none;
   border: solid 2px rgb(115, 161, 122);
-
 }
 
-#subjects-wraper .subject-button-container h2{
+#from #subjects-wraper .subject-button-container h2{
   font-size: 1.3rem;
 }
-
 
 .subject-button-container #start-countdown{
   position: relative;
   top:9px;
 font-size: 4.5rem;
   }
+
   .subject-button-container #start-subject{
   position: relative;
   top: 20px;
   }
 
 
-/*** ZOOM SIZE SUBJECTS IMAGES ***/
+/****** ZOOM SUBJECTS IMAGES ******/
   .subject-1:hover {
     background-size: 105%;
   }
@@ -761,12 +763,17 @@ font-size: 4.5rem;
   }
 
 
-  /***** MODAL SUBJECT PANEL ****/
+
+
+
+
+
+
+  /******************** MODAL SUBJECTS PANEL *****************/
   #modal-subjects-panel {
     position: absolute;
     top: 0;
     left: 0;
-    /* background-color: rgb(60, 120, 125); */
     background-color: rgb(44, 89, 93);
     height: 100%;
     width: 100%;
@@ -788,11 +795,23 @@ font-size: 4.5rem;
     margin-top: 20px;
     border: solid 2px rgb(115, 161, 122);
   border-radius: 5px;
-   /* box-shadow: 10px 10px 8px 10px rgb(255, 204, 46); */
   }
 
-  /************ GAME SCREEN **************/
 
+
+
+
+
+
+
+
+  /*************************** GAME PAGE SECTION *************************/
+
+  #game-wraper{
+    padding-bottom: 80px;
+  }
+
+  /*************** HEADING **************/
   #heading-container {
     width: 60%;
     margin-top: 0px;
@@ -827,7 +846,11 @@ font-size: 4.5rem;
 
 
 
-  /*****  game panel ******/
+
+
+
+
+  /************  GAME PANEL **************/
   #game-container {
     justify-content: center;
     width: 70%;
@@ -838,7 +861,6 @@ font-size: 4.5rem;
 .level-status-mobile{
   display: block;
   font-size: 1.2rem;
-  /* color: rgb(255, 204, 106); */
   color: rgb(255, 232, 122);
   text-align: center;
 }
@@ -848,17 +870,15 @@ font-size: 4.5rem;
     font-size: 1rem;
   }
 
-
   #answer-options{
     margin-top: 50px;
-
   }
 
 .answer-box{
   align-items: center;
   border-radius: 10px;
-
 }
+
   .answer-box button {
     margin-top: 20px;
     display: flex;
@@ -874,51 +894,13 @@ font-size: 4.5rem;
 
 
 
-  /* .right-answer {
-    background-color: rgb(151, 218, 125);
-  }
-
-  .wrong-answer {
-    background-color: rgb(228, 131, 131);
-  } */
-
-  /***** COMODIN SECTION ******/
-  #comodin-container {
-    width: 55%;
-  }
-
-  #comodin-container h3 {
-    color: rgb(255, 232, 122);
-    margin-top: 5px;
-    padding-top: 10px;
-    line-height: 6px;
-  }
-
-  .comodin-options {
-  display: block;
-  }
-
-  .comodin-options button {
-    height: 45px;
-    width: 100%;
-    border: 1px solid lightgrey;
-    background-color: rgba(255, 208, 24, 0.9);
-    font-size: 1rem;
-    color: rgb(60, 120, 125);
-  }
-
-  .comodin-options button:hover {
-    background-color: rgba(255, 208, 24, 0.63);
-    color: rgb(60, 120, 125);
-  }
-
-  #comodin-container h5 {
-    text-align: center;
-    margin: 0 auto;
-  }
 
 
-  /************** SCORE SECTION ****************/
+
+
+
+
+  /******************** SCORE SECTION *********************/
   #score-container {
     display: none;
   }
@@ -934,7 +916,55 @@ font-size: 4.5rem;
   }
 
 
-  /*********  END OF GAME PANEL ******/
+
+
+
+
+
+
+
+
+
+  /*********************** COMODIN SECTION **********************/
+  #comodin-container {
+    width: 55%;
+  }
+
+  #comodin-container h3 {
+    color: rgb(255, 232, 122);
+    margin-top: 5px;
+    padding-top: 10px;
+    line-height: 6px;
+  }
+
+  .comodin-buttons-container {
+  display: block;
+  }
+
+  .ccomodin-buttons-container button {
+    height: 45px;
+    width: 100%;
+    border: 1px solid lightgrey;
+    background-color: rgba(255, 208, 24, 0.9);
+    font-size: 1rem;
+    color: rgb(60, 120, 125);
+  }
+
+  .comodin-buttons-container button:hover {
+    background-color: rgba(255, 208, 24, 0.63);
+    color: rgb(60, 120, 125);
+  }
+
+  #comodin-container h5 {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+
+
+
+
+  /**************************  END OF GAME PAGE **********************/
   #end-of-game {
     width: 70%;
     padding: 5px;
@@ -966,7 +996,6 @@ font-size: 4.5rem;
     margin: 0 auto;
     text-align: center;
     padding-bottom: 30px;
-    /* padding-right: 20px; */
   }
 
   /***** BUTTON RESTART GAME ****/
@@ -982,7 +1011,10 @@ font-size: 4.5rem;
 }
 
 /******************************** MEDIA MOBILE ************************************/
+
 @media (max-width: 575px) {
+
+  /********************* WELCOME HEADING ******************/
   #heading {
     margin: 0 auto;
     padding: 6% 0%;
@@ -994,7 +1026,6 @@ font-size: 4.5rem;
     letter-spacing: 4px;
     line-height: 50px;
 }
-
 
   #zz {
     font-size: 3.7rem;
@@ -1015,7 +1046,7 @@ font-size: 4.5rem;
 
 
 
-  /***** FORM ******/
+  /*************************** FORM SECTION  ************************/
   #form-container {
     position: relative;
     top: 220px;
@@ -1033,31 +1064,22 @@ font-size: 4.5rem;
     font-size: 1.1rem;
   }
 
-  #form h2 {
+  #form #heading-2 {
     letter-spacing: 2px;
     font-size: 1.2rem;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     padding: 5% 0%;
 
   }
 
-  /***** CLASS LISTS */
-  .hidden {
-    display: none
-  }
 
-  .show {
-    display: grid;
-  }
 
-  /**** MAIN SUBJECTS PANEL*****/
+  /***********  SUBJECTS PANEL *********/
 
-  #subjects-wraper {
+#form #subjects-wraper {
     display: block;
     justify-content: center;
-    /* padding-bottom: 70px; */
     padding: 5% 0%;
-
   }
 
 #subjects-wraper .subject-button-container{
@@ -1074,7 +1096,16 @@ font-size: 4.5rem;
   }
 
 
-    /***** MODAL SUBJECTS PANEL ****/
+
+
+
+
+
+
+
+
+/***************************** MODAL SUBJECTS PANEL ***********************/
+
     #modal-subjects-panel {
       position: absolute;
       top: 0;
@@ -1101,7 +1132,18 @@ font-size: 4.5rem;
     }
 
 
-  /*******  GAME SCREEN MOBILE ****/
+
+
+
+
+
+
+
+
+  /*******************************  GAME PAGE MOBILE **************************/
+
+
+/*************** HEADING ************/
   #heading-container {
     width: 80%;
     margin-top: 5px;
@@ -1140,7 +1182,16 @@ top: 5px;
   text-align: center;
 }
 
-  /*****  game panel */
+
+
+
+
+
+
+
+
+  /**************  GAME PANEL *************/
+
   #game-container {
     width: 90vw;
     height: 48vh;
@@ -1148,27 +1199,38 @@ top: 5px;
     text-align: center;
   }
 
+/** question **/
 #game-container h4{
   padding: 1px 20px;
 }
 
+
+/** answer **/
 #answer-options{
   margin-top: 60px;
 }
 
 .answer-box {
   border-radius: 10px;
+}
+
+.answer-box button {
+  height: 32px;
+  width: 100%;
+  border-radius: 10px;
 
 }
 
-  .answer-box button {
-    height: 32px;
-    width: 100%;
-    border-radius: 10px;
 
-  }
 
-  /***** COMODIN SECTION ******/
+
+
+
+
+
+
+  /************************* COMODIN SECTION ******************/
+
   #comodin-container {
     width: 70%;
     display: block;
@@ -1181,18 +1243,19 @@ top: 5px;
     line-height: 6px;
   }
 
-  .comodin-options {
+  .comodin-buttons-container {
   display: block;
-
   }
-  .comodin-options button {
+
+  .comodin-buttons-container button {
   display: block;
     height: 30px;
     width: 100%;
     font-size: 1rem;
     margin-bottom: 2px;
   }
-  .comodin-options button:hover {
+
+  .comodin-buttons-container button:hover {
     background-color: rgba(255, 208, 24, 0.63);
     color: rgb(60, 120, 125);
   }
@@ -1204,7 +1267,15 @@ top: 5px;
 
 
 
-  /*********  END OF GAME PANEL ******/
+
+
+
+
+
+
+
+  /*************************  END OF GAME PANEL *********************/
+
   #end-of-game {
     width: 80%;
     padding: 5px;
@@ -1236,11 +1307,10 @@ top: 5px;
     margin: 0 auto;
     text-align: center;
     padding-bottom: 30px;
-    /* padding-right: 20px; */
   }
 
 
-  /***** BUTTON RESTART GAME ****/
+  /********* BUTTON RESTART GAME *******/
   #button-restart-container {
     margin: 0 auto;
     width: 70%;

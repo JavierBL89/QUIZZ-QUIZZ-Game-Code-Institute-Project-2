@@ -14,26 +14,34 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@1,800&family=Carter+One&family=Open+Sans:wght@700&family=Poppins:wght@400;500;600;700;800&family=Suez+One&display=swap" rel="stylesheet">
   <!-- ICONS -->
-
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
 </head>
 
 <body>
 
   <div id="welcome-wraper">
 
+    <!--****************  WELCOME HEADING  ******************** -->
     <div id="title-panel">
       <h1 id="heading"><span id="hey">Hey</span><br />Welcome to<br />
         <spang id="quizz-1">Qui<spang id="zz">
-            <spang id="z1">z</spang>z</spang>
-        </spang>Qui<spang id="exclamations">??
+            <spang id="z1">z</spang>z
+          </spang>
+        </spang>Qui<spang id="exclamations">??</spang>
       </h1>
     </div>
+
+    <!--****************** *****FORM SECTION  *****************-->
     <div id="form-container">
       <form id="form" action="game.html" method="POST">
         <input type="text" id="player-name-input" name="player-name-input" value="" placeholder="Enter player name" required>
         <br />
 
-        <h2 class="choose-text">Choose a subject to start!<br /></h2>
+        <h2 id="heading-2">Choose a subject to start!<br /></h2>
+        <!-- SUBJECTS TO START PANEL -->
         <div id="subjects-wraper">
           <div class="subject-button-container" id="subject-1">
             <button type="submit" class="subject-1" name="button" aria-label="Center Align" value="GENERAL" onclick="handleSumit(this)"></button>
@@ -48,7 +56,7 @@
             <h2>FOOTBALL</h2>
           </div>
           <div class="subject-button-container">
-            <button type="submit" class="subject-4" aria-label="Center Align"  name="button" value="GEOGRAPHY" onclick="handleSumit(this)"></button>
+            <button type="submit" class="subject-4" aria-label="Center Align" name="button" value="GEOGRAPHY" onclick="handleSumit(this)"></button>
             <h2>GEOGRAPHY</h2>
           </div>
         </div>
@@ -60,7 +68,7 @@
 
 
 
-  <!--****************   GAME PANEL  ****************-->
+  <!--****************  HEADING GAME PAGE   ****************-->
   <div id="game-wraper">
     <div id="heading-container">
       <h2 id="level-row">Level <spang id="level-status">1</spang>
@@ -71,7 +79,8 @@
       </div>
 
     </div>
-    <!-- SCORE PANEL -->
+
+    <!--************** SCORE PANEL ********************-->
     <div id="score-container">
       <div id="score-box">
         <h3 id="current-player-name"></h3>
@@ -84,6 +93,7 @@
       </div>
     </div>
 
+    <!--*************** GAME PANEL *****************-->
     <div id="game-container">
       <h4 id="question">What is the capital of Iranlda?</h4>
       <div id="answer-options">
@@ -101,11 +111,12 @@
     </div>
 
 
-   <!-- *****    COMODINS SECTION   ******   -->
+
+    <!--*************  COMODINS SECTION  ***************-->
     <div id="comodin-container">
       <h3>Comodins<spang id="total-comodins"> 3</spang>
       </h3>
-      <div class="comodin-options">
+      <div class="comodin-buttons-container">
         <button id="comodin1" type="button" name="button">SQUIP QUESTION</button>
         <button id="comodin2" type="button" name="button">CHANGE SUBJECT</button>
         <button id="comodin3" type="button" name="button">BUY TIME</button>
@@ -115,60 +126,50 @@
     </div>
 
 
-      <!--***************** CHANGE SUBJECT COMODIN PANEL  ************-->
-      <div id="modal-subjects-panel" class="modal-subjets-out">
-        <button type="submit" class="modal-subject-1" name="button"></button>
-        <h2>GENERAL</h2>
-        <button type="submit" class="modal-subject-2" name="button"></button>
-        <h2>HISTORY</h2>
+    <!--***************** MODAL SUBJECTS PANEL  *************-->
+    <div id="modal-subjects-panel" class="modal-subjets-out">
+      <button type="submit" class="modal-subject-1" name="button"></button>
+      <h2>GENERAL</h2>
+      <button type="submit" class="modal-subject-2" name="button"></button>
+      <h2>HISTORY</h2>
 
-        <button type="submit" class="modal-subject-3" name="button"></button>
-        <h2>FOOTBAL</h2>
+      <button type="submit" class="modal-subject-3" name="button"></button>
+      <h2>FOOTBAL</h2>
 
-        <button type="submit" class="modal-subject-4" name="button"></button>
-        <h2>GEOGRAPHY</h2>
+      <button type="submit" class="modal-subject-4" name="button"></button>
+      <h2>GEOGRAPHY</h2>
+
+    </div>
+
+  </div>
+
+
+  <!--************** END OF GAME PANEL *****************-->
+
+  <div id="end-of-game">
+    <div class="end-heading">
+      <h1 id="game-over-status">End of Game</h1>
+    </div>
+    <div id="final-score-container">
+      <div id="final-player-score">
+
+      </div>
+      <div class="">
+        <h2>TOP PLAYERS</h2>
+      </div>
+      <div id="top-players-container">
 
       </div>
 
     </div>
 
+  </div>
+  <!-- BUTTON TO RESTART GAME -->
+  <div id="button-restart-container">
+    <button type="button" id="restart-game" name="button">RESTART GAME</button>
+  </div>
 
-    <!--************** END OF GAME PANEL *****************-->
-
-    <div id="end-of-game">
-      <div class="end-heading">
-        <h1 id="game-over-status">End of Game</h1>
-      </div>
-      <div id="final-score-container">
-        <div id="final-player-score">
-
-        </div>
-        <div class="">
-          <h2>TOP PLAYERS</h2>
-        </div>
-        <div id="top-players-container">
-          <!-- <table style="width:100%">
-  <tr>
-    <th>Player</th>
-    <th>Score</th>
-    <th>Correct answers</th>
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-</table> -->
-        </div>
-
-      </div>
-
-    </div>
-    <div id="button-restart-container">
-      <button type="button" id="restart-game" name="button">RESTART GAME</button>
-    </div>
-
-    <script src="src/js/index2.js"></script>
+  <script src="src/js/index2.js"></script>
 </body>
 
 </html>

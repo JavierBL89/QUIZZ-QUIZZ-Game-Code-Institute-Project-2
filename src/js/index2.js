@@ -16,7 +16,6 @@ const comodin4 = document.getElementById("comodin4");
 const totalComodins = document.getElementById("total-comodins");
 const gameOverStatus= document.getElementById("game-over-status");
 
-let alLevel2 = false;
 const finalPlayerScore = document.getElementById("final-player-score");
 const finalTopPlayers = document.getElementById("top-players-container");
 const endOfGamePanel = document.getElementById("end-of-game");
@@ -105,12 +104,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-/** GETTTING HOLD OF PLAYER NAME AND PASSING IN
-THE BUTTON ELEMENT SELECTED TO START THE GAME
-WITH THE SUBJECT CHOOSEN **/
-
-
-
+/** GETTTING HOLD OF PLAYER NAME AND ASSING IN
+THE BUTTON ELEMENT SELECTED TO START THE GAME WITH THE SUBJECT CHOOSEN **/
 function handleSumit(subject) {
   //without this event.prevent the whole function does not work
   event.preventDefault();
@@ -122,6 +117,7 @@ playerInput.focus();
   }else{
   subject.classList.add("button-vanishes");
   document.getElementById("current-player-name").innerText = playerInput.value;
+  //Pass in the button element
   startCountDown(subject);
   }
 
@@ -374,10 +370,9 @@ if(correctAnswersTrack == 5){
   setTimeout(function() {
     if (correctAnswersTrack == 5) {
         /*** use dinamic subject question heading to run
-        next level questions afert 1s *** */
+        next level questions after 1s *** */
          if(currentSubjectGame.innerText === "General Knowledge"){
            currentQuestionIndex  = 0;
-           console.log(currentQuestionIndex);
            runGeneralLevel2();
          }else if(currentSubjectGame.innerText === "History"){
            currentQuestionIndex  = 0;
