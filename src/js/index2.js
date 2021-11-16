@@ -386,8 +386,11 @@ if(correctAnswersTrack == 5){
            currentQuestionIndex  = 0;
            runFootballLevel2();
          }
-    } else if (correctAnswersTrack == 12) {
-      alert("puta")
+    } else if (correctAnswersTrack == 13) {
+      setTimeout(() =>{
+        gameOverStatus.innerText = "Congrats you made it!";
+        endOfGame();
+    }, 1000)
     }else{
       setNextQuestion();
     }
