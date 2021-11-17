@@ -182,9 +182,8 @@ from{
 
 #zz {
   font-size: 5rem;
-  line-height: 10px;
+  line-height: 5px;
   position: relative;
-  top: 10px;
   right: 15px;
 }
 
@@ -659,7 +658,7 @@ table td {
     color: yellow;
     text-align: center;
     position: relative;
-    left: 0;
+    left: 20px;
     margin-top: 100px;
     transform: rotate(0);
     letter-spacing: 4px;
