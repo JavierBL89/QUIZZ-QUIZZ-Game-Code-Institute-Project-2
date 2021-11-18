@@ -27,7 +27,7 @@ const reStartButton = document.getElementById("button-restart-container");
 // topPlayersArray.sort(function(a, b){
 //   return b - a;
 // });
-// window.localStorage.setItem("topPlayersArray", JSON.stringify(topPlayersArray));
+
 
 
 const puta = document.addEventListener("DOMContentLoaded", function() {
@@ -43,9 +43,8 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
       if (this.getAttribute("class") === "modal-subject-1") {
        decrementComodin(modalSubjectsPanel);
        heading(this);
-        comodin2.style.display = "none";
         status.innerText;
-          if (status === "1") {
+          if (status == 1) {
           runGeneralLevel1();
           console.log(this);
           } else {
@@ -53,21 +52,20 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
           }
       } else if (this.getAttribute("class") === "modal-subject-2") {
         decrementComodin(modalSubjectsPanel);
-        heading(this);
-        comodin2.style.display = "none";
         status.innerText;
-          if (status === "1") {
+          if (status == 1) {
           runHistoryLevel1();
           } else {
           runHistoryLevel2();
           }
         modalSubjectsPanel.style.display = "none";
+        heading(this);
 
       } else if (this.getAttribute("class") === "modal-subject-3") {
         decrementComodin(modalSubjectsPanel);
         heading(this);
-        comodin2.style.display = "none";
-          if (status === "1") {
+        status.innerText;
+          if (status == 1) {
           runFootballLevel1();
           } else {
           runFootballLevel2();
@@ -75,10 +73,11 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
         modalSubjectsPanel.style.display = "none";
 
       } else if (this.getAttribute("class") === "modal-subject-4") {
+        console.log("puta");
         decrementComodin(modalSubjectsPanel);
         heading(this);
-        comodin2.style.display = "none";
-          if (status === "1") {
+        status.innerText;
+          if (status == 1) {
           runGeographyLevel1();
           } else {
           runGeographyLevel2();
@@ -98,19 +97,18 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
 
         checkAnswer(this);
       } else if (this.getAttribute("id") === "comodin1") {
-        // this.style.display = "none";
         decrementComodin(this);
         setNextQuestion();
       } else if (this.getAttribute("id") === "comodin2") {
         clearInterval(timeInterval);
         modalSubjectsPanel.style.display = "block";
-        // modalSubjectsPanel.classList.add("slideIn");
+
       } else if (this.getAttribute("id") === "comodin3") {
         decrementComodin(this);
         clearInterval(timeInterval);
         timeExtra();
         this.style.display = "none";
-        // incrementTime();
+
       } else if (this.getAttribute("id") === "restart-game") {
         reStartGame();
       } else {
@@ -120,7 +118,7 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
     });
   }
   playerInput.focus();
-
+   currentPlayerScoreArray = [];
 });
 
 
@@ -590,13 +588,10 @@ topPlayersTableInner = `<table style="width:100%">
 // Function to populate the top player table
 function showTopPlayersScore(topPlayersArray) {
 
-  // topPlayersArray = JSON.parse(localStorage.getItem("topPlayersArray")) || [];
+// topPlayersArray.sort(function(a,b){
+//   return b - a
+// });
 
-// let storedTopPlayersArray = JSON.parse(window.localStorage.getItem("storedNewArray"));
-// console.log(storedTopPlayersArray);
-
-// topPlayersArray.slice(0,3);
-// console.log(topPlayersArray.slice(0,3));
     for(let topPlayer of topPlayersArray.slice(0,3)){
         let topPlayersRow = `
         <tr>
@@ -635,6 +630,7 @@ currentQuestionIndex = 0;
   totalComodins.innerText = "3";
 }
 
+currentPlayerScoreArray = [];
 
 
 /* CONSTRUCTOR FUNCTION FOR QUESTIONS
@@ -649,6 +645,8 @@ function Question(question, answer1, answer2, answer3, correct) {
     this.answer3 = answer3,
     this.correct = correct
 }
+
+
 // General questions level1
 const g1q1 = new Question("What does a funambulist walk on?", "A tight rope", "A cable", "A thread", "A tight rope");
 const g1q2 = new Question("Which restaurant's mascot is a clawn?", "Burguer King", "KFC", "McDonald", "McDonald");
@@ -661,7 +659,6 @@ const g1q8 = new Question("What do you call a cocktail consisting of coconut mil
 const g1q9 = new Question("What is James Bond’s preferred drink of choice?", "Cocktails", "Brandy", "Martini", "Martini");
 const g1q10 = new Question("How many balls are on a pool table at the start of a game?", "12", "16", "20", "16");
 
-// var p2 = new Person("Jhon", 24);
 generalLevel1.push(g1q1, g1q2, g1q3, g1q4, g1q5, g1q6, g1q7, g1q8, g1q9, g1q10);
 
 
@@ -696,7 +693,8 @@ const h1q9 = new Question("Who invented the light bulb?", "Amstrong", "Thomas Ed
 const h1q10 = new Question("Who invented the first car?", "Henry Ford", "Carl (Karl) Friedrich Benz", "Enzo Ferrari", "Carl (Karl) Friedrich Benz");
 
 historyLevel1.push(h1q1, h1q2, h1q3, h1q4, h1q5, h1q6, h1q7, h1q8, h1q9, h1q10);
-// const correctAnswers = ["Greece", "Jimmy Hendrix", "Germany", "Denmark","1963","1945","A tight rope", "7","Tasmania","Space Shuttle Columbia","Ireland","4","McDonald", "The London Bridge","Charles Lindbergh","Silver", "China", "Alexander Graham Bell", "Carl (Karl) Friedrich Benz","Thomas Edison","2 hours 40 minutes","Bethlehem","White House","George Washington","False", "South America","Spanish", "Inception", "Piña Colada", "Martini", "16"];
+
+
 
 // History questions level2
 const h2q1 = new Question("In which year did Hitler commit suicide?", "1938", "1940", "1945", "1945");
@@ -752,18 +750,18 @@ const geographyLevel1 = [];
 const geographyLevel2 = [];
 
 // Geography questions level1
-const ggq1 = new Question("China is part of which continent?", "Europe", "India", "Asia", "Asia");
-const ggq2 = new Question("The highest montain in the world is in which two countries?", "India and Pakistan", "China and Tibet", "Tibet and Nepal", "Tibet and Nepal");
-const ggq3 = new Question("Where is the biggest desert on earth?", "Siberia", "Africa", "Antarctica", "Antarctica");
-const ggq4 = new Question("Which continent has the fewest people living on it?", "Antarctica", "Africa", "Australia", "Antarctica");
-const ggq5 = new Question("Which continent has the largest population?", "Antarctica", "India", "Asia", "Asia");
-const ggq6 = new Question("Which continent has the most countries?", "Europe", "Asia", "Africa", "Africa");
+const gg1q1 = new Question("China is part of which continent?", "Europe", "India", "Asia", "Asia");
+const gg1q2 = new Question("The highest montain in the world is in which two countries?", "India and Pakistan", "China and Tibet", "Tibet and Nepal", "Tibet and Nepal");
+const gg1q3 = new Question("Where is the biggest desert on earth?", "Siberia", "Africa", "Antarctica", "Antarctica");
+const gg1q4 = new Question("Which continent has the fewest people living on it?", "Antarctica", "Africa", "Australia", "Antarctica");
+const gg1q5 = new Question("Which continent has the largest population?", "Antarctica", "India", "Asia", "Asia");
+const gg1q6 = new Question("Which continent has the most countries?", "Europe", "Asia", "Africa", "Africa");
 const gg1q7 = new Question("Which country has the longest coastline?", "Norway", "Australia", "Canada", "Canada");
 const gg1q8 = new Question("Which country is in South America?", "Mexico", "Brazil", "Spain", "Brazil");
 const gg1q9 = new Question("Which country is shaped as a boot?", "Italy", "Greece", "Germany", "Italy");
 const gg1q10 = new Question("Which country is the biggest area?", "Unite States", "China", "Russia", "Russia");
 
-geographyLevel1.push(f1q1, f1q2, f1q3, f1q4, f1q5, f1q6, f1q7, f1q8, f1q9, f1q10);
+geographyLevel1.push(gg1q1, gg1q2, gg1q3, gg1q4, gg1q5, gg1q6, gg1q7, gg1q8, gg1q9, gg1q10);
 
 // Geography questions level2
 const gg2q1 = new Question("If an age group is U16, how old are most of the people on the team going to be?", "17", "16", "15", "15");
@@ -777,4 +775,4 @@ const gg2q8 = new Question("With 202 clean sheets, which goalkeeper has the best
 const gg2q9 = new Question("In which World Cup did Diego Maradona score his infamous 'Hand of God' goal?", "Spain 1992", "Germany 1974", "Mexico 1986", "Mexico 1986");
 const gg2q10 = new Question("Who is the Champions League's top goalscorer of all time?", "C.Ronaldo", "Messi", "Raúl Gonzalez", "C.Ronaldo");
 
-geographyLevel2.push(f2q1, f2q2, f2q3, f2q4, f2q5, f2q6, f2q7, f2q8, f2q9, f2q10);
+geographyLevel2.push(gg2q1, gg2q2, gg2q3, gg2q4, gg2q5, gg2q6, gg2q7, gg2q8, gg2q9, gg2q10);

@@ -192,7 +192,9 @@ from{
   bottom: 10px;
 }
 
-
+#exclamations {
+  font-size: 4rem;
+}
 
 /************* FORM **************/
 
@@ -381,11 +383,12 @@ margin: 15px 0px 0px 15px;
 
 /**** question **/
 #game-container h4 {
-  padding: 1px 90px;
+  padding: 1px 70px;
   height: 40px;
   font-family: 'Poppins', sans-serif;
   letter-spacing: 1px;
   color: rgb(9, 52, 56);
+  margin-top: 20px;
 }
 
 .answer-box {
@@ -528,6 +531,7 @@ to{
   width: 100%;
   text-decoration: none;
   margin-top: 10px;
+  border-radius: 10px;
   border: solid 2px rgb(115, 161, 122);
 }
 
@@ -536,6 +540,7 @@ color: rgb(255, 204, 106);
 font-size: 1rem;
 margin: 0;
 }
+
 /****** MODAL SUBJECTS BUTTONS BACKGROUNDS ******/
 .modal-subject-1 {
   background-image: url("../images/generalKnowledge.jpg");
@@ -679,7 +684,7 @@ table td {
   }
 
 
-  #exclamations {
+ #exclamations {
     font-size: 3.9rem;
     line-height: 10px;
   }
@@ -1022,6 +1027,7 @@ font-size: 4.5rem;
     color: yellow;
     position: absolute;
     top: 10px;
+    left: 20px;
     letter-spacing: 4px;
     line-height: 50px;
 }
