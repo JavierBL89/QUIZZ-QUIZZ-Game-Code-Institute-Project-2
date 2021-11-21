@@ -97,7 +97,7 @@ from{
 }
 
 .show {
-  display: grid;
+  display: block;
 }
 
 .blank {

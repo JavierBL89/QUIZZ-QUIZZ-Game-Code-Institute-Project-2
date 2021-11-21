@@ -50,6 +50,8 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
           } else {
           runGeneralLevel2();
           }
+          modalSubjectsPanel.classList.add("hidden");
+          heading(this);
       } else if (this.getAttribute("class") === "modal-subject-2") {
         decrementComodin(modalSubjectsPanel);
         status.innerText;
@@ -58,7 +60,7 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
           } else {
           runHistoryLevel2();
           }
-        modalSubjectsPanel.style.display = "none";
+        modalSubjectsPanel.classList.add("hidden");
         heading(this);
 
       } else if (this.getAttribute("class") === "modal-subject-3") {
@@ -70,7 +72,7 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
           } else {
           runFootballLevel2();
           }
-        modalSubjectsPanel.style.display = "none";
+          modalSubjectsPanel.classList.add("hidden");
 
       } else if (this.getAttribute("class") === "modal-subject-4") {
         console.log("puta");
@@ -82,7 +84,7 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
           } else {
           runGeographyLevel2();
           }
-        modalSubjectsPanel.style.display = "none";
+          modalSubjectsPanel.classList.add("hidden");
 
       } else if (this.getAttribute("id") === "answer1") {
         console.log(this.innerText);
@@ -101,13 +103,13 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
         setNextQuestion();
       } else if (this.getAttribute("id") === "comodin2") {
         clearInterval(timeInterval);
-        modalSubjectsPanel.style.display = "block";
+        modalSubjectsPanel.classList.add("show");
 
       } else if (this.getAttribute("id") === "comodin3") {
         decrementComodin(this);
         clearInterval(timeInterval);
         timeExtra();
-        this.style.display = "none";
+        this.classList.add("hidden");
 
       } else if (this.getAttribute("id") === "restart-game") {
         reStartGame();
@@ -175,8 +177,8 @@ function startCountDown(subject) {
     subjectParent.innerHTML = parentSubjectInnerHtml;
     // When the count gets to 0 we want...
     if(subjectParent.children[0].innerText == 0 && subject.value === "GENERAL") {
-      welcomeWraper.style.display = "none";
-      gameWraper.style.display = "block";
+      welcomeWraper.classList.add("hidden");
+      gameWraper.classList.add("show");
       /*pass in the the variables declared earlier getting hold
       of the first elements into the parent subject*/
       resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
@@ -184,22 +186,22 @@ function startCountDown(subject) {
       runGeneralLevel1();
     } else if (subjectParent.children[0].innerText == 0 && subject.value === "HISTORY") {
       subjectParent.innerHTML = "";
-      welcomeWraper.style.display = "none";
-      gameWraper.style.display = "block";
+      welcomeWraper.classList.add("hidden");
+      gameWraper.classList.add("show");
       resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
       clearInterval(startGameInterval)
       runHistoryLevel1();
     }else if (subjectParent.children[0].innerText == 0 && subject.value === "FOOTBALL") {
       subjectParent.innerHTML = "";
-      welcomeWraper.style.display = "none";
-      gameWraper.style.display = "block";
+      welcomeWraper.classList.add("hidden");
+      gameWraper.classList.add("show");
       resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
       clearInterval(startGameInterval)
       runFootballLevel1();
     }else if (subjectParent.children[0].innerText == 0 && subject.value === "GEOGRAPHY") {
       subjectParent.innerHTML = "";
-      welcomeWraper.style.display = "none";
-      gameWraper.style.display = "block";
+      welcomeWraper.classList.add("hidden");
+      gameWraper.classList.add("show");
       resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
       clearInterval(startGameInterval)
       runGeographyLevel1();
@@ -449,7 +451,7 @@ function incrementIncorrectAnswers() {
 
 
 function decrementComodin(comodinSelected){
-  comodinSelected.style.display = "none";
+  comodinSelected.classList.add("hidden");
   let numberOfComodins = parseInt(totalComodins.innerText);
   totalComodins.innerText = " " + --numberOfComodins;
 }
@@ -490,11 +492,11 @@ function timeExtra(){
 
 // Function to get rid of the game panel
 function endOfGame() {
-  welcomeWraper.style.display = "none";
-  gameWraper.style.display = "none";
+  welcomeWraper.classList.add("hidden");
+  gameWraper.classList.add("hidden");
 
-  endOfGamePanel.style.display = "block";
-  reStartButton.style.display = "block";
+  endOfGamePanel.classList.add("show");
+  reStartButton.classList.add("show");
   showFinalPlayerScore();
   showTopPlayersScore();
 }
@@ -588,8 +590,8 @@ function showTopPlayersScore() {
 /*Redirect the user to URL game restoring all data stored from the previous game
  and destroying the tables created with template literals*/
 function reStartGame() {
-window.location.replace("file:///C:/Users/hp/Desktop/WEB%20PROYECTS/quizz-quizz/index.html");
-// window.location.href = "https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/";
+// window.location.replace("file:///C:/Users/hp/Desktop/WEB%20PROYECTS/quizz-quizz/index.html");
+window.location.href = "https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/";
 }
 
 
