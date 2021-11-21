@@ -16,18 +16,15 @@ const comodin3 = document.getElementById("comodin3");
 const comodin4 = document.getElementById("comodin4");
 const totalComodins = document.getElementById("total-comodins");
 const gameOverStatus= document.getElementById("game-over-status");
-
 const finalPlayerScore = document.getElementById("final-player-score");
 const finalTopPlayers = document.getElementById("top-players-container");
 const endOfGamePanel = document.getElementById("end-of-game");
 const reStartButton = document.getElementById("button-restart-container");
-
-
-// let topPlayersArray = [];
-// topPlayersArray.sort(function(a, b){
-//   return b - a;
-// });
-
+//html code blocks hidden by default
+gameWraper.classList.add("hidden");
+reStartButton.classList.add("hidden");
+endOfGamePanel.classList.add("hidden");
+modalSubjectsPanel.classList.add("hidden");
 
 
 const puta = document.addEventListener("DOMContentLoaded", function() {
@@ -60,6 +57,7 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
           } else {
           runHistoryLevel2();
           }
+        comodin2.classList.add("hidden");
         modalSubjectsPanel.classList.add("hidden");
         heading(this);
 
@@ -67,23 +65,26 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
         decrementComodin(modalSubjectsPanel);
         heading(this);
         status.innerText;
+
           if (status == 1) {
           runFootballLevel1();
           } else {
           runFootballLevel2();
           }
+          comodin2.classList.add("hidden");
           modalSubjectsPanel.classList.add("hidden");
 
       } else if (this.getAttribute("class") === "modal-subject-4") {
-        console.log("puta");
         decrementComodin(modalSubjectsPanel);
         heading(this);
         status.innerText;
+
           if (status == 1) {
           runGeographyLevel1();
           } else {
           runGeographyLevel2();
           }
+          comodin2.classList.add("hidden");
           modalSubjectsPanel.classList.add("hidden");
 
       } else if (this.getAttribute("id") === "answer1") {
@@ -91,19 +92,18 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
 
         checkAnswer(this);
       } else if (this.getAttribute("id") === "answer2") {
-        console.log(this.innerText);
-
         checkAnswer(this);
+
       } else if (this.getAttribute("id") === "answer3") {
-        console.log(this.innerText);
-
         checkAnswer(this);
+
       } else if (this.getAttribute("id") === "comodin1") {
         decrementComodin(this);
         setNextQuestion();
+
       } else if (this.getAttribute("id") === "comodin2") {
         clearInterval(timeInterval);
-        modalSubjectsPanel.classList.add("show");
+        modalSubjectsPanel.classList.remove("hidden");
 
       } else if (this.getAttribute("id") === "comodin3") {
         decrementComodin(this);
@@ -113,6 +113,7 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
 
       } else if (this.getAttribute("id") === "restart-game") {
         reStartGame();
+
       } else {
         // alert("Unkown atribute");
         // throw `Unkown atribute}`;
@@ -120,9 +121,7 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
     });
   }
   playerInput.focus();
-   currentPlayerScoreArray = [];
 });
-
 
 
 
@@ -164,12 +163,13 @@ function startCountDown(subject) {
   // get hold of the nextSibling subject and set initial interval
   let nextSubjectSibling = subject.nextElementSibling;
   startGameCountDown = 4;
- //clears any previuos interval iniciated
-  clearInterval(startGameInterval);
+ //clears any previuos interval initiated
+  clearInterval(startGameInterval)
 
-  startGameInterval = setInterval(() => {
+    startGameInterval = setInterval(() => {
     startGameCountDown--;
     let countDown = subjectParent.innerText = startGameCountDown;
+
     /*creat new elements to fill the parent subject html
     with the countdown to start game after clicking on the subject button*/
     let parentSubjectInnerHtml = `<spang id="start-countdown">${countDown}</spang>
@@ -178,30 +178,35 @@ function startCountDown(subject) {
     // When the count gets to 0 we want...
     if(subjectParent.children[0].innerText == 0 && subject.value === "GENERAL") {
       welcomeWraper.classList.add("hidden");
-      gameWraper.classList.add("show");
+      gameWraper.classList.remove("hidden");
       /*pass in the the variables declared earlier getting hold
       of the first elements into the parent subject*/
       resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
       clearInterval(startGameInterval);
       runGeneralLevel1();
+
     } else if (subjectParent.children[0].innerText == 0 && subject.value === "HISTORY") {
       subjectParent.innerHTML = "";
       welcomeWraper.classList.add("hidden");
-      gameWraper.classList.add("show");
+      gameWraper.classList.remove("hidden");
       resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
       clearInterval(startGameInterval)
       runHistoryLevel1();
+
     }else if (subjectParent.children[0].innerText == 0 && subject.value === "FOOTBALL") {
       subjectParent.innerHTML = "";
       welcomeWraper.classList.add("hidden");
-      gameWraper.classList.add("show");
+      gameWraper.classList.remove("hidden");
       resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
       clearInterval(startGameInterval)
       runFootballLevel1();
+
     }else if (subjectParent.children[0].innerText == 0 && subject.value === "GEOGRAPHY") {
       subjectParent.innerHTML = "";
       welcomeWraper.classList.add("hidden");
-      gameWraper.classList.add("show");
+      gameWraper.classList.remove("hidden");
+      // gameWraper.style.display = "block";
+
       resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
       clearInterval(startGameInterval)
       runGeographyLevel1();
@@ -209,6 +214,7 @@ function startCountDown(subject) {
   }, 1000);
 
 }
+
 
 // reset HTML of the subject button selected to start
 function resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner){
@@ -225,9 +231,7 @@ function resetSubjectButton(subjectParent, firstChildParentClass, lastChildParen
 }
 
 
-/************************ RUN GAME SUBJECTS QUESTIONS *******************/
-
-
+/*********************************** RUN GAME SUBJECTS QUESTIONS ****************************/
 
 //**** RUN GENERAL KNOWLEDE QUESTIONS LEVEL 1 AND 2 *******
 
@@ -247,14 +251,12 @@ function runGeneralLevel2() {
 /****** RUN HISTORY QUESTIONS LEVEL 1 AND 2 *******/
 
 function runHistoryLevel1() {
-
   document.getElementById("subject").innerText = "History";
   shuffleQuestions = historyLevel1.sort(() => Math.random() - .5)
   setNextQuestion();
 }
 
 function runHistoryLevel2() {
-
   document.getElementById("subject").innerText = "General Knowledge";
   shuffleQuestions = historyLevel2.sort(() => Math.random() - .5)
   setNextQuestion();
@@ -276,7 +278,6 @@ function runFootballLevel2() {
 }
 
 
-
 //****************** RUN GEOGRAPHY QUESTIONS LEVEL 1 AND 2 ************
 
 function runGeographyLevel1() {
@@ -293,7 +294,7 @@ function runGeographyLevel2() {
 
 
 
-/************************* GETTING NEXT QUESTION  ***********************/
+/********************************** GETTING NEXT QUESTION  *************************/
 
 //CREATE UNDEFINED VALUES FOR SHUFFLING QUESTIONS
 let shuffleQuestions, currentQuestion
@@ -310,6 +311,7 @@ function setNextQuestion() {
   console.log(currentQuestionIndex);
   showQuestions(shuffleQuestions[currentQuestionIndex]);
 }
+
 
 function showQuestions(question) {
 // Populate data to users side from subjects questions arrays
@@ -333,7 +335,6 @@ function showQuestions(question) {
     countDown--;
     document.getElementById("countDown").textContent = countDown;
     if (document.getElementById("countDown").textContent == 0) {
-
       gameOverStatus.textContent = "Time up!";
       clearInterval(timeInterval);
       endOfGame();
@@ -350,24 +351,23 @@ function checkAnswer(userAnswer) {
   // stops the countdown when user clicks an answer
   clearInterval(timeInterval);
 
-
   let currentQuestion = shuffleQuestions[currentQuestionIndex];
   const parentP = userAnswer.parentNode;
+
   if (userAnswer.innerText === currentQuestion.correct) {
     parentP.classList.add("right-answer");
     incrementScore();
     incrementCorrectAnswers()
+
   } else{
     parentP.classList.add("wrong-answer");
       incrementIncorrectAnswers();
   }
-
-
+// remove background color button answer after 1 sec
   setTimeout(function() {
     parentP.classList.remove("right-answer")
     parentP.classList.remove("wrong-answer")
   }, 1000);
-
 
 }
 
@@ -375,10 +375,7 @@ function checkAnswer(userAnswer) {
 
 
 
-
-
-/*******************  HERE ALL THE CHANGEABLE INNER TEXTS ON THE FLOW *****************///
-
+/***************************  HERE ALL THE CHANGEABLE INNER TEXTS ON THE FLOW *****************///
 
 /**** sets subject question heading according to the subject selected
 in order to use later to call next level questions ****/
@@ -388,14 +385,12 @@ function heading(headingText) {
 }
 
 
-
-
-
 /********* MANIPULATING SCORES PANEL **********/
 function incrementScore() {
   let initialScore = parseInt(score.innerText);
   let currentScore = score.innerText = initialScore + 300;
 }
+
 
 function incrementCorrectAnswers() {
   let initialNumber = parseInt(correctAnswers.innerText);
@@ -405,10 +400,11 @@ if(correctAnswersTrack == 5){
   levelStatus.classList.add("status-color");
   levelStatusMobile.innerText = "2";
   levelStatusMobile.classList.add("status-color")
+
 }else{}
 
   setTimeout(function() {
-    if (correctAnswersTrack == 5) {
+    if(correctAnswersTrack == 5) {
         /*** use dinamic subject question heading to run
         next level questions after 1s *** */
          if(currentSubjectGame.innerText === "General Knowledge"){
@@ -421,7 +417,7 @@ if(correctAnswersTrack == 5){
            currentQuestionIndex  = 0;
            runFootballLevel2();
          }
-    } else if (correctAnswersTrack == 13) {
+    }else if (correctAnswersTrack == 13) {
       setTimeout(() =>{
         gameOverStatus.innerText = "Congrats you made it!";
         endOfGame();
@@ -430,8 +426,8 @@ if(correctAnswersTrack == 5){
       setNextQuestion();
     }
   }, 1000);
-
 }
+
 
 function incrementIncorrectAnswers() {
   let initialNumber = parseInt(document.getElementById("incorrect").innerText);
@@ -441,11 +437,10 @@ function incrementIncorrectAnswers() {
     setTimeout(() =>{
       gameOverStatus.innerText = "Incorrect answer";
       endOfGame();
-  }, 1000)
-}else if(gameCountDown.textContent === "0"){
-
-    gameOverStatus.innerText = "Time Up";
-  }
+     }, 1000)
+   }else if(gameCountDown.textContent === "0"){
+     gameOverStatus.innerText = "Time Up";
+   }
 
 }
 
@@ -482,12 +477,7 @@ function timeExtra(){
 
 
 
-
-
-
-
-/***************************** END OF THE GAME SECTION **************************/
-
+/*********************************** END OF THE GAME SECTION ****************************/
 
 
 // Function to get rid of the game panel
@@ -495,20 +485,11 @@ function endOfGame() {
   welcomeWraper.classList.add("hidden");
   gameWraper.classList.add("hidden");
 
-  endOfGamePanel.classList.add("show");
-  reStartButton.classList.add("show");
+  endOfGamePanel.classList.remove("hidden");
+  reStartButton.classList.remove("hidden");
   showFinalPlayerScore();
   showTopPlayersScore();
 }
-
-
-
-
-
-
-
-
-
 
 
 // Creating the final panel html with the last player scores
@@ -522,7 +503,7 @@ finalPlayerScoreInner = `
 `;
 
 /** Arrays of the current player score array */
-    let currentPlayerScoreArray = [];
+let currentPlayerScoreArray = [];
 
 function showFinalPlayerScore() {
 
@@ -535,7 +516,6 @@ function showFinalPlayerScore() {
     score: currentScore,
     correctAnswers: correct
   };
-
   currentPlayerScoreArray.push(currentPlayerScore);
 
   /* Loping throught the current player score
@@ -550,14 +530,11 @@ function showFinalPlayerScore() {
 
     finalPlayerScoreInner += playerRow += `</table>`;
   })
-
   return finalPlayerScore.innerHTML = finalPlayerScoreInner;
 }
 
 
-
-
-
+//top 3 players array
 const topPlayersArray = [{name: "Laura",score: "6300",correctAnswers: "21"},{name: "Andrew",score: "6000",correctAnswers: "20"},{ name: "Darryl", score: "4500",  correctAnswers: "15"}];
 
 // Creating the top players html table
@@ -571,7 +548,6 @@ topPlayersTableInner = `<table style="width:100%">
 // Function to populate the top player table
 function showTopPlayersScore() {
 
-
     for(let topPlayer of topPlayersArray){
         let topPlayersRow = `
         <tr>
@@ -582,7 +558,6 @@ function showTopPlayersScore() {
 
         topPlayersTableInner += topPlayersRow;
     }
-
   return finalTopPlayers.innerHTML = topPlayersTableInner += `</table>`;
 }
 

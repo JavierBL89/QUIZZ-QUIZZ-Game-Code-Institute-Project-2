@@ -12,21 +12,6 @@ a {
   width: auto;
 }
 
-/** HTML CODE HIDDEN AT INITIALIZE GAME */
-#game-wraper {
-  display: none;
-}
-
-#button-restart-container{
-  display: none;
-}
-
-#end-of-game {
-  display: none;
-}
-
-
-
 /*************************************** ANIMATIONS SECTION ********************/
 
 /****** SLIDE IN TITLE *****/
@@ -97,7 +82,7 @@ from{
 }
 
 .show {
-  display: block;
+  display: grid;
 }
 
 .blank {
@@ -464,7 +449,6 @@ padding-top: 0;
    width: 22%;
 opacity: 0;
  text-align: center;
-  display: none;
   flex-direction: column;
   animation-name: slideIn;
   animation-duration: 0.750s;
