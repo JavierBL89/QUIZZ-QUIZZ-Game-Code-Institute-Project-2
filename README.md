@@ -29,38 +29,39 @@
  # Table Contents
 
   ### [Planning stage](#planning-stage)
-      - Target Audiences
-      - User stories
-      - Design goals
-      - Design choises
-      - Font
-      - Color scheme
-     - Wireframes
+    - Target Audiences
+    - User stories
+    - Design goals
+    - Design choises
+    - Font
+    - Color scheme
+    - Wireframes
 
   ### [Features](#features)
-      - Difficulty
-      - Comodins
+    - Difficulty
+    - Comodins
 
   ### [Future features](#future-features)
   ### [Testing](#testing)
-      - Responsiveness
-      - Lighthouse
-        - Desktop
-        - Mobile
-      - Validators
+    - Responsiveness
+    - Lighthouse
+      - Desktop
+      - Mobile
+    - Validators
 
   ### [Bugs](#bugs)
-      - Fixed bugs
-      - Known bugs
+    - Fixed bugs
+    - Known bugs
+
   ### [Technology Used](#technology-used)
-      - Languages
-      - Libraries
+    - Languages
+    - Libraries
 
   ### [Deployment](#deployment)
   ### [Credits](#credits)
-      - Content
-      - Media
-      - Thanks
+    - Content
+    - Media
+    - Thanks
 
  ## Planning Stage
 
@@ -202,7 +203,7 @@ Here Some bugs i can remember:
 
   - When the user clicks on a answer button the rest of the buttons are still engage which means that they still can press any answer right after clicking on the first one before the next question is show and it also would trigger any functionality added to the button answer.
 
-  ## Technolgy used
+  ## Technology used
 
   ## Languages
 
