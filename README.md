@@ -25,56 +25,56 @@
 
     # Table Contents
 
-    ### [Planning stage](#planning-stage)
+### [Planning stage](#planning-stage)
 
-    -   Target Audiences
-    -   User stories
-    -   Design goals
-    -   Design choises
-    -   Font
-    -   Color scheme
-    -   Wireframes
+  -   Target Audiences
+  -   User stories
+  -   Design goals
+  -   Design choises
+  -   Font
+  -   Color scheme
+  -   Wireframes
 
-        ### [Features](#features)
+### [Features](#features)
 
-    -   Difficulty
-    -   Comodins
+  -   Difficulty
+  -   Comodins
 
-        ### [Future features](#future-features)
+### [Future features](#future-features)
 
-        ### [Testing](#testing)
+### [Testing](#testing)
 
-    -   Responsiveness
-    -   Lighthouse
-        -   Desktop
-        -   Mobile
-    -   Validators
+  -   Responsiveness
+  -   Lighthouse
+      -   Desktop
+      -   Mobile
+  -   Validators
 
-        ### [Bugs](#bugs)
+### [Bugs](#bugs)
 
-    -   Fixed bugs
-    -   Known bugs
+  -   Fixed bugs
+  -   Known bugs
 
         ### [Technology Used](#technology-used)
 
     -   Languages
     -   Libraries
 
-        ### [Deployment](#deployment)
+### [Deployment](#deployment)
 
-        ### [Credits](#credits)
+### [Credits](#credits)
 
-    -   Content
-    -   Media
-    -   Thanks
+  -   Content
+  -   Media
+  -   Thanks
 
-    ## Planning Stage
+## Planning Stage
 
-    ## Target Audience
+## Target Audience
 
-     Anyone who wants to kill some time while challenging themselves on how much they know and acquire knowledge at a time.
+  Anyone who wants to kill some time while challenging themselves on how much they know and acquire knowledge at a time.
 
-    ### User stories
+### User stories
 
 -   As a user i want the site to be intuitive
 -   As a user i want the site to be beautiful and readable
@@ -82,22 +82,22 @@
 -   As a user i want the game to get harder and harder
 -   As a user i want to beat my previous score
 
-    ### Design goals
+### Design goals
 
 -   A simple and minimalistic site for all devices
 -   Easy to use
 -   To be challenging enough for users to play again
 
-    ### Design Choices
+### Design Choices
 
-    #### Font
+#### Font
 
-    I don't have much of a knowledge about fonts, so i just went for a funny one for the welcome heading, 'Alegreya' serif, and a san serif one for the game text, Poppins sans-serif. For the subject names and count downs i just left the default font that gives to  the subject names seriousness.
+  I don't have much of a knowledge about fonts, so i just went for a funny one for the welcome heading, 'Alegreya' serif, and a san serif one for the game text, Poppins sans-serif. For the subject names and count downs i just left the default font that gives to  the subject names seriousness.
 
-    #### Color scheme
+#### Color scheme
 
-    The main color conveys reassurance combined to a very light yellow on the questions panel.
-    In order to make good contrast on the welcome text i used a yellow color, an orange and a lighter orange for headings:
+  The main color conveys reassurance combined to a very light yellow on the questions panel.
+  In order to make good contrast on the welcome text i used a yellow color, an orange and a lighter orange for headings:
 
 -   Background: rgb(60, 120, 125)
 -   Questions panel: rgb(255, 255, 242)
@@ -106,22 +106,22 @@
     -   lighter orange: rgb(255, 204, 106)
 -   Background buttons: rgba(255, 208, 24, 0.9)
 
-    ### Wireframes
+### Wireframes
 
     I drew the initial ideal into a paper to wireframe the project, i prefer user pen and paper as it is faster, but i didn't keep the drafts this time. The final project design is very close to the initial one.
 
-    ## Features
+## Features
 
-    ### Difficulty
+### Difficulty
 
--   There are 2 difficulties that go from the easiest to the hardest as the user advance on the game.
-      After 5 correct answers it automatically jumps into the 2nd level of questions about the same prior subject.
+-  There are 2 difficulties that go from the easiest to the hardest as the user advance on the game.
+    After 5 correct answers it automatically jumps into the 2nd level of questions about the same prior subject.
 
     ![](assets/images/level-1.png)
 
     ![](assets/images/level-2.png)
 
-    ## Comodins
+## Comodins
 
 -   The game provides of 3 comodins to the user in order to help them to go to next question on the most difficult ones for them.
 
@@ -129,27 +129,27 @@
 
       ![](assets/images/comodins-mobile.png)
 
-    -   **Skip question**:
+  -   **Skip question**:
           The game will jump into the next question.
           This comodin will desapear after using.
 
-    -   **Change subject**:
+  -   **Change subject**:
           The user has the change of change subject question on the flow.
           This comodin will desapear after using.
 
-        -   Design destop:
+      -   Design destop:
 
             ![](assets/images/change-subject-desktop.png).
 
-        -   Design mobile:
+      -   Design mobile:
 
             ![](assets/images/change-subject-mobile.png)
 
-        -   **Buy extra time**:
+      -   **Buy extra time**:
             The counter will add 20s in order for the user to have time to research the question and thereby answer correctly.
             This comodin will desapear after using.
 
-    ## Future Features
+## Future Features
 
      I find the game well-equipped although some extra features could be added such as:      
 
@@ -182,7 +182,7 @@ These are the results:
 
 -   All files went through(<https://validator.w3.org>) to ensure all code meets the correct standard, some errors were found and fixed.
 
-    # Bugs
+# Bugs
 
 I have come across with a fair number of bugs from the very start and i spend quite a lot of hours to fix them, and i had to ask my mentor for help.
 Here Some bugs i can remember:
@@ -223,16 +223,16 @@ Here Some bugs i can remember:
 -   CSS
 -   JavaScript
 
-    # Deployment
+# Deployment
 
     The website is currently deployed on Github pages.
     You can access the site on the following link [Quizz-Quizz](https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/)
 
-    # Credits
+# Credits
 
 -   **Code**
 
-    -   Some of the JavaScript code is been taken from 2 different youtube tutorials from  which i learnt how to shuffle questions and set the next question as well as how to  declare timeIntervals for countdowns
+  -   Some of the JavaScript code is been taken from 2 different youtube tutorials from  which i learnt how to shuffle questions and set the next question as well as how to  declare timeIntervals for countdowns
 
 -   Spanish language tutorial: (<https://youtu.be/anRB8u_D_YA>)
 -   English language tutorial: (<https://youtu.be/riDzcEQbX6k>)
