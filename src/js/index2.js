@@ -84,7 +84,7 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
           }
           comodin2.classList.add("hidden");
           modalSubjectsPanel.classList.add("hidden");
-          
+
       } else if (this.getAttribute("id") === "answer1") {
         checkAnswer(this);
 
@@ -678,6 +678,7 @@ const f2q7 = new Question("Which player scored the fastest hat-trick in the Prem
 const f2q8 = new Question("With 202 clean sheets, which goalkeeper has the best record in the Premier League?", "Petr Cech", "David De Gea", "Willy Caballero", "Petr Cech");
 const f2q9 = new Question("In which World Cup did Diego Maradona score his infamous 'Hand of God' goal?", "Spain 1992", "Germany 1974", "Mexico 1986", "Mexico 1986");
 const f2q10 = new Question("Who is the Champions League's top goalscorer of all time?", "C.Ronaldo", "Messi", "Raúl Gonzalez", "C.Ronaldo");
+
 footballLevel2.push(f2q1, f2q2, f2q3, f2q4, f2q5, f2q6, f2q7, f2q8, f2q9, f2q10);
 
 
