@@ -36,14 +36,14 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
 
   for (let button of buttons) {
     button.addEventListener("click", function() {
+      status.innerText;
 
       if (this.getAttribute("class") === "modal-subject-1") {
        decrementComodin(modalSubjectsPanel);
        heading(this);
-        status.innerText;
+
           if (status == 1) {
           runGeneralLevel1();
-          console.log(this);
           } else {
           runGeneralLevel2();
           }
@@ -51,7 +51,7 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
           heading(this);
       } else if (this.getAttribute("class") === "modal-subject-2") {
         decrementComodin(modalSubjectsPanel);
-        status.innerText;
+
           if (status == 1) {
           runHistoryLevel1();
           } else {
@@ -64,7 +64,6 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
       } else if (this.getAttribute("class") === "modal-subject-3") {
         decrementComodin(modalSubjectsPanel);
         heading(this);
-        status.innerText;
 
           if (status == 1) {
           runFootballLevel1();
@@ -77,7 +76,6 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
       } else if (this.getAttribute("class") === "modal-subject-4") {
         decrementComodin(modalSubjectsPanel);
         heading(this);
-        status.innerText;
 
           if (status == 1) {
           runGeographyLevel1();
@@ -86,11 +84,10 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
           }
           comodin2.classList.add("hidden");
           modalSubjectsPanel.classList.add("hidden");
-
+          
       } else if (this.getAttribute("id") === "answer1") {
-        console.log(this.innerText);
-
         checkAnswer(this);
+
       } else if (this.getAttribute("id") === "answer2") {
         checkAnswer(this);
 

@@ -55,10 +55,10 @@
   -   Fixed bugs
   -   Known bugs
 
-        ### [Technology Used](#technology-used)
+### [Technology Used](#technology-used)
 
-    -   Languages
-    -   Libraries
+  -   Languages
+  -   Libraries
 
 ### [Deployment](#deployment)
 
@@ -108,7 +108,7 @@
 
 ### Wireframes
 
-    I drew the initial ideal into a paper to wireframe the project, i prefer user pen and paper as it is faster, but i didn't keep the drafts this time. The final project design is very close to the initial one.
+I drew the initial ideal into a paper to wireframe the project, i prefer user pen and paper as it is faster, but i didn't keep the drafts this time. The final project design is very close to the initial one.
 
 ## Features
 
@@ -149,9 +149,7 @@
             The counter will add 20s in order for the user to have time to research the question and thereby answer correctly.
             This comodin will desapear after using.
 
-## Future Features
-
-     I find the game well-equipped although some extra features could be added such as:      
+## Future Features    
 
 -   Further levels.
 -   Increment the amount of score given by levels of dificulty.
@@ -225,8 +223,8 @@ Here Some bugs i can remember:
 
 # Deployment
 
-    The website is currently deployed on Github pages.
-    You can access the site on the following link [Quizz-Quizz](https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/)
+The website is currently deployed on Github pages.
+You can access the site on the following link [Quizz-Quizz](https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/)
 
 # Credits
 
