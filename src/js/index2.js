@@ -496,7 +496,7 @@ function endOfGame() {
   endOfGamePanel.style.display = "block";
   reStartButton.style.display = "block";
   showFinalPlayerScore();
-  // showTopPlayersScore();
+  showTopPlayersScore();
 }
 
 
@@ -522,14 +522,7 @@ finalPlayerScoreInner = `
 /** Arrays of the current player score array */
     let currentPlayerScoreArray = [];
 
-// const topPlayersArray = JSON.parse(localStorage.getItem("topPlayersArray")) || [];
-// Function to populate the current player score table
 function showFinalPlayerScore() {
-
- topPlayersArray = JSON.parse(localStorage.getItem("topPlayersArray")) || [];
-topPlayersArray.sort(function(a, b){
-  return b - a;
- });
 
   let currentGamer = document.getElementById("current-player-name").textContent;
   let currentScore = document.getElementById("score").textContent;
@@ -542,19 +535,6 @@ topPlayersArray.sort(function(a, b){
   };
 
   currentPlayerScoreArray.push(currentPlayerScore);
-  // localStorage.setItem("currentPlayerScore", JSON.stringify(currentPlayerScore));
-  topPlayersArray.push(currentPlayerScore);
-showTopPlayersScore(topPlayersArray)
- // topPlayersArray.push(window.localStorage.setItem("currentPlayerScore", JSON.stringify(currentPlayerScore)));
-// topPlayersArray =  JSON.parse(localStorage.getItem(topPlayersArray));
-// let newPlayer = window.localStorage.getItem("currentPlayerScore");
-// let newPlayerObject =  JSON.parse(window.localStorage.getItem("currentPlayerScore"));
-//
-// let newArray = JSON.parse(window.localStorage.getItem("topPlayersArray"));
-// newArray.push(newPlayerObject);
-// let storedNewArray = localStorage.setItem("newArray", JSON.stringify(newArray));
-//  // topPlayersArray.push(localStorage.setItem("currentPlayerScore", JSON.stringify(currentPlayerScore))
-
 
   /* Loping throught the current player score
     and creating a dinamic html table */
@@ -576,6 +556,7 @@ showTopPlayersScore(topPlayersArray)
 
 
 
+const topPlayersArray = [{name: "Laura",score: "6300",correctAnswers: "21"},{name: "Andrew",score: "6000",correctAnswers: "20"},{ name: "Darryl", score: "4500",  correctAnswers: "15"}];
 
 // Creating the top players html table
 topPlayersTableInner = `<table style="width:100%">
@@ -586,13 +567,10 @@ topPlayersTableInner = `<table style="width:100%">
 </tr>`;
 
 // Function to populate the top player table
-function showTopPlayersScore(topPlayersArray) {
+function showTopPlayersScore() {
 
-// topPlayersArray.sort(function(a,b){
-//   return b - a
-// });
 
-    for(let topPlayer of topPlayersArray.slice(0,3)){
+    for(let topPlayer of topPlayersArray){
         let topPlayersRow = `
         <tr>
         <td>${topPlayer.name}</td>
@@ -603,34 +581,23 @@ function showTopPlayersScore(topPlayersArray) {
         topPlayersTableInner += topPlayersRow;
     }
 
-   topPlayersArray = localStorage.setItem("topPlayersArray", JSON.stringify(topPlayersArray))
   return finalTopPlayers.innerHTML = topPlayersTableInner += `</table>`;
 }
 
 
-
-
+/*Redirect the user to URL game restoring all data stored from the previous game
+ and destroying the tables created with template literals*/
 function reStartGame() {
-  // currentPlayerScoreArray = [];
-// currentPlayerScoreArray.splice(0,1);
-
-  endOfGamePanel.style.display = "none";
-  reStartButton.style.display = "none";
-  levelStatus.innerText = "1";
-  levelStatus.style.backgroundcolor = "inherit";
-  levelStatusMobile.innerText = "1";
-currentQuestionIndex = 0;
-  comodin1.style.display = "block";
-  comodin2.style.display = "block";
-  comodin3.style.display = "block";
-  welcomeWraper.style.display = "grid";
-  score.innerText = "0";
-  correctAnswers.innerText = "0";
-  incorrectAnswers.innerText = "0";
-  totalComodins.innerText = "3";
+window.location.replace("file:///C:/Users/hp/Desktop/WEB%20PROYECTS/quizz-quizz/index.html");
 }
 
-currentPlayerScoreArray = [];
+
+
+
+
+
+
+
 
 
 /* CONSTRUCTOR FUNCTION FOR QUESTIONS

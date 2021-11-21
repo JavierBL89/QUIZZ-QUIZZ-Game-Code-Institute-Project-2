@@ -13,6 +13,9 @@ a {
 }
 
 
+/* #welcome-wraper{
+  display: none;
+} */
 #game-wraper {
   display: none;
 }
@@ -33,7 +36,7 @@ a {
 
 #title-panel{
   position: relative;
-  right: 550px;
+  right: 70%;
   animation-name: title-in;
   animation-duration: 1.2s;
   animation-fill-mode: forwards;
@@ -41,10 +44,10 @@ a {
 
 @keyframes title-in {
   from{
-    right: 550px;
+    right: 70%;
 }
 to{
-  right: 0px;
+  right: 0;
 }
 }
 
@@ -153,8 +156,6 @@ from{
 
 
 
-
-
 /**********************  CSS WELCOME PAGE *************************/
 
 /******** WELCOME HEADING *****/
@@ -169,8 +170,8 @@ from{
   font-style: italic;
   color: yellow;
   position: absolute;
-  top:-70px;
-  left: 100px;
+  left: 9%;
+  top:-60px;
   letter-spacing: 5px;
   transform: rotate(-20deg);
 }
@@ -348,7 +349,7 @@ margin: 15px 0px 0px 15px;
 #heading-container h2 {
   color: rgb(255, 232, 122);
   position: absolute;
-  left: 80px;
+  left: 8%;
   top: 20px;
   font-size: 1.7rem;
 }
@@ -366,16 +367,18 @@ margin: 15px 0px 0px 15px;
 
 
 /************ GAME PANEL *******/
+#canvas-game{
+  display: flex;
+  /* margin: 0 auto; */
+}
+
 #game-container {
   font-family: 'Poppins', sans-serif;
   color: rgb(59, 99, 103);
-  margin: 40px auto 0 100px;
+  margin: 1% auto 1% auto;
   background-color: rgb(255, 255, 242);
-  width: 50vw;
-  height: 51vh;
-  display: inline-block;
-  position: relative;
-  bottom: 30px;
+  width: 50%;
+  height: 52%;
   text-align: center;
   border-radius: 10px;
 }
@@ -384,26 +387,27 @@ margin: 15px 0px 0px 15px;
 /**** question **/
 #game-container h4 {
   padding: 1px 70px;
-  height: 40px;
-  font-family: 'Poppins', sans-serif;
+  height: 30%;
   letter-spacing: 1px;
   color: rgb(9, 52, 56);
-  margin-top: 20px;
+  margin-top: 3%;
 }
 
 .answer-box {
   align-items: center;
-  margin-bottom: 25px;
+  margin-top: 6%;
+  margin-bottom: 6%;
   border-radius: 10px;
+  height: 25%;
 }
 
 /*** answer button ***/
 .answer-box button {
   font-size: 1rem;
-  margin-top: 30px;
+  padding-bottom: 1%;
   display: flex;
   background-color: inherit;
-  height: 40px;
+  height: 100%;
   width: 100%;
   border: none;
   border-radius: 10px;
@@ -420,18 +424,21 @@ margin: 15px 0px 0px 15px;
 
 /********* SCORE PANEL SECTION ************/
 
-#score-box {
-  background-color: rgba(255, 250, 233, 0.77);
-  width: 200px;
-  display: inline-block;
-  position: relative;
-  bottom: 20px;
-  left: 20px;
-  border-radius: 10px;
-}
-
 #score-container {
   display: inline-block;
+font-size: 1.1rem;
+}
+
+#score-box {
+  background-color: rgba(255, 250, 233, 0.77);
+  color: rgb(9, 52, 56);
+  width: 17%;
+  display: inline-block;
+  padding-left: 5px;
+  position: absolute;
+  top: 22%;
+  left: 3%;
+  border-radius: 10px;
 }
 
 #current-player-name {
@@ -469,7 +476,7 @@ padding-top: 0;
 
 .comodin-buttons-container {
   display: flex;
-  text-align: center;
+  margin: 0 auto;
   justify-content: space-around;
 }
 
@@ -811,9 +818,6 @@ font-size: 4.5rem;
 
   /*************************** GAME PAGE SECTION *************************/
 
-  #game-wraper{
-    padding-bottom: 80px;
-  }
 
   /*************** HEADING **************/
   #heading-container {
@@ -855,12 +859,35 @@ font-size: 4.5rem;
 
 
   /************  GAME PANEL **************/
+  /* #canvas-game{
+    display: flex;
+  }
+
+    #game-wraper{
+      padding-bottom: 80px;
+    }
+
   #game-container {
     justify-content: center;
     width: 70%;
     text-align: center;
     margin: 30px auto 0 100px;
+  } */
+
+  #canvas-game{
+    display: flex;
+    /* margin: 0 auto; */
   }
+
+  #game-container {
+
+    margin: 0 auto 3% auto;
+    background-color: rgb(255, 255, 242);
+    width: 70%;
+    height: 51%;
+
+  }
+
 
 .level-status-mobile{
   display: block;
@@ -909,29 +936,13 @@ font-size: 4.5rem;
     display: none;
   }
 
-  #player-name {
-    text-transform: capitalize;
-    text-align: center;
-    font-weight: bold;
-  }
-
-  #score-box h4 {
-    margin-left: 10px;
-  }
-
-
-
-
-
-
-
-
 
 
 
   /*********************** COMODIN SECTION **********************/
   #comodin-container {
-    width: 55%;
+    width: 70%;
+    /* display: block; */
   }
 
   #comodin-container h3 {
@@ -945,10 +956,11 @@ font-size: 4.5rem;
   display: block;
   }
 
-  .ccomodin-buttons-container button {
+  .comodin-buttons-container button {
+    width:100%;
     height: 45px;
-    width: 100%;
     border: 1px solid lightgrey;
+    margin-bottom: 2px;
     background-color: rgba(255, 208, 24, 0.9);
     font-size: 1rem;
     color: rgb(60, 120, 125);
@@ -1192,16 +1204,15 @@ top: 5px;
 
 
 
-
-
-
-  /**************  GAME PANEL *************/
+/**************  GAME PANEL *************/
 
   #game-container {
-    width: 90vw;
-    height: 48vh;
-    margin: 40px 20px auto 20px;
+    width: 90%;
+    height: 51%;
+    margin-top: 5%;
+    margin-bottom: 8%;
     text-align: center;
+    padding-bottom: 2%;
   }
 
 /** question **/
@@ -1211,16 +1222,12 @@ top: 5px;
 
 
 /** answer **/
-#answer-options{
-  margin-top: 60px;
-}
-
 .answer-box {
   border-radius: 10px;
 }
 
 .answer-box button {
-  height: 32px;
+  /* height: 32px; */
   width: 100%;
   border-radius: 10px;
 

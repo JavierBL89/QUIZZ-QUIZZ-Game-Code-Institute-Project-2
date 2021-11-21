@@ -17,7 +17,6 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
 </head>
 
 <body>
@@ -25,6 +24,7 @@
   <div id="welcome-wraper">
 
     <!--****************  WELCOME HEADING  ******************** -->
+
     <div id="title-panel">
       <h1 id="heading"><span id="hey">Hey,</span><br />Welcome to<br />
         <spang id="quizz-1">Qui<spang id="zz">
@@ -41,6 +41,7 @@
         <br />
 
         <h2 id="heading-2">Choose a subject to start!<br /></h2>
+
         <!-- SUBJECTS TO START PANEL -->
         <div id="subjects-wraper">
           <div class="subject-button-container" id="subject-1" href="#top-page">
@@ -60,16 +61,12 @@
             <h2>GEOGRAPHY</h2>
           </div>
         </div>
-
       </form>
     </div>
-
   </div>
 
-
-
   <!--****************  HEADING GAME PAGE   ****************-->
-  <section id="top-page"></section>
+
   <div id="game-wraper">
     <div id="heading-container">
       <h2 id="level-row">Level <spang id="level-status">1</spang>
@@ -82,38 +79,42 @@
     </div>
 
     <!--************** SCORE PANEL ********************-->
-    <div id="score-container">
-      <div id="score-box">
-        <h3 id="current-player-name"></h3>
-        <h4>Score: <spang id="score">0</spang>
-        </h4>
-        <h4>Correct answers: <spang id="correct">0</spang>
-        </h4>
-        <h4>Incorrect answers: <spang id="incorrect">0</spang>
-        </h4>
+
+<div id="canvas-game">
+  <div id="score-container">
+    <div id="score-box">
+      <h3 id="current-player-name"></h3>
+      <h4>Score: <span id="score">0</span>
+      </h4>
+      <h4>Correct answers: <spang id="correct">0</span>
+      </h4>
+      <h4>Incorrect answers: <span id="incorrect">0</span>
+      </h4>
+    </div>
+  </div>
+
+  <!--*************** GAME PANEL *****************-->
+
+  <div id="game-container">
+    <h4 id="question">What is the capital of Iranlda?</h4>
+    <div id="answer-options">
+      <div class="answer-box">
+
+        <button id="answer1" class="answers" type="button" name="button">Tipperary</button>
+      </div>
+      <div class="answer-box">
+        <button id="answer2" class="answers" type="button" name="button">Cork</button>
+      </div>
+      <div class="answer-box">
+        <button id="answer3" class="answers" type="button" name="button">Dublin</button>
       </div>
     </div>
+  </div>
 
-    <!--*************** GAME PANEL *****************-->
-    <div id="game-container">
-      <h4 id="question">What is the capital of Iranlda?</h4>
-      <div id="answer-options">
-        <div class="answer-box">
-
-          <button id="answer1" class="answers" type="button" name="button">Tipperary</button>
-        </div>
-        <div class="answer-box">
-          <button id="answer2" class="answers" type="button" name="button">Cork</button>
-        </div>
-        <div class="answer-box">
-          <button id="answer3" class="answers" type="button" name="button">Dublin</button>
-        </div>
-      </div>
-    </div>
-
-
+</div>
 
     <!--*************  COMODINS SECTION  ***************-->
+
     <div id="comodin-container">
       <h3>Comodins<spang id="total-comodins"> 3</spang>
       </h3>
@@ -126,8 +127,8 @@
       </h2>
     </div>
 
-
     <!--***************** MODAL SUBJECTS PANEL  *************-->
+
     <div id="modal-subjects-panel" class="modal-subjets-out">
       <button type="submit" class="modal-subject-1" value="General Knowledge" name="button"></button>
       <h2>GENERAL</h2>
@@ -141,7 +142,6 @@
     </div>
 
   </div>
-
 
   <!--************** END OF GAME PANEL *****************-->
 
@@ -159,11 +159,11 @@
       <div id="top-players-container">
 
       </div>
-
     </div>
-
   </div>
+
   <!-- BUTTON TO RESTART GAME -->
+
   <div id="button-restart-container">
     <button type="button" id="restart-game" name="button">RESTART GAME</button>
   </div>
