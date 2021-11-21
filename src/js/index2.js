@@ -36,7 +36,6 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
 
   for (let button of buttons) {
     button.addEventListener("click", function() {
-      status.innerText;
 
       if (this.getAttribute("class") === "modal-subject-1") {
        decrementComodin(modalSubjectsPanel);
@@ -49,6 +48,7 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
           }
           modalSubjectsPanel.classList.add("hidden");
           heading(this);
+
       } else if (this.getAttribute("class") === "modal-subject-2") {
         decrementComodin(modalSubjectsPanel);
 
@@ -161,7 +161,7 @@ function startCountDown(subject) {
   let nextSubjectSibling = subject.nextElementSibling;
   startGameCountDown = 4;
  //clears any previuos interval initiated
-  clearInterval(startGameInterval)
+  clearInterval(startGameInterval);
 
     startGameInterval = setInterval(() => {
     startGameCountDown--;
@@ -187,7 +187,7 @@ function startCountDown(subject) {
       welcomeWraper.classList.add("hidden");
       gameWraper.classList.remove("hidden");
       resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
-      clearInterval(startGameInterval)
+      clearInterval(startGameInterval);
       runHistoryLevel1();
 
     }else if (subjectParent.children[0].innerText == 0 && subject.value === "FOOTBALL") {
@@ -195,7 +195,7 @@ function startCountDown(subject) {
       welcomeWraper.classList.add("hidden");
       gameWraper.classList.remove("hidden");
       resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
-      clearInterval(startGameInterval)
+      clearInterval(startGameInterval);
       runFootballLevel1();
 
     }else if (subjectParent.children[0].innerText == 0 && subject.value === "GEOGRAPHY") {
@@ -205,7 +205,7 @@ function startCountDown(subject) {
       // gameWraper.style.display = "block";
 
       resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
-      clearInterval(startGameInterval)
+      clearInterval(startGameInterval);
       runGeographyLevel1();
     }
   }, 1000);
@@ -234,13 +234,13 @@ function resetSubjectButton(subjectParent, firstChildParentClass, lastChildParen
 
 function runGeneralLevel1() {
   document.getElementById("subject").innerText = "General Knowledge";
-  shuffleQuestions = generalLevel1.sort(() => Math.random() - .5)
+  shuffleQuestions = generalLevel1.sort(() => Math.random() - .5);
   setNextQuestion();
 }
 
 function runGeneralLevel2() {
   console.log("puta");
-  shuffleQuestions = generalLevel2.sort(() => Math.random() - .5)
+  shuffleQuestions = generalLevel2.sort(() => Math.random() - .5);
   setNextQuestion();
 }
 
@@ -249,13 +249,13 @@ function runGeneralLevel2() {
 
 function runHistoryLevel1() {
   document.getElementById("subject").innerText = "History";
-  shuffleQuestions = historyLevel1.sort(() => Math.random() - .5)
+  shuffleQuestions = historyLevel1.sort(() => Math.random() - .5);
   setNextQuestion();
 }
 
 function runHistoryLevel2() {
   document.getElementById("subject").innerText = "General Knowledge";
-  shuffleQuestions = historyLevel2.sort(() => Math.random() - .5)
+  shuffleQuestions = historyLevel2.sort(() => Math.random() - .5);
   setNextQuestion();
 }
 
@@ -264,13 +264,13 @@ function runHistoryLevel2() {
 
 function runFootballLevel1() {
   document.getElementById("subject").innerText = "Football";
-  shuffleQuestions = footballLevel1.sort(() => Math.random() - .5)
+  shuffleQuestions = footballLevel1.sort(() => Math.random() - .5);
   setNextQuestion();
 }
 
 function runFootballLevel2() {
   document.getElementById("subject").innerText = "Football";
-  shuffleQuestions = footballLevel2.sort(() => Math.random() - .5)
+  shuffleQuestions = footballLevel2.sort(() => Math.random() - .5);
   setNextQuestion();
 }
 
@@ -279,13 +279,13 @@ function runFootballLevel2() {
 
 function runGeographyLevel1() {
   document.getElementById("subject").innerText = "Geography";
-  shuffleQuestions = geographyLevel1.sort(() => Math.random() - .5)
+  shuffleQuestions = geographyLevel1.sort(() => Math.random() - .5);
   setNextQuestion();
 }
 
 function runGeographyLevel2() {
   document.getElementById("subject").innerText = "Geography";
-  shuffleQuestions = geographyLevel2.sort(() => Math.random() - .5)
+  shuffleQuestions = geographyLevel2.sort(() => Math.random() - .5);
   setNextQuestion();
 }
 
@@ -294,13 +294,13 @@ function runGeographyLevel2() {
 /********************************** GETTING NEXT QUESTION  *************************/
 
 //CREATE UNDEFINED VALUES FOR SHUFFLING QUESTIONS
-let shuffleQuestions, currentQuestion
+let shuffleQuestions, currentQuestion;
 let currentQuestionIndex = 0;
 let timeInterval;
 let countDown = 10;
 
 function setNextQuestion() {
-  currentQuestionIndex++
+  currentQuestionIndex++;
 
   if(currentQuestionIndex == 8){
     currentQuestionIndex = 0;
@@ -354,7 +354,7 @@ function checkAnswer(userAnswer) {
   if (userAnswer.innerText === currentQuestion.correct) {
     parentP.classList.add("right-answer");
     incrementScore();
-    incrementCorrectAnswers()
+    incrementCorrectAnswers();
 
   } else{
     parentP.classList.add("wrong-answer");
@@ -362,8 +362,8 @@ function checkAnswer(userAnswer) {
   }
 // remove background color button answer after 1 sec
   setTimeout(function() {
-    parentP.classList.remove("right-answer")
-    parentP.classList.remove("wrong-answer")
+    parentP.classList.remove("right-answer");
+    parentP.classList.remove("wrong-answer");
   }, 1000);
 
 }
@@ -418,7 +418,7 @@ if(correctAnswersTrack == 5){
       setTimeout(() =>{
         gameOverStatus.innerText = "Congrats you made it!";
         endOfGame();
-    }, 1000)
+    }, 1000);
     }else{
       setNextQuestion();
     }
@@ -434,7 +434,7 @@ function incrementIncorrectAnswers() {
     setTimeout(() =>{
       gameOverStatus.innerText = "Incorrect answer";
       endOfGame();
-     }, 1000)
+    }, 1000);
    }else if(gameCountDown.textContent === "0"){
      gameOverStatus.innerText = "Time Up";
    }
@@ -450,8 +450,8 @@ function decrementComodin(comodinSelected){
 
 // ***************  BUY EXTRA TIME FUNCTION ************
 
-let extraTimeInterval
-let newCountDown
+let extraTimeInterval;
+let newCountDown;
 
 function timeExtra(){
 // clears the game interval countDown interval  from line 273
@@ -467,7 +467,7 @@ function timeExtra(){
       clearInterval(extraTimeInterval);
       endOfGame();
     }
-  },1000)
+  },1000);
 }
 
 
@@ -526,7 +526,7 @@ function showFinalPlayerScore() {
     </tr>`;
 
     finalPlayerScoreInner += playerRow += `</table>`;
-  })
+  });
   return finalPlayerScore.innerHTML = finalPlayerScoreInner;
 }
 
