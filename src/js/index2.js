@@ -573,11 +573,6 @@ window.location.href = "https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Insti
 
 
 
-
-
-
-
-
 /* CONSTRUCTOR FUNCTION FOR QUESTIONS
    AND QUESTIONS ARRAYS FOR GENERAL KNOWLEGE*/
 const generalLevel1 = [];
