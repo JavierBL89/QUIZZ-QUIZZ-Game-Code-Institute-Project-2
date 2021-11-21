@@ -589,6 +589,7 @@ function showTopPlayersScore() {
  and destroying the tables created with template literals*/
 function reStartGame() {
 window.location.replace("file:///C:/Users/hp/Desktop/WEB%20PROYECTS/quizz-quizz/index.html");
+// window.location.href = "https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/";
 }
 
 
@@ -618,7 +619,7 @@ function Question(question, answer1, answer2, answer3, correct) {
 const g1q1 = new Question("What does a funambulist walk on?", "A tight rope", "A cable", "A thread", "A tight rope");
 const g1q2 = new Question("Which restaurant's mascot is a clawn?", "Burguer King", "KFC", "McDonald", "McDonald");
 const g1q3 = new Question("What item is the werewolf most afraid of?", "A rock", "Garlic", "Silver", "Silver");
-const g1q4 = new Question("TRUE OR FALSE - An eggplant is a vegetable.", "True", "False", "    ", "False");
+const g1q4 = new Question("TRUE OR FALSE - An eggplant is a vegetable.", "True", "False", undefined, "False");
 const g1q5 = new Question("Where did the pineapple plant originate?", "Spain", "South America", "Canary Islands", "South America");
 const g1q6 = new Question("What is the nationality of Picasso", "Italian", "Portuguese", "Spanish", "Spanish");
 const g1q7 = new Question("Which film involves people entering other people’s dreams?", "Jurasic Park", "Inception", "Harry Potter", "Inception");
