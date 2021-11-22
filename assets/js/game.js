@@ -169,11 +169,12 @@ function startCountDown(subject) {
 
     /*creat new elements to fill the parent subject html
     with the countdown to start game after clicking on the subject button*/
-    let parentSubjectInnerHtml = `<spang id="start-countdown">${countDown}</spang>
-     <h2 id="start-subject">${nextSubjectSibling.innerText}</h2`;
+    let parentSubjectInnerHtml = `<div id="start-countdown">${countDown}</div>
+                   <h2 id="start-subject">${nextSubjectSibling.innerText}</h2>`;
+
     subjectParent.innerHTML = parentSubjectInnerHtml;
     // When the count gets to 0 we want...
-    if(subjectParent.children[0].innerText == 0 && subject.value === "GENERAL") {
+    if(countDown == 0 && subject.value === "GENERAL") {
       welcomeWraper.classList.add("hidden");
       gameWraper.classList.remove("hidden");
       /*pass in the the variables declared earlier getting hold
@@ -182,7 +183,7 @@ function startCountDown(subject) {
       clearInterval(startGameInterval);
       runGeneralLevel1();
 
-    } else if (subjectParent.children[0].innerText == 0 && subject.value === "HISTORY") {
+    } else if (countDown == 0 && subject.value === "HISTORY") {
       subjectParent.innerHTML = "";
       welcomeWraper.classList.add("hidden");
       gameWraper.classList.remove("hidden");
@@ -190,7 +191,7 @@ function startCountDown(subject) {
       clearInterval(startGameInterval);
       runHistoryLevel1();
 
-    }else if (subjectParent.children[0].innerText == 0 && subject.value === "FOOTBALL") {
+    }else if (countDown == 0 && subject.value === "FOOTBALL") {
       subjectParent.innerHTML = "";
       welcomeWraper.classList.add("hidden");
       gameWraper.classList.remove("hidden");
@@ -198,7 +199,7 @@ function startCountDown(subject) {
       clearInterval(startGameInterval);
       runFootballLevel1();
 
-    }else if (subjectParent.children[0].innerText == 0 && subject.value === "GEOGRAPHY") {
+    }else if (countDown == 0 && subject.value === "GEOGRAPHY") {
       subjectParent.innerHTML = "";
       welcomeWraper.classList.add("hidden");
       gameWraper.classList.remove("hidden");
@@ -562,8 +563,8 @@ function showTopPlayersScore() {
 /*Redirect the user to URL game restoring all data stored from the previous game
  and destroying the tables created with template literals*/
 function reStartGame() {
-// window.location.replace("file:///C:/Users/hp/Desktop/WEB%20PROYECTS/quizz-quizz/index.html");
-window.location.href = "https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/";
+window.location.replace("file:///C:/Users/hp/Desktop/WEB%20PROYECTS/quizz-quizz/index.html");
+// window.location.href = "https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/";
 }
 
 

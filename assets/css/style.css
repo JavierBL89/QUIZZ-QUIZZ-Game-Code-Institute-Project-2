@@ -207,7 +207,16 @@ from{
   justify-content: center;
 }
 
-#form-container button[type="submit"] {
+.subject-button-container{
+  margin: auto 5px;
+  justify-content: center;
+text-align: center;
+font-size: 5.5rem;
+height: 170px;
+width: 230px;
+}
+
+.subject-button-container button[type="submit"] {
   margin: auto 5px;
   font-size: 5.5rem;
   font-weight: bold;
@@ -216,34 +225,23 @@ from{
   text-decoration: none;
 border-radius: 10px;
 border: solid 2px rgb(115, 161, 122);
-
 }
 
-.subject-button-container{
-  margin: auto 5px;
-  justify-content: center;
-  color: white;
-text-align: center;
-font-size: 5.5rem;
-height: 170px;
-width: 230px;
-}
-
-#form .subject-button-container h2{
+.subject-button-container h2{
   margin-top: 3px;
   font-size: 1.5rem;
   color: rgb(255, 204, 106);
 }
 
 .subject-button-container #start-countdown{
+  margin-top: 10%;
 color: rgb(255, 204, 106);
-position: relative;
-top: 30px;
 }
 
+
 .subject-button-container #start-subject{
-position: relative;
-top: 67px;
+  margin-top: 20.5%;
+  color: rgb(255, 204, 106);
 }
 
 .subject-1 {
@@ -627,8 +625,8 @@ table td {
 
   #form-container {
     position: relative;
-    top: 0px;
-justify-content: center;
+    top: -40px;
+   justify-content: center;
    padding: 0px 20px;
   }
 
@@ -646,12 +644,12 @@ align-items: center;
     padding-bottom: 70px;
   }
 
-.subject-button-container{
+#subjects-wraper .subject-button-container{
   width:100%;
   margin-bottom: 20px;
 }
 
-#form-container .subject-button-container button {
+#subjects-wraper .subject-button-container button {
   margin: 5px auto;
   display: block;
   font-size: 5.2rem;
@@ -664,20 +662,21 @@ justify-content: center;
   border: solid 2px rgb(115, 161, 122);
 }
 
-#from #subjects-wraper .subject-button-container h2{
+.subject-button-container h2{
   font-size: 1.3rem;
 }
 
 .subject-button-container #start-countdown{
-  position: relative;
-  top:9px;
-font-size: 4.5rem;
-  }
+  margin-top: 2.4%;
+color: rgb(255, 204, 106);
+}
 
-  .subject-button-container #start-subject{
-  position: relative;
-  top: 20px;
-  }
+
+ .subject-button-container #start-subject{
+  margin-top: 0.5%;
+  color: rgb(255, 204, 106);
+}
+
 
 /****** ZOOM SUBJECTS IMAGES ******/
 
@@ -707,7 +706,6 @@ font-size: 4.5rem;
     height: 100%;
     width: 100%;
     text-align: center;
-    display: none;
     flex-direction: column;
     padding-top: 5%;
   }
@@ -779,12 +777,12 @@ font-size: 4.5rem;
 }
 
   #game-container h4 {
-    padding: 1px 20px;
+    padding: 4px 20px;
     font-size: 1rem;
   }
 
   #answer-options{
-    margin-top: 50px;
+    margin-top: 40px;
   }
 
 .answer-box{
@@ -793,6 +791,7 @@ font-size: 4.5rem;
 }
 
   .answer-box button {
+    font-size: 1.1rem;
     margin-top: 20px;
     display: flex;
     background-color: inherit;
@@ -952,7 +951,6 @@ font-size: 4.5rem;
     font-size: 1.2rem;
     margin-bottom: 0px;
     padding: 5% 0%;
-
   }
 
   /***********  SUBJECTS PANEL *********/
@@ -963,19 +961,28 @@ font-size: 4.5rem;
     padding: 5% 0%;
   }
 
-#subjects-wraper .subject-button-container{
-  width: 100%;
-}
-
-  #subjects-wraper .subject-button-container button {
-    font-size: 4.5rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-    height: 120px;
-    width: 90vw;
-    text-decoration: none;
+  #subjects-wraper .subject-button-container{
+    width: 100%;
   }
 
+    #subjects-wraper .subject-button-container button {
+      font-size: 4.5rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+      height: 120px;
+      width: 90vw;
+      text-decoration: none;
+    }
+
+    .subject-button-container #start-countdown{
+      margin-top: 0.9%;
+    color: rgb(255, 204, 106);
+    }
+
+     .subject-button-container #start-subject{
+      margin-top: 0.1%;
+      color: rgb(255, 204, 106);
+    }
 
 /******************************** MODAL SUBJECTS PANEL *************************/
 
@@ -1009,11 +1016,12 @@ font-size: 4.5rem;
 /*************** HEADING ************/
   #heading-container {
     width: 80%;
-    margin-top: 5px;
-    padding-top: 5px;
+    /* margin-top: 5px;
+    padding-top: 5px; */
   }
 
-  #heading-container h1 {
+
+#heading-container .heading h1 {
     font-size: 1.3rem;
   }
 
@@ -1021,17 +1029,18 @@ font-size: 4.5rem;
   display: none;
   }
 
+
   #heading-container .heading {
     display: flex;
-    margin: 10px auto 0px auto;
+    margin: 5px auto 0px auto;
     justify-content: space-between;
   }
 
-  #heading-container #subject{
-  margin: 15px 0px 0px 15px;
+#heading-container #subject{
+  margin: 5px 0px 0px 10px;
   }
 
-    #heading-container #countDown {
+#heading-container #countDown {
     font-size: 2rem;
 position: relative;
 top: 5px;
@@ -1057,16 +1066,20 @@ top: 5px;
 
 /** question **/
 #game-container h4{
-  padding: 1px 20px;
+  padding: 3px 20px 0px 20px;
 }
 
 
 /** answer **/
-.answer-box {
+#answer-options{
+  margin-top: 30px;
+}
+
+#answer-options .answer-box {
   border-radius: 10px;
 }
 
-.answer-box button {
+#answer-options .answer-box button {
   width: 100%;
   border-radius: 10px;
 }

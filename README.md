@@ -23,7 +23,7 @@
 
 -   Play game [Quizz-Quizz](https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/)
 
-    # Table Contents
+# Table Contents
 
 ### [Planning stage](#planning-stage)
 

@@ -5,10 +5,10 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta name="description" content="Trivia Quizz game Answer questions of several subjects">
-  <meta name="keyword:" content="quizz game trivia question answer">
+  <meta name="keyword" content="quizz game trivia question answer">
   <title>Quizz-Qui??</title>
   <!-- STYLESHEET -->
-  <link rel="stylesheet" href="assets/css/home1.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,19 +25,19 @@
 
     <!--****************  WELCOME HEADING  ******************** -->
 
-    <div id="title-panel">
+    <header id="title-panel">
       <h1 id="heading"><span id="hey">Hey,</span><br />Welcome to<br />
         <span id="quizz-1">Qui<span id="zz">
             <span id="z1">z</span>z
           </span>
         </span>Qui<span id="exclamations">??</span>
       </h1>
-    </div>
+    </header>
 
     <!--****************** *****FORM SECTION  *****************-->
     <div id="form-container">
-      <form id="form" action="game.html" method="POST">
-        <input type="text" id="player-name-input" name="player-name-input" value="" placeholder="Enter player name" required>
+      <form id="form">
+        <input type="text" id="player-name-input" name="player-name-input" placeholder="Enter player name" required>
         <br />
 
         <h2 id="heading-2">Choose a subject to start!<br /></h2>
@@ -165,7 +165,7 @@
     <button type="button" id="restart-game" name="button">RESTART GAME</button>
   </div>
 
-  <script src="src/js/index2.js"></script>
+  <script src="assets/js/game.js"></script>
 </body>
 
 </html>
