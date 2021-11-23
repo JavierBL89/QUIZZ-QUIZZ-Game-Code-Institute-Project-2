@@ -15,44 +15,48 @@ const comodin2 = document.getElementById("comodin2");
 const comodin3 = document.getElementById("comodin3");
 const comodin4 = document.getElementById("comodin4");
 const totalComodins = document.getElementById("total-comodins");
-const gameOverStatus= document.getElementById("game-over-status");
+const gameOverlevelStatus= document.getElementById("game-over-status");
 const finalPlayerScore = document.getElementById("final-player-score");
 const finalTopPlayers = document.getElementById("top-players-container");
 const endOfGamePanel = document.getElementById("end-of-game");
 const reStartButton = document.getElementById("button-restart-container");
-//html code blocks hidden by default
+let startGameInterval;
+let startGameCountDown = 4;
+let shuffleQuestions, currentQuestion;
+let currentQuestionIndex = 0;
+let timeInterval;
+let countDown = 10;
+let extraTimeInterval;
+let newCountDown;
+let currentPlayerScoreArray = [];
+const topPlayersArray = [{name: "Laura",score: "6300",correctAnswers: "21"},{name: "Andrew",score: "6000",correctAnswers: "20"},{ name: "Darryl", score: "4500",  correctAnswers: "15"}];
+
 gameWraper.classList.add("hidden");
 reStartButton.classList.add("hidden");
 endOfGamePanel.classList.add("hidden");
 modalSubjectsPanel.classList.add("hidden");
 
 
-const puta = document.addEventListener("DOMContentLoaded", function() {
-
+document.addEventListener("DOMContentLoaded", function() {
   /** ADDING EVENTLISTENER TO ALL BUTTONS BASED ON ATTRIBUTTES
    AND GET HOLD OF INNERHTML OF USERS ANSWERS */
   // runGameGeneral();
   const buttons = document.getElementsByTagName("button");
-
   for (let button of buttons) {
     button.addEventListener("click", function() {
-
-      if (this.getAttribute("class") === "modal-subject-1") {
+  if (this.getAttribute("class") === "modal-subject-1") {
        decrementComodin(modalSubjectsPanel);
        heading(this);
-
-          if (status == 1) {
+          if (levelStatus.innerText == 1) {
           runGeneralLevel1();
           } else {
           runGeneralLevel2();
           }
           modalSubjectsPanel.classList.add("hidden");
           heading(this);
-
       } else if (this.getAttribute("class") === "modal-subject-2") {
         decrementComodin(modalSubjectsPanel);
-
-          if (status == 1) {
+          if (levelStatus.innerText == 1) {
           runHistoryLevel1();
           } else {
           runHistoryLevel2();
@@ -60,128 +64,93 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
         comodin2.classList.add("hidden");
         modalSubjectsPanel.classList.add("hidden");
         heading(this);
-
       } else if (this.getAttribute("class") === "modal-subject-3") {
         decrementComodin(modalSubjectsPanel);
         heading(this);
-
-          if (status == 1) {
+          if (levelStatus.innerText == 1) {
           runFootballLevel1();
           } else {
           runFootballLevel2();
           }
           comodin2.classList.add("hidden");
           modalSubjectsPanel.classList.add("hidden");
-
       } else if (this.getAttribute("class") === "modal-subject-4") {
         decrementComodin(modalSubjectsPanel);
         heading(this);
-
-          if (status == 1) {
+          if (levelStatus.innerText == 1) {
           runGeographyLevel1();
           } else {
           runGeographyLevel2();
           }
           comodin2.classList.add("hidden");
           modalSubjectsPanel.classList.add("hidden");
-
       } else if (this.getAttribute("id") === "answer1") {
         checkAnswer(this);
-
       } else if (this.getAttribute("id") === "answer2") {
         checkAnswer(this);
-
       } else if (this.getAttribute("id") === "answer3") {
         checkAnswer(this);
-
       } else if (this.getAttribute("id") === "comodin1") {
         decrementComodin(this);
         setNextQuestion();
-
       } else if (this.getAttribute("id") === "comodin2") {
         clearInterval(timeInterval);
         modalSubjectsPanel.classList.remove("hidden");
-
       } else if (this.getAttribute("id") === "comodin3") {
         decrementComodin(this);
         clearInterval(timeInterval);
         timeExtra();
         this.classList.add("hidden");
-
       } else if (this.getAttribute("id") === "restart-game") {
         reStartGame();
-
       } else {
-        throw `Unkown atribute}`;
+        // throw `Unkown atribute`;
       }
     });
   }
   playerInput.focus();
 });
 
-
-
-
-
 /** GETTTING HOLD OF PLAYER NAME AND ASSING IN
 THE BUTTON ELEMENT SELECTED TO START THE GAME WITH THE SUBJECT CHOOSEN **/
 function handleSumit(subject) {
-  //without this event.prevent the whole function does not work
   event.preventDefault();
-
-  // Form validator
   if(playerInput.value == ""){
 playerInput.setAttribute("placeholder", "Please enter player name!");
 playerInput.focus();
   }else{
   subject.classList.add("button-vanishes");
   document.getElementById("current-player-name").innerText = playerInput.value;
-  //Pass in the button element
   startCountDown(subject);
   }
-
 }
 
-
-/** HERE I GET THE BUTTON CLICKED VALUE TO RUN THE GAME
-WITH THE SUBJECT CHOOSEN AFTER 3s COUNTDOWN! */
-let startGameInterval;
-let startGameCountDown = 4;
-
+/**
+* HERE I GET THE BUTTON CLICKED VALUE TO RUN THE GAME
+* WITH THE SUBJECT CHOOSEN AFTER 3s COUNTDOWN!
+**/
 function startCountDown(subject) {
-  /*getting hold of the elements into the current parent subject
-  and its children in order to pass them as a parameters in order to
-  use them dinamically later*/
+
   let subjectParent = subject.parentNode;
   let firstChildParentClass = subjectParent.children[0];
   let lastChildParentInner = subjectParent.children[1].innerText;
-
-  // get hold of the nextSibling subject and set initial interval
   let nextSubjectSibling = subject.nextElementSibling;
   startGameCountDown = 4;
- //clears any previuos interval initiated
   clearInterval(startGameInterval);
-
     startGameInterval = setInterval(() => {
     startGameCountDown--;
     let countDown = subjectParent.innerText = startGameCountDown;
-
     /*creat new elements to fill the parent subject html
     with the countdown to start game after clicking on the subject button*/
     let parentSubjectInnerHtml = `<div id="start-countdown">${countDown}</div>
                    <h2 id="start-subject">${nextSubjectSibling.innerText}</h2>`;
-
     subjectParent.innerHTML = parentSubjectInnerHtml;
-    // When the count gets to 0 we want...
     if(countDown == 0 && subject.value === "GENERAL") {
       welcomeWraper.classList.add("hidden");
       gameWraper.classList.remove("hidden");
-      /*pass in the the variables declared earlier getting hold
-      of the first elements into the parent subject*/
       resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
       clearInterval(startGameInterval);
       runGeneralLevel1();
-
     } else if (countDown == 0 && subject.value === "HISTORY") {
       subjectParent.innerHTML = "";
       welcomeWraper.classList.add("hidden");
@@ -189,7 +158,6 @@ function startCountDown(subject) {
       resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
       clearInterval(startGameInterval);
       runHistoryLevel1();
-
     }else if (countDown == 0 && subject.value === "FOOTBALL") {
       subjectParent.innerHTML = "";
       welcomeWraper.classList.add("hidden");
@@ -197,7 +165,6 @@ function startCountDown(subject) {
       resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
       clearInterval(startGameInterval);
       runFootballLevel1();
-
     }else if (countDown == 0 && subject.value === "GEOGRAPHY") {
       subjectParent.innerHTML = "";
       welcomeWraper.classList.add("hidden");
@@ -211,10 +178,10 @@ function startCountDown(subject) {
 }
 
 
-// reset HTML of the subject button selected to start
+/**
+* reset HTML of the subject button selected to start
+**/
 function resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner){
-
-  /*get hold of the initial children of the parent subject*/
   firstChildParentClass.classList.remove("button-vanishes");
   let newChildClass = firstChildParentClass.getAttribute("class");
   let newChildValue = firstChildParentClass.getAttribute("value");
@@ -224,8 +191,6 @@ function resetSubjectButton(subjectParent, firstChildParentClass, lastChildParen
   <h2>${lastChildParentInner}`;
   subjectParent.innerHTML = parentSubjectInnerHtml;
 }
-
-
 /*********************************** RUN GAME SUBJECTS QUESTIONS ****************************/
 
 //**** RUN GENERAL KNOWLEDE QUESTIONS LEVEL 1 AND 2 *******
@@ -242,7 +207,6 @@ function runGeneralLevel2() {
   setNextQuestion();
 }
 
-
 /****** RUN HISTORY QUESTIONS LEVEL 1 AND 2 *******/
 
 function runHistoryLevel1() {
@@ -256,7 +220,6 @@ function runHistoryLevel2() {
   shuffleQuestions = historyLevel2.sort(() => Math.random() - .5);
   setNextQuestion();
 }
-
 
 //****************** RUN FOOTBALL QUESTIONS LEVEL 1 AND 2 ************
 
@@ -272,7 +235,6 @@ function runFootballLevel2() {
   setNextQuestion();
 }
 
-
 //****************** RUN GEOGRAPHY QUESTIONS LEVEL 1 AND 2 ************
 
 function runGeographyLevel1() {
@@ -287,19 +249,10 @@ function runGeographyLevel2() {
   setNextQuestion();
 }
 
-
-
 /********************************** GETTING NEXT QUESTION  *************************/
-
-//CREATE UNDEFINED VALUES FOR SHUFFLING QUESTIONS
-let shuffleQuestions, currentQuestion;
-let currentQuestionIndex = 0;
-let timeInterval;
-let countDown = 10;
 
 function setNextQuestion() {
   currentQuestionIndex++;
-
   if(currentQuestionIndex == 8){
     currentQuestionIndex = 0;
   }
@@ -307,68 +260,45 @@ function setNextQuestion() {
   showQuestions(shuffleQuestions[currentQuestionIndex]);
 }
 
-
 function showQuestions(question) {
 // Populate data to users side from subjects questions arrays
   document.getElementById("question").textContent = question.question;
   document.getElementById("answer1").textContent = question.answer1;
   document.getElementById("answer2").textContent = question.answer2;
   document.getElementById("answer3").textContent = question.answer3;
-
-//clears the extra time interval if it exists
   clearInterval(extraTimeInterval);
-
-  /* reset the timer to 10 for every print and
-  clear any interval set, so the timer
-  does not increment speed in every print */
   countDown = 10;
   clearInterval(timeInterval);
   document.getElementById("countDown").textContent = countDown;
-
-  //set countdown interval for every new question
   timeInterval = setInterval(() => {
     countDown--;
     document.getElementById("countDown").textContent = countDown;
     if (document.getElementById("countDown").textContent == 0) {
-      gameOverStatus.textContent = "Time up!";
+      gameOverlevelStatus.textContent = "Time up!";
       clearInterval(timeInterval);
       endOfGame();
     }
   }, 1000);
-
 }
-
-
 /***** CHECK PLAYER ANSWER AGAINST CURRENT QUESTION CORRECT ANSWER
 DEFINED IN THE CONSTRUCTOR FUNCTION ****/
 function checkAnswer(userAnswer) {
-
-  // stops the countdown when user clicks an answer
   clearInterval(timeInterval);
-
   let currentQuestion = shuffleQuestions[currentQuestionIndex];
   const parentP = userAnswer.parentNode;
-
   if (userAnswer.innerText === currentQuestion.correct) {
     parentP.classList.add("right-answer");
     incrementScore();
     incrementCorrectAnswers();
-
   } else{
     parentP.classList.add("wrong-answer");
       incrementIncorrectAnswers();
   }
-// remove background color button answer after 1 sec
   setTimeout(function() {
     parentP.classList.remove("right-answer");
     parentP.classList.remove("wrong-answer");
   }, 1000);
-
 }
-
-
-
-
 
 /***************************  HERE ALL THE CHANGEABLE INNER TEXTS ON THE FLOW *****************///
 
@@ -379,29 +309,26 @@ function heading(headingText) {
   document.getElementById("subject").innerText = headingText.value;
 }
 
-
-/********* MANIPULATING SCORES PANEL **********/
+/********** MANIPULATING SCORES PANEL **********/
 function incrementScore() {
   let initialScore = parseInt(score.innerText);
   let currentScore = score.innerText = initialScore + 300;
 }
-
 
 function incrementCorrectAnswers() {
   let initialNumber = parseInt(correctAnswers.innerText);
   var correctAnswersTrack = correctAnswers.innerText = ++initialNumber;
 if(correctAnswersTrack == 5){
   levelStatus.innerText = "2";
-  levelStatus.classList.add("status-color");
+  levelStatus.classList.add("levelStatus-color");
   levelStatusMobile.innerText = "2";
-  levelStatusMobile.classList.add("status-color")
-
-}else{}
-
+  levelStatusMobile.classList.add("levelStatus-color")
+}else{
+}
+/*** use dinamic subject question heading to run
+next level questions after 1s *** */
   setTimeout(function() {
     if(correctAnswersTrack == 5) {
-        /*** use dinamic subject question heading to run
-        next level questions after 1s *** */
          if(currentSubjectGame.innerText === "General Knowledge"){
            currentQuestionIndex  = 0;
            runGeneralLevel2();
@@ -414,7 +341,7 @@ if(correctAnswersTrack == 5){
          }
     }else if (correctAnswersTrack == 13) {
       setTimeout(() =>{
-        gameOverStatus.innerText = "Congrats you made it!";
+        gameOverlevelStatus.innerText = "Congrats you made it!";
         endOfGame();
     }, 1000);
     }else{
@@ -423,22 +350,18 @@ if(correctAnswersTrack == 5){
   }, 1000);
 }
 
-
 function incrementIncorrectAnswers() {
   let initialNumber = parseInt(document.getElementById("incorrect").innerText);
   let incorrectAnswersTrack = document.getElementById("incorrect").innerText = ++initialNumber;
-
   if(incorrectAnswersTrack >= 1){
     setTimeout(() =>{
-      gameOverStatus.innerText = "Incorrect answer";
+      gameOverlevelStatus.innerText = "Incorrect answer";
       endOfGame();
     }, 1000);
    }else if(gameCountDown.textContent === "0"){
-     gameOverStatus.innerText = "Time Up";
+     gameOverlevelStatus.innerText = "Time Up";
    }
-
 }
-
 
 function decrementComodin(comodinSelected){
   comodinSelected.classList.add("hidden");
@@ -448,44 +371,30 @@ function decrementComodin(comodinSelected){
 
 // ***************  BUY EXTRA TIME FUNCTION ************
 
-let extraTimeInterval;
-let newCountDown;
-
 function timeExtra(){
-// clears the game interval countDown interval  from line 273
   clearInterval(timeInterval);
-
   newCountDown = countDown+20;
-
   extraTimeInterval = setInterval (() =>{
     newCountDown--;
     gameCountDown.textContent = newCountDown;
     if(document.getElementById("countDown").textContent == 0){
-      gameOverStatus.textContent = "Time up!";
+      gameOverlevelStatus.textContent = "Time up!";
       clearInterval(extraTimeInterval);
       endOfGame();
     }
   },1000);
 }
 
-
-
-
-
 /*********************************** END OF GAME SECTION ****************************/
-
-
 // Function to get rid of the game panel
 function endOfGame() {
   welcomeWraper.classList.add("hidden");
   gameWraper.classList.add("hidden");
-
   endOfGamePanel.classList.remove("hidden");
   reStartButton.classList.remove("hidden");
   showFinalPlayerScore();
   showTopPlayersScore();
 }
-
 
 // Creating the final panel html with the last player scores
 finalPlayerScoreInner = `
@@ -497,40 +406,28 @@ finalPlayerScoreInner = `
 </tr>
 `;
 
-/** Arrays of the current player score array */
-let currentPlayerScoreArray = [];
-
 function showFinalPlayerScore() {
-
   let currentGamer = document.getElementById("current-player-name").textContent;
   let currentScore = document.getElementById("score").textContent;
   let correct = document.getElementById("correct").textContent;
-
   const currentPlayerScore = {
     name: currentGamer,
     score: currentScore,
     correctAnswers: correct
   };
   currentPlayerScoreArray.push(currentPlayerScore);
-
   /* Loping throught the current player score
     and creating a dinamic html table */
   currentPlayerScoreArray.forEach(function(player) {
-
     let playerRow = `<tr class="tr">
     <td>${player.name}</td>
     <td>${player.score}</td>
     <td>${player.correctAnswers}</td>
     </tr>`;
-
     finalPlayerScoreInner += playerRow += `</table>`;
   });
   return finalPlayerScore.innerHTML = finalPlayerScoreInner;
 }
-
-
-//top 3 players array
-const topPlayersArray = [{name: "Laura",score: "6300",correctAnswers: "21"},{name: "Andrew",score: "6000",correctAnswers: "20"},{ name: "Darryl", score: "4500",  correctAnswers: "15"}];
 
 // Creating the top players html table
 topPlayersTableInner = `<table style="width:100%">
@@ -542,7 +439,6 @@ topPlayersTableInner = `<table style="width:100%">
 
 // Function to populate the top player table
 function showTopPlayersScore() {
-
     for(let topPlayer of topPlayersArray){
         let topPlayersRow = `
         <tr>
@@ -550,12 +446,10 @@ function showTopPlayersScore() {
         <td>${topPlayer.score}</td>
         <td>${topPlayer.correctAnswers}</td>
         </tr>`;
-
         topPlayersTableInner += topPlayersRow;
     }
   return finalTopPlayers.innerHTML = topPlayersTableInner += `</table>`;
 }
-
 
 /*Redirect the user to URL game restoring all data stored from the previous game
  and destroying the tables created with template literals*/
@@ -563,10 +457,6 @@ function reStartGame() {
 // window.location.replace("file:///C:/Users/hp/Desktop/WEB%20PROYECTS/quizz-quizz/index.html");
 window.location.href = "https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/";
 }
-
-
-
-
 
 /* CONSTRUCTOR FUNCTION FOR QUESTIONS
    AND QUESTIONS GAME ARRAYS*/
@@ -629,8 +519,6 @@ const h1q10 = new Question("Who invented the first car?", "Henry Ford", "Carl (K
 
 historyLevel1.push(h1q1, h1q2, h1q3, h1q4, h1q5, h1q6, h1q7, h1q8, h1q9, h1q10);
 
-
-
 // History questions level2
 const h2q1 = new Question("In which year did Hitler commit suicide?", "1938", "1940", "1945", "1945");
 const h2q2 = new Question("In which year was John F. Kennedy assassinated?", "1963", "1968", "1989", "1963");
@@ -642,9 +530,8 @@ const h2q7 = new Question("In which country did the Easter Rising take place in 
 const h2q8 = new Question("What was the name of the first Space Shuttle to go into space?", "Apollo", "Space Shuttle Columbia", "Endeavour", "Space Shuttle Columbia");
 const h2q9 = new Question("What is the modern name for Van Diemen’s Land?", "Tanzania", "Tasmania", "Transavania", "Tasmania");
 const h2q10 = new Question("The ancient city of Rome was built on how many hills?", "7", "5", "3", "7");
+
 historyLevel2.push(h2q1, h2q2, h2q3, h2q4, h2q5, h2q6, h2q7, h2q8, h2q9, h2q10);
-
-
 
 /****** FOOTBALL QUESTIONS ******/
 const footballLevel1 = [];
@@ -663,7 +550,6 @@ const f1q9 = new Question("To most places in the world, Soccer is known as what?
 const f1q10 = new Question("The circumference of the ball should not be greater than what?", "70cm", "90cm", "100cm", "70cm");
 
 footballLevel1.push(f1q1, f1q2, f1q3, f1q4, f1q5, f1q6, f1q7, f1q8, f1q9, f1q10);
-// const correctAnswers = ["Greece", "Jimmy Hendrix", "Germany", "Denmark","1963","1945","A tight rope", "7","Tasmania","Space Shuttle Columbia","Ireland","4","McDonald", "The London Bridge","Charles Lindbergh","Silver", "China", "Alexander Graham Bell", "Carl (Karl) Friedrich Benz","Thomas Edison","2 hours 40 minutes","Bethlehem","White House","George Washington","False", "South America","Spanish", "Inception", "Piña Colada", "Martini", "16"];
 
 // Footbal questions level2
 const f2q1 = new Question("If an age group is U16, how old are most of the people on the team going to be?", "17", "16", "15", "15");
@@ -678,8 +564,6 @@ const f2q9 = new Question("In which World Cup did Diego Maradona score his infam
 const f2q10 = new Question("Who is the Champions League's top goalscorer of all time?", "C.Ronaldo", "Messi", "Raúl Gonzalez", "C.Ronaldo");
 
 footballLevel2.push(f2q1, f2q2, f2q3, f2q4, f2q5, f2q6, f2q7, f2q8, f2q9, f2q10);
-
-
 
 /****** GEOGRAPHY QUESTIONS ******/
 const geographyLevel1 = [];
