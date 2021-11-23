@@ -18,7 +18,7 @@ a {
 
 #title-panel{
   position: relative;
-  right: 70%;
+  right: 80%;
   animation-name: title-in;
   animation-duration: 1.2s;
   animation-fill-mode: forwards;
@@ -26,7 +26,7 @@ a {
 
 @keyframes title-in {
   from{
-    right: 70%;
+    right: 80%;
 }
 to{
   right: 0;
@@ -234,13 +234,13 @@ border: solid 2px rgb(115, 161, 122);
 }
 
 .subject-button-container #start-countdown{
-  margin-top: 10%;
+  height: 170px;
+  margin-top: 10.3%;
 color: rgb(255, 204, 106);
 }
 
 
 .subject-button-container #start-subject{
-  margin-top: 20.5%;
   color: rgb(255, 204, 106);
 }
 
@@ -667,13 +667,13 @@ justify-content: center;
 }
 
 .subject-button-container #start-countdown{
-  margin-top: 2.4%;
+  height: 140px;
+  margin-top: 1%;
 color: rgb(255, 204, 106);
 }
 
 
  .subject-button-container #start-subject{
-  margin-top: 0.5%;
   color: rgb(255, 204, 106);
 }
 
@@ -774,6 +774,7 @@ color: rgb(255, 204, 106);
   font-size: 1.2rem;
   color: rgb(255, 232, 122);
   text-align: center;
+  padding-bottom: 8%;
 }
 
   #game-container h4 {
@@ -1017,8 +1018,7 @@ color: rgb(255, 204, 106);
 /*************** HEADING ************/
   #heading-container {
     width: 80%;
-    /* margin-top: 5px;
-    padding-top: 5px; */
+    padding-top: 3px;
   }
 
 
@@ -1030,21 +1030,16 @@ color: rgb(255, 204, 106);
   display: none;
   }
 
-
   #heading-container .heading {
     display: flex;
-    margin: 5px auto 0px auto;
+    /* margin: 5px auto 0px auto; */
     justify-content: space-between;
   }
 
-#heading-container #subject{
-  margin: 5px 0px 0px 10px;
-  }
-
 #heading-container #countDown {
-    font-size: 2rem;
+font-size: 2rem;
 position: relative;
-top: 5px;
+top: 2px;
 }
 
 .level-status-mobile{
@@ -1059,8 +1054,8 @@ top: 5px;
   #game-container {
     width: 90%;
     height: 51%;
-    margin-top: 5%;
-    margin-bottom: 8%;
+    margin-top: 2%;
+    margin-bottom: 5%;
     text-align: center;
     padding-bottom: 2%;
   }
