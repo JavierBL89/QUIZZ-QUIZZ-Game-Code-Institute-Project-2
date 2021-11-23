@@ -975,12 +975,13 @@ color: rgb(255, 204, 106);
     }
 
     .subject-button-container #start-countdown{
+      height: 120px;
       margin-top: 0.9%;
     color: rgb(255, 204, 106);
     }
 
      .subject-button-container #start-subject{
-      margin-top: 0.1%;
+      margin-top: 2%;
       color: rgb(255, 204, 106);
     }
 
