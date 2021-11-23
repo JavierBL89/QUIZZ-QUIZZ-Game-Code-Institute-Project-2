@@ -112,8 +112,7 @@ const puta = document.addEventListener("DOMContentLoaded", function() {
         reStartGame();
 
       } else {
-        // alert("Unkown atribute");
-        // throw `Unkown atribute}`;
+        throw `Unkown atribute}`;
       }
     });
   }
@@ -203,8 +202,6 @@ function startCountDown(subject) {
       subjectParent.innerHTML = "";
       welcomeWraper.classList.add("hidden");
       gameWraper.classList.remove("hidden");
-      // gameWraper.style.display = "block";
-
       resetSubjectButton(subjectParent, firstChildParentClass, lastChildParentInner);
       clearInterval(startGameInterval);
       runGeographyLevel1();
@@ -475,7 +472,7 @@ function timeExtra(){
 
 
 
-/*********************************** END OF THE GAME SECTION ****************************/
+/*********************************** END OF GAME SECTION ****************************/
 
 
 // Function to get rid of the game panel
@@ -572,7 +569,7 @@ window.location.href = "https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Insti
 
 
 /* CONSTRUCTOR FUNCTION FOR QUESTIONS
-   AND QUESTIONS ARRAYS FOR GENERAL KNOWLEGE*/
+   AND QUESTIONS GAME ARRAYS*/
 const generalLevel1 = [];
 const generalLevel2 = [];
 
@@ -703,15 +700,15 @@ const gg1q10 = new Question("Which country is the biggest area?", "Unite States"
 geographyLevel1.push(gg1q1, gg1q2, gg1q3, gg1q4, gg1q5, gg1q6, gg1q7, gg1q8, gg1q9, gg1q10);
 
 // Geography questions level2
-const gg2q1 = new Question("If an age group is U16, how old are most of the people on the team going to be?", "17", "16", "15", "15");
-const gg2q2 = new Question("What color jerseys did the United States have the Women's National team wear in 2007?", "Blue", "Silver", "Gold", "Gold");
-const gg2q3 = new Question("The goalie cannot pick the ball up outside of the what yard area?", "18", "16", "20", "18");
-const gg2q4 = new Question("How many blows of his whistle does the Referee give to signify the end of the game?", "1", "3", "2", "3");
-const gg2q5 = new Question("What do soccer players not typically wear?", "Glooves", "Large shirts", "Helmets", "Helmets");
-const gg2q6 = new Question("Exactly how far away from the goal line is the penalty spot?", "10", "11", "12", "12");
-const gg2q7 = new Question("Which player scored the fastest hat-trick in the Premier League?", "C.Ronaldo", "Sadio Mane", "Rooney", "Sadio Mane");
-const gg2q8 = new Question("With 202 clean sheets, which goalkeeper has the best record in the Premier League?", "Petr Cech", "David De Gea", "Willy Caballero", "Petr Cech");
-const gg2q9 = new Question("In which World Cup did Diego Maradona score his infamous 'Hand of God' goal?", "Spain 1992", "Germany 1974", "Mexico 1986", "Mexico 1986");
-const gg2q10 = new Question("Who is the Champions League's top goalscorer of all time?", "C.Ronaldo", "Messi", "Raúl Gonzalez", "C.Ronaldo");
+const gg2q1 = new Question("What is the capital of Canada?", "Ottawa", "Toronto", "Vancouver", "Ottawa");
+const gg2q2 = new Question("What is the name of the largest ocean in the world? ", "Atlantic Ocean", "The Pacific Ocean", "Oceanic Ocean", "The Pacific Ocean");
+const gg2q3 = new Question("What is the name of the smallest country in the world?", "The Vatican City", "Monaco", "Andorra", "The Vatican City");
+const gg2q4 = new Question("What planet is closest to Earth?", "Jupiter", "Mart", "Venus", "Venus");
+const gg2q5 = new Question("What country lies above Mexico?", "Brazil", "Perú", "The United States of America", "The United States of America");
+const gg2q6 = new Question("What is the capital of Senegal?", "Dakar", "Kinshasa", "Lagos", "Dakar");
+const gg2q7 = new Question("What country does the Rhine River run through?", "France", "Germany", "Austria", "Germany");
+const gg2q8 = new Question("What is the name of the largest city in Australia?", "Melburne", "Brisbane", "Sidney", "Brisbane");
+const gg2q9 = new Question("What type of leaf is on the Canadian flag?", "Red Oak", " Apple Serviceberry", "Maple", "Maple");
+const gg2q10 = new Question("In what ocean is the Bermuda Triangle located?", "Atlantic Ocean", "Caribean See", "Oceanic Ocean", "Atlantic Ocean");
 
 geographyLevel2.push(gg2q1, gg2q2, gg2q3, gg2q4, gg2q5, gg2q6, gg2q7, gg2q8, gg2q9, gg2q10);
