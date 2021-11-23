@@ -563,8 +563,8 @@ function showTopPlayersScore() {
 /*Redirect the user to URL game restoring all data stored from the previous game
  and destroying the tables created with template literals*/
 function reStartGame() {
-window.location.replace("file:///C:/Users/hp/Desktop/WEB%20PROYECTS/quizz-quizz/index.html");
-// window.location.href = "https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/";
+// window.location.replace("file:///C:/Users/hp/Desktop/WEB%20PROYECTS/quizz-quizz/index.html");
+window.location.href = "https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/";
 }
 
 
