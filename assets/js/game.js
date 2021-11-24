@@ -319,9 +319,9 @@ function incrementCorrectAnswers() {
   var correctAnswersTrack = correctAnswers.innerText = ++initialNumber;
 if(correctAnswersTrack == 5){
   levelStatus.innerText = "2";
-  levelStatus.classList.add("levelStatus-color");
+  levelStatus.classList.add("status-color");
   levelStatusMobile.innerText = "2";
-  levelStatusMobile.classList.add("levelStatus-color")
+  levelStatusMobile.classList.add("status-color")
 }else{
 }
 /*** use dinamic subject question heading to run
@@ -337,6 +337,9 @@ next level questions after 1s *** */
          }else if(currentSubjectGame.innerText === "Football"){
            currentQuestionIndex  = 0;
            runFootballLevel2();
+         }else if(currentSubjectGame.innerText === "Geography"){
+           currentQuestionIndex  = 0;
+           runGeographyLevel2();
          }
     }else if (correctAnswersTrack == 13) {
       setTimeout(() =>{
