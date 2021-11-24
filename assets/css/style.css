@@ -303,11 +303,7 @@ color: rgb(255, 204, 106);
   justify-content: space-between;
 }
 
-.heading #subject{
-margin: 15px 0px 0px 15px;
-}
-
-#heading-container h2 {
+#heading-container #level-row {
   color: rgb(255, 232, 122);
   position: absolute;
   left: 8%;
@@ -317,6 +313,11 @@ margin: 15px 0px 0px 15px;
 
 #heading-container #countDown {
   font-size: 3rem;
+}
+
+.heading #subject{
+  font-size: 2rem;
+margin: 15px 0px 0px 15px;
 }
 
 .level-status-mobile{
@@ -536,8 +537,9 @@ margin: 0;
   box-shadow: 3px 3px 3px 3px;
 }
 
-#end-of-game h1 {
-  color: rgb(125, 42, 36)
+#end-of-game #game-over-status {
+  color: rgb(125, 42, 36);
+  font-size: 2rem;
 }
 
 #end-of-game h2 {
@@ -730,6 +732,7 @@ color: rgb(255, 204, 106);
   #heading-container {
     width: 60%;
     margin-top: 0px;
+    margin-bottom: 7px;
   }
 
   #heading-container .heading {
@@ -738,12 +741,9 @@ color: rgb(255, 204, 106);
     justify-content: space-between;
   }
 
-  #heading-container h1 {
-    font-size: 1.4rem;
-  }
-
   #heading-container #subject{
      margin: 15px 0 0 15px;
+       font-size: 1.4rem;
   }
 
   #heading-container #countDown {
@@ -752,7 +752,7 @@ color: rgb(255, 204, 106);
    bottom: 3px;
   }
 
-  #heading-container h2 {
+  #heading-container #level-row {
   display: none;
   }
 
@@ -854,7 +854,7 @@ color: rgb(255, 204, 106);
     padding-right: 30px;
   }
 
-  #end-of-game h1 {
+  #end-of-game #game-over-status {
     color: rgb(125, 42, 36);
     font-size: 1.9rem;
   }
@@ -997,7 +997,6 @@ color: rgb(255, 204, 106);
       height: 100vh;
       width: 100vw;
       text-align: center;
-      display: none;
       flex-direction: column;
       padding-top: 5vh;
     }
@@ -1022,19 +1021,17 @@ color: rgb(255, 204, 106);
     padding-top: 3px;
   }
 
+  #heading-container .heading {
+    display: flex;
+    justify-content: space-between;
+  }
 
-#heading-container .heading h1 {
+.heading #subject {
     font-size: 1.3rem;
   }
 
-  #heading-container h2 {
+  #heading-container #level-row {
   display: none;
-  }
-
-  #heading-container .heading {
-    display: flex;
-    /* margin: 5px auto 0px auto; */
-    justify-content: space-between;
   }
 
 #heading-container #countDown {
@@ -1066,7 +1063,6 @@ top: 2px;
   padding: 3px 20px 0px 20px;
 }
 
-
 /** answer **/
 #answer-options{
   margin-top: 30px;
@@ -1096,12 +1092,11 @@ top: 2px;
     line-height: 6px;
   }
 
-  .comodin-buttons-container {
+  /* .comodin-buttons-container {
   display: block;
-  }
+  } */
 
   .comodin-buttons-container button {
-  display: block;
     height: 30px;
     width: 100%;
     font-size: 1rem;
@@ -1126,7 +1121,7 @@ top: 2px;
     padding-right: 20px;
   }
 
-  #end-of-game h1 {
+  #end-of-game #game-over-status {
     color: rgb(125, 42, 36);
     font-size: 1.5rem;
   }

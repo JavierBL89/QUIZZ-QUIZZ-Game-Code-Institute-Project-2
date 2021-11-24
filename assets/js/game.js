@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
           } else {
           runGeneralLevel2();
           }
+          comodin2.classList.add("hidden");
           modalSubjectsPanel.classList.add("hidden");
           heading(this);
       } else if (this.getAttribute("class") === "modal-subject-2") {
@@ -103,8 +104,6 @@ document.addEventListener("DOMContentLoaded", function() {
         this.classList.add("hidden");
       } else if (this.getAttribute("id") === "restart-game") {
         reStartGame();
-      } else {
-        // throw `Unkown atribute`;
       }
     });
   }

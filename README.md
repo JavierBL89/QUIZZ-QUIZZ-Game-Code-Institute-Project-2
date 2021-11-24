@@ -11,15 +11,15 @@
 
 ## How to play
 
--   The user must enter a player name and select a subject to start, which will initiate a countdown from 3, only then the first question will be displayed.
+-   The user must enter a player name and select a subject to start with, which will initiate a countdown from 3, only then the first question will be displayed.
 -   The user will have 10 seconds to answer, after that time if there is no answer the game will be over displaying the final game panel with the player score.
 -   If the user answer correctly 5 questions, the user will jump into  the next level 2 and will face harder questions to answer.
--   The user will have 3 comodins to use:
+-   If the user answers incorrectly one of the questions the game will be game over.
+-   The user will have 3 comodins available:
     -   Squip question: will jump to the next question automatically.
     -   Change subject: the user will be able to change the subject to skip the question at that time question.
-    -   Buy time: the user will see 20secomds added to the countdown.
--   If the user answers incorrectly one of the questions the game will be game over.
--   The user is able to restart the game without exiting the website
+    -   Buy time: the user will see 20 seconds added to the countdown.
+-   The user is able to restart the game without exiting the site
 
 -   Play game [Quizz-Quizz](https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/)
 
@@ -50,15 +50,15 @@
       -   Mobile
   -   Validators
 
+### [Technology Used](#technology-used)
+
+    -   Languages
+    -   Libraries
+
 ### [Bugs](#bugs)
 
   -   Fixed bugs
   -   Known bugs
-
-### [Technology Used](#technology-used)
-
-  -   Languages
-  -   Libraries
 
 ### [Deployment](#deployment)
 
@@ -160,7 +160,7 @@ I drew the initial ideal into a paper to wireframe the project, i prefer user pe
 -   Make it a multiplayer game where users can share screen and play as a team in live having a window screen camera to interact.
 -   Show a real 3 top players ever table at the end of the game using a database.
 
-    ## Testing
+## Testing
 
 The website has been tested on Chrome, Firefox and Internet Explorer with no issues found.
 It has also been tested on Android and iPhone devices with no issues reported.
@@ -213,18 +213,31 @@ Here Some bugs i can remember:
 
 -   When the user clicks on a answer button the rest of the buttons are still engage which means that they still can press any answer right after clicking on the first one before the next question is show and it also would trigger any functionality added to the button answer.
 
-    ## Technology used
+## Technology used
 
-    ## Languages
+### Languages
 
 -   HTML
 -   CSS
 -   JavaScript
 
+### Libraries
+
+- None libraries used
+
 # Deployment
 
 The website is currently deployed on Github pages.
-You can access the site on the following link [Quizz-Quizz](https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/)
+deployed the website on GitHub pages via the following:
+
+1. From the projects repository go to the settings tab.
+2. On the left hand menu near the bottom click on the pages link.
+3. Under Source click on the button "None" which will produce a drop down.
+4. Click on Main and then click Save.
+5. The following message will appear: Your site is ready to be published.
+6. After a few minutes the site will be published and the message will change to Your site is published.
+
+You can access this site on the following link [Quizz-Quizz](https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/)
 
 # Credits
 
