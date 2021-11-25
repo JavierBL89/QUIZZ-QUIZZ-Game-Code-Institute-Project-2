@@ -468,7 +468,7 @@ function showTopPlayersScore() {
  **/
 function reStartGame() {
 // window.location.replace("file:///C:/Users/hp/Desktop/WEB%20PROYECTS/quizz-quizz/index.html");
-window.location.href = "https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/";
+window.location.href = "https://javierbl89.github.io/QUIZZ-QUIZZ-Trivia-Quizz-Game-Code-Institute-Project-2/";
 }
 
 /**
