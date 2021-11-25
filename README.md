@@ -234,9 +234,9 @@ Here Some bugs i can remember:
 
 ### Languages
 
--   HTML
--   CSS
--   JavaScript
+- HTML
+- CSS
+- JavaScript
 
 ### Libraries
 
