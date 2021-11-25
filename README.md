@@ -165,18 +165,35 @@ I drew the initial ideal into a paper to wireframe the project, i prefer user pe
 The website has been tested on Chrome, Firefox and Internet Explorer with no issues found.
 It has also been tested on Android and iPhone devices with no issues reported.
 
-## Responsiveness
+### Development Testing
+
+During the development process, I was manually testing in the following ways:-
+
+ - Manually testing each element for appearance and responsiveness via a simulated live server using an extension in VSCode.
+
+ - Published the page via GitHub pages and shared with friends to test and provide feedback.
+
+#### Manual Testing:
+During testing, I used four different browsers to ensure cross-compatibility. The desktop browsers used by myself were:
+
+- Chrome
+- Firefox
+- Internet Explorer
+
+I then used the devtools to simulate different screen sizes/devices down to 320 px in width.
+
+### Responsiveness
 
 The site is fully responsive and the game panel scales down smoothingly by device.
 
-## Lighthouse
+### Lighthouse
 
 When reading one of someone else's README file i only found out about this tool, and i making used out of it for the first time in my projects.
 These are the results:
 
 ![](assets/images/lighthouse-desktop.png)
 
-## Validators
+### Validators
 
 -   All files went through(<https://validator.w3.org>) to ensure all code meets the correct standard, some errors were found and fixed.
 
@@ -228,12 +245,12 @@ Here Some bugs i can remember:
 # Deployment
 
 The website is currently deployed on Github pages.
-deployed the website on GitHub pages via the following:
+Deployed the website on GitHub pages via the following:
 
-1. From the projects repository go to the settings tab.
-2. On the left hand menu near the bottom click on the pages link.
-3. Under Source click on the button "None" which will produce a drop down.
-4. Click on Main and then click Save.
+1. From the projects repository go to the **Settings** tab.
+2. On the left hand menu near the bottom click on the **Pages** link.
+3. Under **Source** click on the button "None" which will produce a drop down.
+4. Click on **Main** and then click **Save**.
 5. The following message will appear: Your site is ready to be published.
 6. After a few minutes the site will be published and the message will change to Your site is published.
 
@@ -241,17 +258,17 @@ You can access this site on the following link [Quizz-Quizz](https://javierbl89.
 
 # Credits
 
--   **Code**
+- **Code**
 
-  -   Some of the JavaScript code is been taken from 2 different youtube tutorials from  which i learnt how to shuffle questions and set the next question as well as how to  declare timeIntervals for countdowns
+  - Some of the JavaScript code is been taken from 2 different youtube tutorials from  which i learnt how to shuffle questions and set the next question as well as how to  declare timeIntervals for countdowns
 
--   Spanish language tutorial: (<https://youtu.be/anRB8u_D_YA>)
--   English language tutorial: (<https://youtu.be/riDzcEQbX6k>)
+- Spanish language tutorial: (<https://youtu.be/anRB8u_D_YA>)
+- English language tutorial: (<https://youtu.be/riDzcEQbX6k>)
 
--   **Media**
+- **Media**
 
-    -   The subject images were taken from google images
-    -   The favicon image was generated with (<https://favicon.io/>)
+    - The subject images were taken from google images
+    - The favicon image was generated with (<https://favicon.io/>)
 
--   **Acknowledgements**
-    -   I want to thank [Richard Wells](https://github.com/D0nni387) my mentor, who has helped me to solve some issues to make this beautiful project working properly and exactly the way i first had designed, and from who i have learnt this time round how to think of the logic to debug!
+- **Acknowledgements**
+    - I want to thank [Richard Wells](https://github.com/D0nni387) my mentor, who has helped me to solve some issues to make this beautiful project working properly and exactly the way i first had designed, and from who i have learnt this time round how to think of the logic to debug!
