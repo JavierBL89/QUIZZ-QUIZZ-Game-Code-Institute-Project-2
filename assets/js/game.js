@@ -296,7 +296,6 @@ function heading(headingText) {
   document.getElementById("subject").innerText = headingText.value;
 }
 
-/*********************************** MANIPULATING SCORES PANEL **************/
 /**
 * THIS FUNCTION INCREMENTS PLAYER SCORE
 **/
