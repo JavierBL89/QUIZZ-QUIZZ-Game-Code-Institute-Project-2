@@ -52,8 +52,8 @@
 
 ### [Technology Used](#technology-used)
 
-    -   Languages
-    -   Libraries
+  - Languages
+  - Libraries
 
 ### [Bugs](#bugs)
 
