@@ -21,7 +21,7 @@
     -   Buy time: the user will see 20 seconds added to the countdown.
 -   The user is able to restart the game without exiting the site
 
--   Play game [Quizz-Quizz](https://javierbl89.github.io/QUIZZ-QUIZZ-Game-Code-Institute-Project-2/)
+-   Play game [Quizz-Quizz](https://javierbl89.github.io/QUIZZ-QUIZZ-Trivia-Quizz-Game-Code-Institute-Project-2/)
 
 # Table Contents
 
